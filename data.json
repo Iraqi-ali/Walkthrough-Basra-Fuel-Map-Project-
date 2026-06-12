@@ -1,0 +1,2863 @@
+{
+  "last_updated": "2026-06-12T08:39:27.891176",
+  "stations": [
+    {
+      "stationName": "ثغر البصرة",
+      "stationId": 1,
+      "latitude": 30.5468,
+      "longitude": 47.7937,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 8600,
+          "totalCapacity": 108000
+        },
+        "بنزين سوبر": {
+          "availableQuantity": 4200,
+          "totalCapacity": 54000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 20400,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "ام قصر",
+      "stationId": 2,
+      "latitude": 30.0409,
+      "longitude": 47.9225,
+      "cityName": "محطات (سفوان - خور الزبير -ام قصر)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 6200,
+          "totalCapacity": 57000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 49650,
+          "totalCapacity": 57000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 10800,
+          "totalCapacity": 28000
+        }
+      }
+    },
+    {
+      "stationName": "ابي الخصيب",
+      "stationId": 4,
+      "latitude": 30.4557,
+      "longitude": 47.9762,
+      "cityName": "محطات (ابي الخصيب - السيبة - الفاو)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 19000,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 15600,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 6700,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "جسر الزبير",
+      "stationId": 5,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "زيت الغاز ": {
+          "availableQuantity": 2700,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "الروان",
+      "stationId": 6,
+      "latitude": 30.1527,
+      "longitude": 47.7308,
+      "cityName": "محطات (سفوان - خور الزبير -ام قصر)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "زيت الغاز ": {
+          "availableQuantity": 41550,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "المطار العمومي",
+      "stationId": 7,
+      "latitude": 30.5515,
+      "longitude": 47.6742,
+      "cityName": "محطات الخط السريع",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 7260,
+          "totalCapacity": 50000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 21390,
+          "totalCapacity": 50000
+        }
+      }
+    },
+    {
+      "stationName": "شط العرب",
+      "stationId": 8,
+      "latitude": 30.5226,
+      "longitude": 47.8475,
+      "cityName": "محطات (شط العرب - النشوة - الجزيرة)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 10500,
+          "totalCapacity": 54000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 2700,
+          "totalCapacity": 54000
+        },
+        "زیت الغاز مولدات": {
+          "availableQuantity": 38700,
+          "totalCapacity": 54000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 3000,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "العز(الهوبر)",
+      "stationId": 9,
+      "latitude": 30.9698,
+      "longitude": 47.3063,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 30600,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 700,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 21050,
+          "totalCapacity": 228000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 1300,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": " 5ميل",
+      "stationId": 10,
+      "latitude": 30.5443,
+      "longitude": 47.7681,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 5900,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 31100,
+          "totalCapacity": 108000
+        },
+        "زیت الغاز مولدات": {
+          "availableQuantity": 200,
+          "totalCapacity": 0
+        }
+      }
+    },
+    {
+      "stationName": "سفوان",
+      "stationId": 11,
+      "latitude": 30.1187,
+      "longitude": 47.7168,
+      "cityName": "محطات (سفوان - خور الزبير -ام قصر)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 16700,
+          "totalCapacity": 54000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 5340,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "السياب",
+      "stationId": 12,
+      "latitude": 30.4408,
+      "longitude": 47.8789,
+      "cityName": "محطات (ابي الخصيب - السيبة - الفاو)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 2500,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 28100,
+          "totalCapacity": 162000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 27800,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "المدينة",
+      "stationId": 14,
+      "latitude": 30.9411,
+      "longitude": 47.263,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 22000,
+          "totalCapacity": 114000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 22100,
+          "totalCapacity": 57000
+        }
+      }
+    },
+    {
+      "stationName": "الفاو(الفداء)",
+      "stationId": 15,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "محطات (ابي الخصيب - السيبة - الفاو)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 0,
+          "totalCapacity": 95000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 0,
+          "totalCapacity": 95000
+        },
+        "زیت الغاز مولدات": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "دينار",
+      "stationId": 16,
+      "latitude": 30.5319,
+      "longitude": 47.8125,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 29200,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 55850,
+          "totalCapacity": 108000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 2290,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "الجبيلة المؤجرة",
+      "stationId": 17,
+      "latitude": 30.5324,
+      "longitude": 47.8108,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 38100,
+          "totalCapacity": 101000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 31570,
+          "totalCapacity": 54000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 5150,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "الضامن المشيدة",
+      "stationId": 18,
+      "latitude": 30.5126,
+      "longitude": 47.8081,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 5000,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 56850,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "الجزائر المؤجره ",
+      "stationId": 19,
+      "latitude": 30.5107,
+      "longitude": 47.823,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 23900,
+          "totalCapacity": 324000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 39350,
+          "totalCapacity": 108000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 5800,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "كوت الحجاج",
+      "stationId": 20,
+      "latitude": 30.4955,
+      "longitude": 47.8042,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 5000,
+          "totalCapacity": 162000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 24000,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 42300,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "شط الترك",
+      "stationId": 21,
+      "latitude": 30.5413,
+      "longitude": 47.7855,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 7500,
+          "totalCapacity": 114000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 52015,
+          "totalCapacity": 114000
+        }
+      }
+    },
+    {
+      "stationName": "المعارض",
+      "stationId": 23,
+      "latitude": 30.4822,
+      "longitude": 47.8109,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 51300,
+          "totalCapacity": 162000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 75800,
+          "totalCapacity": 108000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 2900,
+          "totalCapacity": 54000
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 202,
+          "totalCapacity": 0
+        }
+      }
+    },
+    {
+      "stationName": "اول لاين",
+      "stationId": 24,
+      "latitude": 30.4827,
+      "longitude": 47.792,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 4600,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 87750,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "الجمهورية المؤجرة",
+      "stationId": 26,
+      "latitude": 30.5163,
+      "longitude": 47.7937,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 26100,
+          "totalCapacity": 164000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 48000,
+          "totalCapacity": 54000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 8300,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "الشبيب المشيدة",
+      "stationId": 28,
+      "latitude": 30.5384,
+      "longitude": 47.757,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 10300,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 35700,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 51900,
+          "totalCapacity": 162000
+        }
+      }
+    },
+    {
+      "stationName": "الجنينة",
+      "stationId": 29,
+      "latitude": 30.5463,
+      "longitude": 47.7932,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 22000,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 26700,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "جامعة البصرة",
+      "stationId": 30,
+      "latitude": 30.4753,
+      "longitude": 47.8048,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 20450,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 66050,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "لؤلؤة البصرة",
+      "stationId": 31,
+      "latitude": 30.4839,
+      "longitude": 47.7991,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 12500,
+          "totalCapacity": 162000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 49700,
+          "totalCapacity": 108000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 5950,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "لارسا",
+      "stationId": 32,
+      "latitude": 30.5151,
+      "longitude": 47.8127,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 85350,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 50300,
+          "totalCapacity": 54000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 17900,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "شعلة المفتية",
+      "stationId": 39,
+      "latitude": 30.4841,
+      "longitude": 47.7765,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "المحطات الغير مؤثرة",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 1000,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 16500,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 32600,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "التعاون",
+      "stationId": 40,
+      "latitude": 30.4643,
+      "longitude": 47.8383,
+      "cityName": "محطات (ابي الخصيب - السيبة - الفاو)",
+      "positionImportance": "المحطات الغير مؤثرة",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 7850,
+          "totalCapacity": 88000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 45600,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "جلفار",
+      "stationId": 41,
+      "latitude": 30.4518,
+      "longitude": 47.7748,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "المحطات الغير مؤثرة",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 38300,
+          "totalCapacity": 96000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 34750,
+          "totalCapacity": 0
+        },
+        "بنزين محسن": {
+          "availableQuantity": 3300,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "محمد القاسم",
+      "stationId": 42,
+      "latitude": 30.4848,
+      "longitude": 47.7462,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "المحطات الغير مؤثرة",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 3000,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 41600,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "بلد السيد",
+      "stationId": 43,
+      "latitude": 30.4534,
+      "longitude": 47.8621,
+      "cityName": "محطات (ابي الخصيب - السيبة - الفاو)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 8300,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 65150,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "كوت الحمداني",
+      "stationId": 44,
+      "latitude": 30.426,
+      "longitude": 47.9459,
+      "cityName": "محطات (ابي الخصيب - السيبة - الفاو)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 8590,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 41300,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 54200,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "انوار مكة",
+      "stationId": 45,
+      "latitude": 30.4505,
+      "longitude": 47.92,
+      "cityName": "محطات (ابي الخصيب - السيبة - الفاو)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 2000,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 31858,
+          "totalCapacity": 81000
+        }
+      }
+    },
+    {
+      "stationName": "ارض الذهب",
+      "stationId": 47,
+      "latitude": 30.6872,
+      "longitude": 47.7354,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 40200,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 57750,
+          "totalCapacity": 108000
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 6935,
+          "totalCapacity": 0
+        }
+      }
+    },
+    {
+      "stationName": "الجميع",
+      "stationId": 48,
+      "latitude": 30.968,
+      "longitude": 47.4511,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 7200,
+          "totalCapacity": 149000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 52050,
+          "totalCapacity": 149000
+        }
+      }
+    },
+    {
+      "stationName": "مروج القرنة",
+      "stationId": 50,
+      "latitude": 31.0185,
+      "longitude": 47.4309,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 2660,
+          "totalCapacity": 147000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 28880,
+          "totalCapacity": 147000
+        }
+      }
+    },
+    {
+      "stationName": "القبس",
+      "stationId": 52,
+      "latitude": 31.15,
+      "longitude": 47.4299,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 9300,
+          "totalCapacity": 134000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 22800,
+          "totalCapacity": 80000
+        }
+      }
+    },
+    {
+      "stationName": "حميان",
+      "stationId": 53,
+      "latitude": 31.2438,
+      "longitude": 47.4335,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 3000,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 58600,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "الصخريجة",
+      "stationId": 54,
+      "latitude": 31.1883,
+      "longitude": 47.4323,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 800,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 54000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 45650,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "القبطان",
+      "stationId": 56,
+      "latitude": 30.8219,
+      "longitude": 47.5595,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 3500,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 20600,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "الجزر الاربعة",
+      "stationId": 60,
+      "latitude": 30.6053,
+      "longitude": 47.7983,
+      "cityName": "محطات (شط العرب - النشوة - الجزيرة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 12500,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 43800,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "البيبان",
+      "stationId": 61,
+      "latitude": 30.5445,
+      "longitude": 47.8701,
+      "cityName": "محطات (شط العرب - النشوة - الجزيرة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 7000,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 118450,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "الاحلام",
+      "stationId": 62,
+      "latitude": 30.9272,
+      "longitude": 47.4773,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 4150,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 43320,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "زين العراق",
+      "stationId": 64,
+      "latitude": 31.0764,
+      "longitude": 47.4256,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 6000,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 45300,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "العجيمي",
+      "stationId": 66,
+      "latitude": 30.3861,
+      "longitude": 47.6888,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 2700,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 24100,
+          "totalCapacity": 162000
+        }
+      }
+    },
+    {
+      "stationName": "العصرية",
+      "stationId": 68,
+      "latitude": 30.3968,
+      "longitude": 47.6819,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 2400,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 37400,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "فتح الخير",
+      "stationId": 70,
+      "latitude": 30.3885,
+      "longitude": 47.7389,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 28050,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 44880,
+          "totalCapacity": 218000
+        }
+      }
+    },
+    {
+      "stationName": "الخطوة",
+      "stationId": 72,
+      "latitude": 30.4207,
+      "longitude": 47.7505,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 3200,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 31650,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "الناصري",
+      "stationId": 73,
+      "latitude": 30.4185,
+      "longitude": 47.7445,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 4700,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 54600,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "الاسوار",
+      "stationId": 75,
+      "latitude": 30.3501,
+      "longitude": 47.7287,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 3800,
+          "totalCapacity": 113000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 52820,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "راس الخيمة",
+      "stationId": 76,
+      "latitude": 30.3486,
+      "longitude": 47.7252,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 7490,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 62420,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "جبل سنام",
+      "stationId": 77,
+      "latitude": 30.3129,
+      "longitude": 47.7155,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 3800,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 28150,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "اليم",
+      "stationId": 78,
+      "latitude": 30.2411,
+      "longitude": 47.7859,
+      "cityName": "محطات (سفوان - خور الزبير -ام قصر)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 13600,
+          "totalCapacity": 114000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 78000,
+          "totalCapacity": 114000
+        }
+      }
+    },
+    {
+      "stationName": "الهدامة",
+      "stationId": 79,
+      "latitude": 30.0758,
+      "longitude": 47.8975,
+      "cityName": "محطات (سفوان - خور الزبير -ام قصر)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 7800,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 70700,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "جوهرة الخلیج",
+      "stationId": 80,
+      "latitude": 30.0743,
+      "longitude": 47.8977,
+      "cityName": "محطات (سفوان - خور الزبير -ام قصر)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 21700,
+          "totalCapacity": 54000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 112000,
+          "totalCapacity": 162000
+        }
+      }
+    },
+    {
+      "stationName": "بوابة سفوان",
+      "stationId": 82,
+      "latitude": 30.1576,
+      "longitude": 47.6973,
+      "cityName": "محطات الخط السريع",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 5500,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 126000,
+          "totalCapacity": 324000
+        }
+      }
+    },
+    {
+      "stationName": "الرميلة الشمالية",
+      "stationId": 83,
+      "latitude": 30.5153,
+      "longitude": 47.227,
+      "cityName": "محطات الخط السريع",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 118200,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 268000,
+          "totalCapacity": 324000
+        }
+      }
+    },
+    {
+      "stationName": "الموقع",
+      "stationId": 86,
+      "latitude": 30.4286,
+      "longitude": 47.7502,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 0,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 0,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "قصر مضحي",
+      "stationId": 87,
+      "latitude": 30.3033,
+      "longitude": 47.7545,
+      "cityName": "محطات (سفوان - خور الزبير -ام قصر)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 0,
+          "totalCapacity": 112000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 0,
+          "totalCapacity": 112000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 0,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "الفاطمية",
+      "stationId": 92,
+      "latitude": 30.4336,
+      "longitude": 47.9141,
+      "cityName": "محطات (ابي الخصيب - السيبة - الفاو)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 44900,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 57360,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "الباسقات",
+      "stationId": 94,
+      "latitude": 30.4419,
+      "longitude": 48.0201,
+      "cityName": "محطات (ابي الخصيب - السيبة - الفاو)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 10700,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 59900,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "العاشور",
+      "stationId": 95,
+      "latitude": 30.4222,
+      "longitude": 47.962,
+      "cityName": "محطات (ابي الخصيب - السيبة - الفاو)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 7600,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 28100,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "الرزاق",
+      "stationId": 96,
+      "latitude": 30.4786,
+      "longitude": 47.4817,
+      "cityName": "محطات الخط السريع",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 0,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 0,
+          "totalCapacity": 216000
+        }
+      }
+    },
+    {
+      "stationName": "شمال الزبير",
+      "stationId": 97,
+      "latitude": 30.4064,
+      "longitude": 47.702,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 9080,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 12560,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 66180,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "انوار الزبير",
+      "stationId": 98,
+      "latitude": 30.3873,
+      "longitude": 47.6945,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 39200,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 29600,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "نهر خوز",
+      "stationId": 99,
+      "latitude": 30.1432,
+      "longitude": 47.7101,
+      "cityName": "محطات (سفوان - خور الزبير -ام قصر)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 3000,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 59400,
+          "totalCapacity": 162000
+        }
+      }
+    },
+    {
+      "stationName": "بوابة القرنة المشيدة",
+      "stationId": 100,
+      "latitude": 30.9441,
+      "longitude": 47.4658,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 2000,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 65000,
+          "totalCapacity": 108000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 1000,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "استراحة سفوان",
+      "stationId": 101,
+      "latitude": 30.1557,
+      "longitude": 47.6965,
+      "cityName": "محطات الخط السريع",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 4850,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 124600,
+          "totalCapacity": 216000
+        }
+      }
+    },
+    {
+      "stationName": "الخلد",
+      "stationId": 103,
+      "latitude": 30.4259,
+      "longitude": 48.0247,
+      "cityName": "محطات (ابي الخصيب - السيبة - الفاو)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 3350,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 36050,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "الرميلة المشيدة",
+      "stationId": 104,
+      "latitude": 30.5143,
+      "longitude": 47.2267,
+      "cityName": "محطات الخط السريع",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 42500,
+          "totalCapacity": 216000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 100100,
+          "totalCapacity": 216000
+        }
+      }
+    },
+    {
+      "stationName": "جنة البصرة",
+      "stationId": 105,
+      "latitude": 30.3611,
+      "longitude": 47.7347,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 1700,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 57100,
+          "totalCapacity": 108000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 1500,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "ازدهار البصرة",
+      "stationId": 106,
+      "latitude": 30.5365,
+      "longitude": 47.74,
+      "cityName": "محطات الخط السريع",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 13400,
+          "totalCapacity": 162000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 35500,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "هدايا الزبير",
+      "stationId": 107,
+      "latitude": 30.3807,
+      "longitude": 47.7009,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 2800,
+          "totalCapacity": 162000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 31400,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "ابار الخليج",
+      "stationId": 108,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "محطات (شط العرب - النشوة - الجزيرة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 37100,
+          "totalCapacity": 54000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 28900,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "جويبدة",
+      "stationId": 109,
+      "latitude": 30.4021,
+      "longitude": 47.5645,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 3400,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 76300,
+          "totalCapacity": 162000
+        }
+      }
+    },
+    {
+      "stationName": "موج البحر",
+      "stationId": 110,
+      "latitude": 30.947,
+      "longitude": 47.2759,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 14650,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 35600,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "طريق الشعيبة",
+      "stationId": 111,
+      "latitude": 30.4625,
+      "longitude": 47.7089,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 2950,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 41900,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "مصافي الخليج",
+      "stationId": 112,
+      "latitude": 30.5099,
+      "longitude": 47.7569,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 43300,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 30900,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "المنارين",
+      "stationId": 115,
+      "latitude": 30.9299,
+      "longitude": 47.2898,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 920,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 78850,
+          "totalCapacity": 108000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 0,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "لؤلؤة ابي الخصيب",
+      "stationId": 116,
+      "latitude": 30.4369,
+      "longitude": 47.9002,
+      "cityName": "محطات (ابي الخصيب - السيبة - الفاو)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 0,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 0,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "بوابة الدير",
+      "stationId": 117,
+      "latitude": 30.7854,
+      "longitude": 47.5805,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 5600,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 29000,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "مطار البصرة المشيدة",
+      "stationId": 118,
+      "latitude": 30.508,
+      "longitude": 47.6931,
+      "cityName": "محطات الخط السريع",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 32800,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 36100,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "كرم البيان",
+      "stationId": 119,
+      "latitude": 30.4633,
+      "longitude": 47.7806,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "المحطات الغير مؤثرة",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 25950,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 30250,
+          "totalCapacity": 54000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 2062,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "منفذ سفوان",
+      "stationId": 120,
+      "latitude": 30.1742,
+      "longitude": 47.7285,
+      "cityName": "محطات (سفوان - خور الزبير -ام قصر)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 8700,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 53450,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "انوار الشعيبة",
+      "stationId": 121,
+      "latitude": 30.4128,
+      "longitude": 47.6706,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 7300,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 72050,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "بلورة الخليج",
+      "stationId": 122,
+      "latitude": 30.0646,
+      "longitude": 47.9114,
+      "cityName": "محطات (سفوان - خور الزبير -ام قصر)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 3500,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 85350,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "درة سفوان",
+      "stationId": 124,
+      "latitude": 30.1206,
+      "longitude": 47.7383,
+      "cityName": "محطات (سفوان - خور الزبير -ام قصر)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 18900,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 124600,
+          "totalCapacity": 162000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 1875,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "استراحة اللحيس",
+      "stationId": 125,
+      "latitude": 30.6303,
+      "longitude": 46.8804,
+      "cityName": "محطات الخط السريع",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 48300,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 74700,
+          "totalCapacity": 216000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 2400,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "شواطئ المعقل",
+      "stationId": 126,
+      "latitude": 30.5626,
+      "longitude": 47.7847,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 47400,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 41700,
+          "totalCapacity": 108000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 2150,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "عز الدين",
+      "stationId": 127,
+      "latitude": 30.4957,
+      "longitude": 47.8208,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "بنزين محسن": {
+          "availableQuantity": 0,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "الجمهورية",
+      "stationId": 128,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات الحكومية تجهيز زيت الغاز (المولدات والاليات)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "ساحة تجهيز الجهاد الحكومية",
+      "stationId": 129,
+      "latitude": 30.4646,
+      "longitude": 47.7785,
+      "cityName": "ساحات الحكومية تجهيز زيت الغاز (المولدات والاليات)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "زیت الغاز مولدات": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "ساحة تجهيز الجمعيات الحكومية",
+      "stationId": 130,
+      "latitude": 30.4863,
+      "longitude": 47.7967,
+      "cityName": "ساحات الحكومية تجهيز زيت الغاز (المولدات والاليات)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "زیت الغاز مولدات": {
+          "availableQuantity": 99700,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "ساحة تجهيز القرنة الحكومية",
+      "stationId": 131,
+      "latitude": 31.0147,
+      "longitude": 47.4367,
+      "cityName": "ساحات الحكومية تجهيز زيت الغاز (المولدات والاليات)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "زیت الغاز مولدات": {
+          "availableQuantity": 10100,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "المدينة الرياضية",
+      "stationId": 132,
+      "latitude": 30.4564,
+      "longitude": 47.7753,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "المحطات الغير مؤثرة",
+      "products": {
+        "زيت الغاز ": {
+          "availableQuantity": 27220,
+          "totalCapacity": 108000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 2020,
+          "totalCapacity": 108000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "بنزين": {
+          "availableQuantity": 7750,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "خور الزبير",
+      "stationId": 134,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "البرجسية",
+      "stationId": 135,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "البهادرية",
+      "stationId": 137,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "عراقنا العظيم",
+      "stationId": 138,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "اسكان الموانيء",
+      "stationId": 139,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "الجباسي",
+      "stationId": 140,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "باهلة",
+      "stationId": 141,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "العسافية",
+      "stationId": 142,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "الاصمعي",
+      "stationId": 143,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "الاكرام",
+      "stationId": 144,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "الفاو",
+      "stationId": 145,
+      "latitude": 29.969,
+      "longitude": 48.4784,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "القبلة الجديدة",
+      "stationId": 146,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "الميناء",
+      "stationId": 147,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 0
+        }
+      }
+    },
+    {
+      "stationName": "حمدان",
+      "stationId": 148,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "بيارق النصر",
+      "stationId": 150,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "جزيرة بلد",
+      "stationId": 152,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "اسطوانات غاز": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "شجرة ادم",
+      "stationId": 153,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "اليعقوب",
+      "stationId": 156,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "ساحة القبس",
+      "stationId": 169,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "ساحة التنومة",
+      "stationId": 170,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": []
+    },
+    {
+      "stationName": "الكباسي",
+      "stationId": 172,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "النشوة",
+      "stationId": 180,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "ساحة الشبيب",
+      "stationId": 188,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "ساحة المؤمن",
+      "stationId": 189,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "ساحة خيرات العراق",
+      "stationId": 190,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "اسطوانات غاز": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "ساحة الجنوب",
+      "stationId": 191,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "ساحة قصر مضحي",
+      "stationId": 192,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": []
+    },
+    {
+      "stationName": "ساحة الباسقات",
+      "stationId": 194,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "الجابر المشيدة",
+      "stationId": 195,
+      "latitude": 30.5642,
+      "longitude": 47.7194,
+      "cityName": "محطات الخط السريع",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 14640,
+          "totalCapacity": null
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 78870,
+          "totalCapacity": null
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 200,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "ساحة تجهيز الزبير الحكومية",
+      "stationId": 196,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات الحكومية تجهيز زيت الغاز (المولدات والاليات)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 2200,
+          "totalCapacity": 54000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 29100,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "الاشراق",
+      "stationId": 197,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "ساحة الاحلام",
+      "stationId": 198,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "فينوس",
+      "stationId": 199,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "ساحات  الاهلية تجهيز نفط ابيض",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "سما الخليج المشيدة",
+      "stationId": 200,
+      "latitude": 30.6102,
+      "longitude": 47.7925,
+      "cityName": "محطات (شط العرب - النشوة - الجزيرة)",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "زيت الغاز ": {
+          "availableQuantity": 36960,
+          "totalCapacity": 81000
+        },
+        "بنزين": {
+          "availableQuantity": 6120,
+          "totalCapacity": 81000
+        }
+      }
+    },
+    {
+      "stationName": "البصرة الاولى المشيدة",
+      "stationId": 202,
+      "latitude": 30.4472,
+      "longitude": 47.8731,
+      "cityName": "محطات (ابي الخصيب - السيبة - الفاو)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 10650,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 53750,
+          "totalCapacity": 108000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 1500,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "ناصر الخير المشيدة",
+      "stationId": 203,
+      "latitude": 30.9779,
+      "longitude": 47.3249,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 1900,
+          "totalCapacity": 54000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 46500,
+          "totalCapacity": 54000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "عين البصرة",
+      "stationId": 204,
+      "latitude": 30.5525,
+      "longitude": 47.8449,
+      "cityName": "محطات (شط العرب - النشوة - الجزيرة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 40800,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 46360,
+          "totalCapacity": 108000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 6000,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "محطة كرمة علي المشيدة",
+      "stationId": 205,
+      "latitude": 30.6183,
+      "longitude": 47.7536,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 71050,
+          "totalCapacity": 162000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 74000,
+          "totalCapacity": 108000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 1040,
+          "totalCapacity": 54000
+        },
+        "غاز سائل (LPG)": {
+          "availableQuantity": 544,
+          "totalCapacity": 20000
+        }
+      }
+    },
+    {
+      "stationName": "الزبير الجديدة الحكومية",
+      "stationId": 209,
+      "latitude": 30.3991,
+      "longitude": 47.6951,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "زيت الغاز ": {
+          "availableQuantity": 3400,
+          "totalCapacity": 54000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": null
+        }
+      }
+    },
+    {
+      "stationName": "بوابة العلم المشيدة",
+      "stationId": 210,
+      "latitude": 30.9732,
+      "longitude": 47.4102,
+      "cityName": "محطات شمال البصرة (الهارثة-الدير-المدينة-القرنة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 0,
+          "totalCapacity": 72000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 0,
+          "totalCapacity": 72000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 0,
+          "totalCapacity": 36000
+        }
+      }
+    },
+    {
+      "stationName": "ابار الوطن المشيدة",
+      "stationId": 211,
+      "latitude": 30.3547,
+      "longitude": 47.7322,
+      "cityName": "محطات (سفوان - خور الزبير -ام قصر)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 5200,
+          "totalCapacity": 36000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 46500,
+          "totalCapacity": 36000
+        }
+      }
+    },
+    {
+      "stationName": "محطة بوابة الرميلة المشيدة",
+      "stationId": 212,
+      "latitude": 30.4853,
+      "longitude": 47.8557,
+      "cityName": "محطات (ابي الخصيب - السيبة - الفاو)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 7400,
+          "totalCapacity": 36000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 4300,
+          "totalCapacity": 36000
+        }
+      }
+    },
+    {
+      "stationName": "محطة جذع النخلة المشيدة",
+      "stationId": 213,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "محطات (شط العرب - النشوة - الجزيرة)",
+      "positionImportance": "محطات الاقضية و النواحي",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 41800,
+          "totalCapacity": 108000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 60900,
+          "totalCapacity": 108000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 22600,
+          "totalCapacity": 36000
+        }
+      }
+    },
+    {
+      "stationName": "جوهرة النمر النموذجية",
+      "stationId": 214,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "محطات المركز",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 14600,
+          "totalCapacity": 144000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 85970,
+          "totalCapacity": 108000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 5260,
+          "totalCapacity": 108000
+        }
+      }
+    },
+    {
+      "stationName": "الخليج العربي الحكومية",
+      "stationId": 215,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "محطات مركز المدينة",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 4650,
+          "totalCapacity": 54000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 0,
+          "totalCapacity": 54000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 3419,
+          "totalCapacity": 54000
+        }
+      }
+    },
+    {
+      "stationName": "المربد الحكومية",
+      "stationId": 216,
+      "latitude": null,
+      "longitude": null,
+      "cityName": "محطات (الزبير - الشعيبة - محمد القاسم)",
+      "positionImportance": "المحطات الحكومية",
+      "products": {
+        "بنزين": {
+          "availableQuantity": 0,
+          "totalCapacity": 54000
+        },
+        "زيت الغاز ": {
+          "availableQuantity": 72000,
+          "totalCapacity": 54000
+        },
+        "نفط أبيض": {
+          "availableQuantity": 0,
+          "totalCapacity": 36000
+        },
+        "بنزين محسن": {
+          "availableQuantity": 0,
+          "totalCapacity": 54000
+        },
+        "بنزين سوبر": {
+          "availableQuantity": 0,
+          "totalCapacity": 36000
+        },
+        "زیت الغاز مولدات": {
+          "availableQuantity": 0,
+          "totalCapacity": 54000
+        }
+      }
+    }
+  ]
+}
