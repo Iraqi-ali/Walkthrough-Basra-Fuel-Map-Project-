@@ -1,3 +1,10 @@
+// أضف إلى DOM object
+const DOM = {
+    // ... باقي العناصر ...
+    statVisitors: document.getElementById('statVisitors'),
+    // ... باقي العناصر ...
+};
+
 // Global Constants and Thresholds
 const AVAILABILITY_THRESHOLD = 9000; // threshold for "available" fuel in liters
 const BASRA_CENTER = [30.5081, 47.7835];
