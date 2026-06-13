@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 PORT = 8000
 DATA_FILE = "data.json"
 REPORTS_FILE = "reports.json"
-VISITORS_FILE = "visitors.json"  # ملف جديد لتخزين عدد الزوار
+VISITORS_FILE = "visitors.json"
 SOURCE_API_URL = "https://basrah.iraqstation.com/api.php"
 
 data_lock = threading.Lock()
@@ -24,7 +24,6 @@ def log(message):
     print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] {message}")
 
 def get_visitor_count():
-    """الحصول على عدد الزوار الحالي"""
     if not os.path.exists(VISITORS_FILE):
         return 0
     try:
@@ -36,32 +35,11 @@ def get_visitor_count():
         return 0
 
 def increment_visitor_count():
-    """زيادة عدد الزوار بحماية من التكرار (باستخدام IP أو session)"""
-    visitors_log = {}
-    visitors_log_file = "visitors_log.json"
-    
-    # تحميل سجل الزوار
-    if os.path.exists(visitors_log_file):
-        try:
-            with open(visitors_log_file, "r", encoding="utf-8") as f:
-                visitors_log = json.load(f)
-        except:
-            visitors_log = {}
-    
-    # الحصول على IP الزائر (من خلال Socket)
-    # سنستخدم طريقة بسيطة: كل جلسة فريدة تحسب كزائر جديد
-    # سنعتمد على حفظ المعرفات لمنع التكرار في نفس الجلسة
-    
-    # قراءة العدد الحالي
     current_count = get_visitor_count()
-    
-    # زيادة العدد وحفظه
     new_count = current_count + 1
-    
     with visitors_lock:
         with open(VISITORS_FILE, "w", encoding="utf-8") as f:
             json.dump({"count": new_count, "last_updated": datetime.now().isoformat()}, f, ensure_ascii=False, indent=2)
-    
     log(f"Visitor count incremented to {new_count}")
     return new_count
 
@@ -132,7 +110,7 @@ def fetch_data_from_source():
             output_data = {
                 "last_updated": datetime.now().isoformat(),
                 "stations": stations,
-                "visitor_count": get_visitor_count()  # إضافة عدد الزوار للبيانات
+                "visitor_count": get_visitor_count()
             }
             
             with data_lock:
@@ -292,7 +270,6 @@ def get_station_report_status(station_id):
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/":
-            # زيادة عدد الزوار عند زيارة الصفحة الرئيسية
             increment_visitor_count()
             self.path = "/index.html"
             return super().do_GET()
@@ -352,7 +329,6 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
         
         elif self.path == "/api/visitors":
-            # API لجلب عدد الزوار فقط
             count = get_visitor_count()
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
@@ -463,7 +439,6 @@ def run_server():
     if not os.path.exists(REPORTS_FILE):
         save_reports({})
     
-    # إنشاء ملف الزوار إذا لم يكن موجوداً
     if not os.path.exists(VISITORS_FILE):
         with open(VISITORS_FILE, "w", encoding="utf-8") as f:
             json.dump({"count": 0, "last_updated": datetime.now().isoformat()}, f)
