@@ -73,44 +73,53 @@
             </div>
         </header>
 
-        <!-- Stats Counter Ribbon -->
-        <section class="stats-ribbon">
-            <div class="stat-card" data-filter="الكل">
-                <div class="stat-icon bg-blue-dim"><i class="fas fa-charging-station text-blue"></i></div>
-                <div class="stat-info">
-                    <span class="stat-value" id="statTotalStations">0</span>
-                    <span class="stat-label">المحطات الكلية</span>
-                </div>
-            </div>
-            <div class="stat-card" data-filter="بنزين">
-                <div class="stat-icon bg-green-dim"><i class="fas fa-gas-pump text-green"></i></div>
-                <div class="stat-info">
-                    <span class="stat-value" id="statRegular">0</span>
-                    <span class="stat-label">بنزين متوفر</span>
-                </div>
-            </div>
-            <div class="stat-card" data-filter="بنزين محسن">
-                <div class="stat-icon bg-orange-dim"><i class="fas fa-bolt-lightning text-orange"></i></div>
-                <div class="stat-info">
-                    <span class="stat-value" id="statPremium">0</span>
-                    <span class="stat-label">محسن متوفر</span>
-                </div>
-            </div>
-            <div class="stat-card" data-filter="بنزين سوبر">
-                <div class="stat-icon bg-red-dim"><i class="fas fa-crown text-red"></i></div>
-                <div class="stat-info">
-                    <span class="stat-value" id="statSuper">0</span>
-                    <span class="stat-label">سوبر متوفر</span>
-                </div>
-            </div>
-            <div class="stat-card" data-filter="زيت الغاز ">
-                <div class="stat-icon bg-grey-dim"><i class="fas fa-truck-field text-grey"></i></div>
-                <div class="stat-info">
-                    <span class="stat-value" id="statDiesel">0</span>
-                    <span class="stat-label">ديزل متوفر</span>
-                </div>
-            </div>
-        </section>
+       <!-- Stats Counter Ribbon -->
+<section class="stats-ribbon">
+    <!-- بطاقة الزوار الجديدة (الأولى) -->
+    <div class="stat-card visitor-card" data-filter="">
+        <div class="stat-icon bg-purple-dim"><i class="fas fa-users"></i></div>
+        <div class="stat-info">
+            <span class="stat-value" id="statVisitors">0</span>
+            <span class="stat-label">إجمالي الزوار</span>
+        </div>
+    </div>
+    
+    <div class="stat-card" data-filter="الكل">
+        <div class="stat-icon bg-blue-dim"><i class="fas fa-charging-station text-blue"></i></div>
+        <div class="stat-info">
+            <span class="stat-value" id="statTotalStations">0</span>
+            <span class="stat-label">المحطات الكلية</span>
+        </div>
+    </div>
+    <div class="stat-card" data-filter="بنزين">
+        <div class="stat-icon bg-green-dim"><i class="fas fa-gas-pump text-green"></i></div>
+        <div class="stat-info">
+            <span class="stat-value" id="statRegular">0</span>
+            <span class="stat-label">بنزين متوفر</span>
+        </div>
+    </div>
+    <div class="stat-card" data-filter="بنزين محسن">
+        <div class="stat-icon bg-orange-dim"><i class="fas fa-bolt-lightning text-orange"></i></div>
+        <div class="stat-info">
+            <span class="stat-value" id="statPremium">0</span>
+            <span class="stat-label">محسن متوفر</span>
+        </div>
+    </div>
+    <div class="stat-card" data-filter="بنزين سوبر">
+        <div class="stat-icon bg-red-dim"><i class="fas fa-crown text-red"></i></div>
+        <div class="stat-info">
+            <span class="stat-value" id="statSuper">0</span>
+            <span class="stat-label">سوبر متوفر</span>
+        </div>
+    </div>
+    <div class="stat-card" data-filter="زيت الغاز ">
+        <div class="stat-icon bg-grey-dim"><i class="fas fa-truck-field text-grey"></i></div>
+        <div class="stat-info">
+            <span class="stat-value" id="statDiesel">0</span>
+            <span class="stat-label">ديزل متوفر</span>
+        </div>
+    </div>
+</section>
 
         <!-- Main Workspace -->
         <main class="app-main">
