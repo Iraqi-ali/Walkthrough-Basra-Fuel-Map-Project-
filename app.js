@@ -46,6 +46,22 @@ const DOM = {
     statVisitors: document.getElementById('statVisitors')
 };
 
+// Utility Functions
+// Debounce utility added to prevent excessive function calls during rapid events like typing.
+// Preserves `this` context for wider applicability.
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const context = this;
+        const later = () => {
+            clearTimeout(timeout);
+            func.apply(context, args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 // Helper Icon Map
 const productIcons = {
     'بنزين': 'fa-gas-pump text-green',
@@ -763,7 +779,11 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    // Performance Optimization:
+    // Added 300ms debounce to search input to prevent main thread blocking, layout thrashing,
+    // and unnecessary full DOM/Leaflet map re-renders on every keystroke.
+    // Expected impact: Smoother typing experience, reduced CPU usage during search.
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
