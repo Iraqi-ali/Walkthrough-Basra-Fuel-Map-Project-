@@ -1,0 +1,4 @@
+## 2026-06-24 - [CRITICAL] Source Code and Sensitive Data Disclosure
+**Vulnerability:** The Python `SimpleHTTPRequestHandler` was used as a fallback for all undefined routes via `super().do_GET()`, exposing source code (`server.py`), sensitive data (`.git/config`), and other application files to anyone on the network.
+**Learning:** Using `SimpleHTTPRequestHandler` as a fallback mechanism for dynamic servers without an allowlist inherently turns the entire working directory into a public file server, bypassing any intended application logic for access control.
+**Prevention:** Always use an explicit allowlist (e.g., `["/", "/index.html", "/app.js", "/style.css"]`) for static file serving. Reject any request for a path not in the allowlist with a `403 Forbidden` or `404 Not Found`. Never fall back to serving raw files from the working directory unrestrictedly.
