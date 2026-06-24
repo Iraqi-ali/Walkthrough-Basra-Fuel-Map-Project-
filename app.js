@@ -47,7 +47,7 @@ const DOM = {
 };
 
 // Utility Functions
-// ⚡ Bolt: Debounce utility added to prevent excessive function calls during rapid events like typing.
+// Debounce utility added to prevent excessive function calls during rapid events like typing.
 // Preserves `this` context for wider applicability.
 function debounce(func, wait) {
     let timeout;
@@ -779,7 +779,7 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    // ⚡ Bolt Performance Optimization:
+    // Performance Optimization:
     // Added 300ms debounce to search input to prevent main thread blocking, layout thrashing,
     // and unnecessary full DOM/Leaflet map re-renders on every keystroke.
     // Expected impact: Smoother typing experience, reduced CPU usage during search.
