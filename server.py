@@ -361,6 +361,15 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            # Prevent serving sensitive files and source code disclosure
+            parsed_path = self.path.split('?')[0]
+            allowed_files = ["/", "/index.html", "/app.js", "/style.css"]
+            if parsed_path not in allowed_files:
+                self.send_response(403)
+                self.send_header("Content-Type", "text/plain")
+                self.end_headers()
+                self.wfile.write(b"403 Forbidden - Access Denied")
+                return
             return super().do_GET()
 
     def end_headers(self):
