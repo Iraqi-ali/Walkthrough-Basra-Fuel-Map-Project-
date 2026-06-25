@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-12T08:39:27.891176",
+  "last_updated": "2026-06-25T20:00:42.152573",
   "stations": [
     {
       "stationName": "ثغر البصرة",
@@ -10,16 +10,29 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "بنزين": {
-          "availableQuantity": 8600,
-          "totalCapacity": 108000
+          "availableQuantity": 80500,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T07:19:51.743"
+            }
+          ]
         },
         "بنزين سوبر": {
-          "availableQuantity": 4200,
-          "totalCapacity": 54000
+          "availableQuantity": 6200,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 20400,
-          "totalCapacity": 54000
+          "availableQuantity": 14600,
+          "totalCapacity": 54000,
+          "incomeQuantity": [
+            {
+              "quantity": 35620,
+              "date": "2026-06-25T10:59:49.483"
+            }
+          ]
         }
       }
     },
@@ -32,16 +45,19 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "بنزين": {
-          "availableQuantity": 6200,
-          "totalCapacity": 57000
+          "availableQuantity": 39000,
+          "totalCapacity": 57000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 49650,
-          "totalCapacity": 57000
+          "availableQuantity": 27900,
+          "totalCapacity": 57000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 10800,
-          "totalCapacity": 28000
+          "availableQuantity": 11520,
+          "totalCapacity": 28000,
+          "incomeQuantity": null
         }
       }
     },
@@ -54,16 +70,28 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "بنزين": {
-          "availableQuantity": 19000,
-          "totalCapacity": 108000
+          "availableQuantity": 56700,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T07:25:21.277"
+            },
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T18:31:07.057"
+            }
+          ]
         },
         "نفط أبيض": {
-          "availableQuantity": 15600,
-          "totalCapacity": 0
+          "availableQuantity": 42500,
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 6700,
-          "totalCapacity": 54000
+          "availableQuantity": 21050,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -76,8 +104,9 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "زيت الغاز ": {
-          "availableQuantity": 2700,
-          "totalCapacity": null
+          "availableQuantity": 14650,
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -90,8 +119,9 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "زيت الغاز ": {
-          "availableQuantity": 41550,
-          "totalCapacity": 108000
+          "availableQuantity": 53100,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -104,12 +134,14 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "بنزين": {
-          "availableQuantity": 7260,
-          "totalCapacity": 50000
+          "availableQuantity": 21840,
+          "totalCapacity": 50000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 21390,
-          "totalCapacity": 50000
+          "availableQuantity": 17113,
+          "totalCapacity": 50000,
+          "incomeQuantity": null
         }
       }
     },
@@ -122,20 +154,29 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "بنزين": {
-          "availableQuantity": 10500,
-          "totalCapacity": 54000
+          "availableQuantity": 74530,
+          "totalCapacity": 54000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T07:21:28.163"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 2700,
-          "totalCapacity": 54000
+          "availableQuantity": 21960,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "زیت الغاز مولدات": {
-          "availableQuantity": 38700,
-          "totalCapacity": 54000
+          "availableQuantity": 11540,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 3000,
-          "totalCapacity": 54000
+          "availableQuantity": 34020,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -148,20 +189,24 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "بنزين": {
-          "availableQuantity": 30600,
-          "totalCapacity": 108000
+          "availableQuantity": 94600,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
-          "availableQuantity": 700,
-          "totalCapacity": 0
+          "availableQuantity": 27300,
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 21050,
-          "totalCapacity": 228000
+          "availableQuantity": 53500,
+          "totalCapacity": 228000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 1300,
-          "totalCapacity": 54000
+          "availableQuantity": 34850,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -174,20 +219,24 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "بنزين": {
-          "availableQuantity": 5900,
-          "totalCapacity": 108000
+          "availableQuantity": 59020,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 31100,
-          "totalCapacity": 108000
+          "availableQuantity": 21760,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "زیت الغاز مولدات": {
-          "availableQuantity": 200,
-          "totalCapacity": 0
+          "availableQuantity": 1770,
+          "totalCapacity": 0,
+          "incomeQuantity": null
         }
       }
     },
@@ -200,16 +249,24 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "بنزين": {
-          "availableQuantity": 16700,
-          "totalCapacity": 54000
+          "availableQuantity": 49880,
+          "totalCapacity": 54000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T09:45:20.853"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 5340,
-          "totalCapacity": 54000
+          "availableQuantity": 33500,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -222,16 +279,19 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "بنزين": {
-          "availableQuantity": 2500,
-          "totalCapacity": 108000
+          "availableQuantity": 42150,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 28100,
-          "totalCapacity": 162000
+          "availableQuantity": 64800,
+          "totalCapacity": 162000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 27800,
-          "totalCapacity": 54000
+          "availableQuantity": 19950,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -244,12 +304,23 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "بنزين": {
-          "availableQuantity": 22000,
-          "totalCapacity": 114000
+          "availableQuantity": 85230,
+          "totalCapacity": 114000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T07:15:19.327"
+            },
+            {
+              "quantity": 44000,
+              "date": "2026-06-25T18:38:33.913"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 22100,
-          "totalCapacity": 57000
+          "availableQuantity": 53040,
+          "totalCapacity": 57000,
+          "incomeQuantity": null
         }
       }
     },
@@ -262,16 +333,19 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "بنزين": {
-          "availableQuantity": 0,
-          "totalCapacity": 95000
+          "availableQuantity": 48350,
+          "totalCapacity": 95000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 0,
-          "totalCapacity": 95000
+          "availableQuantity": 52850,
+          "totalCapacity": 95000,
+          "incomeQuantity": null
         },
         "زیت الغاز مولدات": {
-          "availableQuantity": 0,
-          "totalCapacity": null
+          "availableQuantity": 44050,
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -284,20 +358,29 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 29200,
-          "totalCapacity": 108000
+          "availableQuantity": 100800,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T13:35:36.197"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 55850,
-          "totalCapacity": 108000
+          "availableQuantity": 45220,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 2290,
-          "totalCapacity": 54000
+          "availableQuantity": 29100,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -310,20 +393,29 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 38100,
-          "totalCapacity": 101000
+          "availableQuantity": 54700,
+          "totalCapacity": 101000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T14:39:23.957"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 31570,
-          "totalCapacity": 54000
+          "availableQuantity": 48650,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 5150,
-          "totalCapacity": 54000
+          "availableQuantity": 53950,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -336,16 +428,24 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 5000,
-          "totalCapacity": 108000
+          "availableQuantity": 61600,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T10:57:39.933"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 56850,
-          "totalCapacity": 108000
+          "availableQuantity": 49700,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -358,20 +458,24 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 23900,
-          "totalCapacity": 324000
+          "availableQuantity": 159600,
+          "totalCapacity": 324000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 39350,
-          "totalCapacity": 108000
+          "availableQuantity": 68150,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 5800,
-          "totalCapacity": 108000
+          "availableQuantity": 4600,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -384,16 +488,24 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 5000,
-          "totalCapacity": 162000
+          "availableQuantity": 62550,
+          "totalCapacity": 162000,
+          "incomeQuantity": [
+            {
+              "quantity": 43000,
+              "date": "2026-06-25T12:13:22.33"
+            }
+          ]
         },
         "نفط أبيض": {
-          "availableQuantity": 24000,
-          "totalCapacity": 0
+          "availableQuantity": 16500,
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 42300,
-          "totalCapacity": 108000
+          "availableQuantity": 36450,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -406,16 +518,24 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 7500,
-          "totalCapacity": 114000
+          "availableQuantity": 53600,
+          "totalCapacity": 114000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T11:11:27.8"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 52015,
-          "totalCapacity": 114000
+          "availableQuantity": 36750,
+          "totalCapacity": 114000,
+          "incomeQuantity": null
         }
       }
     },
@@ -428,20 +548,33 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 51300,
-          "totalCapacity": 162000
+          "availableQuantity": 47500,
+          "totalCapacity": 162000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T10:58:43.99"
+            },
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T11:51:40.533"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 75800,
-          "totalCapacity": 108000
+          "availableQuantity": 60600,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 2900,
-          "totalCapacity": 54000
+          "availableQuantity": 3000,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
           "availableQuantity": 202,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         }
       }
     },
@@ -454,12 +587,19 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 4600,
-          "totalCapacity": 108000
+          "availableQuantity": 61600,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 45000,
+              "date": "2026-06-25T10:02:28.303"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 87750,
-          "totalCapacity": 108000
+          "availableQuantity": 69450,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -472,16 +612,24 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 26100,
-          "totalCapacity": 164000
+          "availableQuantity": 126250,
+          "totalCapacity": 164000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T11:42:55.967"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 48000,
-          "totalCapacity": 54000
+          "availableQuantity": 19100,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 8300,
-          "totalCapacity": 108000
+          "availableQuantity": 59300,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -494,16 +642,19 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 10300,
-          "totalCapacity": 108000
+          "availableQuantity": 79100,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 35700,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 51900,
-          "totalCapacity": 162000
+          "availableQuantity": 30000,
+          "totalCapacity": 162000,
+          "incomeQuantity": null
         }
       }
     },
@@ -516,16 +667,19 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 22000,
-          "totalCapacity": 108000
+          "availableQuantity": 45700,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 26700,
-          "totalCapacity": 108000
+          "availableQuantity": 33900,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -538,12 +692,19 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 20450,
-          "totalCapacity": 108000
+          "availableQuantity": 73300,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T13:01:43.88"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 66050,
-          "totalCapacity": 108000
+          "availableQuantity": 54950,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -556,20 +717,38 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 12500,
-          "totalCapacity": 162000
+          "availableQuantity": 164000,
+          "totalCapacity": 162000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T15:18:20.297"
+            },
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T18:11:39.827"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 49700,
-          "totalCapacity": 108000
+          "availableQuantity": 97400,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 5950,
-          "totalCapacity": 54000
+          "availableQuantity": 6300,
+          "totalCapacity": 54000,
+          "incomeQuantity": [
+            {
+              "quantity": 45005,
+              "date": "2026-06-25T12:04:37.367"
+            }
+          ]
         }
       }
     },
@@ -582,20 +761,34 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 85350,
-          "totalCapacity": 108000
+          "availableQuantity": 71400,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T11:25:46.38"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 50300,
-          "totalCapacity": 54000
+          "availableQuantity": 32950,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 17900,
-          "totalCapacity": 54000
+          "availableQuantity": 5150,
+          "totalCapacity": 54000,
+          "incomeQuantity": [
+            {
+              "quantity": 36157,
+              "date": "2026-06-25T11:54:53.19"
+            }
+          ]
         }
       }
     },
@@ -608,16 +801,24 @@
       "positionImportance": "المحطات الغير مؤثرة",
       "products": {
         "بنزين": {
-          "availableQuantity": 1000,
-          "totalCapacity": 108000
+          "availableQuantity": 32850,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T09:51:19.693"
+            }
+          ]
         },
         "نفط أبيض": {
-          "availableQuantity": 16500,
-          "totalCapacity": 0
+          "availableQuantity": 9000,
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 32600,
-          "totalCapacity": 108000
+          "availableQuantity": 21500,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -630,16 +831,24 @@
       "positionImportance": "المحطات الغير مؤثرة",
       "products": {
         "بنزين": {
-          "availableQuantity": 7850,
-          "totalCapacity": 88000
+          "availableQuantity": 51350,
+          "totalCapacity": 88000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T10:08:31.463"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 45600,
-          "totalCapacity": 108000
+          "availableQuantity": 59800,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -652,16 +861,28 @@
       "positionImportance": "المحطات الغير مؤثرة",
       "products": {
         "بنزين": {
-          "availableQuantity": 38300,
-          "totalCapacity": 96000
+          "availableQuantity": 67800,
+          "totalCapacity": 96000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T11:34:49.513"
+            },
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T11:41:45.877"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 34750,
-          "totalCapacity": 0
+          "availableQuantity": 49600,
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 3300,
-          "totalCapacity": 54000
+          "availableQuantity": 22500,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -674,16 +895,24 @@
       "positionImportance": "المحطات الغير مؤثرة",
       "products": {
         "بنزين": {
-          "availableQuantity": 3000,
-          "totalCapacity": 108000
+          "availableQuantity": 46650,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T14:41:25.043"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 41600,
-          "totalCapacity": 108000
+          "availableQuantity": 103900,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -696,16 +925,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 8300,
-          "totalCapacity": 108000
+          "availableQuantity": 15200,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 65150,
-          "totalCapacity": 108000
+          "availableQuantity": 31000,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -718,16 +950,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 8590,
-          "totalCapacity": 108000
+          "availableQuantity": 55210,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T13:32:52.513"
+            }
+          ]
         },
         "نفط أبيض": {
-          "availableQuantity": 41300,
-          "totalCapacity": 0
+          "availableQuantity": 18800,
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 54200,
-          "totalCapacity": 108000
+          "availableQuantity": 66030,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -740,16 +980,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 2000,
-          "totalCapacity": 108000
+          "availableQuantity": 61400,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 31858,
-          "totalCapacity": 81000
+          "availableQuantity": 33500,
+          "totalCapacity": 81000,
+          "incomeQuantity": null
         }
       }
     },
@@ -762,16 +1005,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 40200,
-          "totalCapacity": 108000
+          "availableQuantity": 31600,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T13:34:19.997"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 57750,
-          "totalCapacity": 108000
+          "availableQuantity": 59000,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
-          "availableQuantity": 6935,
-          "totalCapacity": 0
+          "availableQuantity": 17229,
+          "totalCapacity": 0,
+          "incomeQuantity": null
         }
       }
     },
@@ -784,16 +1035,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 7200,
-          "totalCapacity": 149000
+          "availableQuantity": 90000,
+          "totalCapacity": 149000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 52050,
-          "totalCapacity": 149000
+          "availableQuantity": 71300,
+          "totalCapacity": 149000,
+          "incomeQuantity": null
         }
       }
     },
@@ -806,16 +1060,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 2660,
-          "totalCapacity": 147000
+          "availableQuantity": 33900,
+          "totalCapacity": 147000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T19:48:38.67"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 28880,
-          "totalCapacity": 147000
+          "availableQuantity": 47430,
+          "totalCapacity": 147000,
+          "incomeQuantity": null
         }
       }
     },
@@ -828,16 +1090,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 9300,
-          "totalCapacity": 134000
+          "availableQuantity": 55150,
+          "totalCapacity": 134000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 22800,
-          "totalCapacity": 80000
+          "availableQuantity": 68150,
+          "totalCapacity": 80000,
+          "incomeQuantity": null
         }
       }
     },
@@ -850,12 +1115,14 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 3000,
-          "totalCapacity": 108000
+          "availableQuantity": 38000,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 58600,
-          "totalCapacity": 108000
+          "availableQuantity": 51600,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -868,16 +1135,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 800,
-          "totalCapacity": 108000
+          "availableQuantity": 43450,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 54000
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 45650,
-          "totalCapacity": 108000
+          "availableQuantity": 50550,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -890,16 +1160,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 3500,
-          "totalCapacity": 108000
+          "availableQuantity": 33700,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T14:58:24.57"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 20600,
-          "totalCapacity": 108000
+          "availableQuantity": 24100,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -912,16 +1190,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 12500,
-          "totalCapacity": 108000
+          "availableQuantity": 53500,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 42000,
+              "date": "2026-06-25T10:07:16.367"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 43800,
-          "totalCapacity": 108000
+          "availableQuantity": 68300,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -934,16 +1220,29 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 7000,
-          "totalCapacity": 108000
+          "availableQuantity": 140800,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 42000,
+              "date": "2026-06-25T09:48:01.907"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 118450,
-          "totalCapacity": 108000
+          "availableQuantity": 181550,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
+        },
+        "بنزين محسن": {
+          "availableQuantity": 33942,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -956,16 +1255,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 4150,
-          "totalCapacity": 108000
+          "availableQuantity": 39470,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 43320,
-          "totalCapacity": 108000
+          "availableQuantity": 45660,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -978,16 +1280,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 6000,
-          "totalCapacity": 108000
+          "availableQuantity": 40000,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T10:24:36.43"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 45300,
-          "totalCapacity": 108000
+          "availableQuantity": 44800,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1000,12 +1310,14 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 2700,
-          "totalCapacity": 108000
+          "availableQuantity": 65150,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 24100,
-          "totalCapacity": 162000
+          "availableQuantity": 1600,
+          "totalCapacity": 162000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1018,12 +1330,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 2400,
-          "totalCapacity": 108000
+          "availableQuantity": 27600,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T18:14:44.853"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 37400,
-          "totalCapacity": 108000
+          "availableQuantity": 78400,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1036,16 +1355,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 28050,
-          "totalCapacity": 108000
+          "availableQuantity": 65080,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 44880,
-          "totalCapacity": 218000
+          "availableQuantity": 56970,
+          "totalCapacity": 218000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1058,16 +1380,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 3200,
-          "totalCapacity": 108000
+          "availableQuantity": 30800,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 31650,
-          "totalCapacity": 108000
+          "availableQuantity": 16640,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1080,16 +1405,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 4700,
-          "totalCapacity": 108000
+          "availableQuantity": 55750,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 54600,
-          "totalCapacity": 108000
+          "availableQuantity": 43450,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1102,16 +1430,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 3800,
-          "totalCapacity": 113000
+          "availableQuantity": 38120,
+          "totalCapacity": 113000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 52820,
-          "totalCapacity": 108000
+          "availableQuantity": 37590,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1124,16 +1455,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 7490,
-          "totalCapacity": 108000
+          "availableQuantity": 44940,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 62420,
-          "totalCapacity": 108000
+          "availableQuantity": 82430,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1146,16 +1480,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 3800,
-          "totalCapacity": 108000
+          "availableQuantity": 25900,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 28150,
-          "totalCapacity": 108000
+          "availableQuantity": 28200,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1168,16 +1505,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 13600,
-          "totalCapacity": 114000
+          "availableQuantity": 49100,
+          "totalCapacity": 114000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 78000,
-          "totalCapacity": 114000
+          "availableQuantity": 89300,
+          "totalCapacity": 114000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1190,16 +1530,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 7800,
-          "totalCapacity": 108000
+          "availableQuantity": 30400,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 70700,
-          "totalCapacity": 108000
+          "availableQuantity": 88400,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1212,16 +1555,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 21700,
-          "totalCapacity": 54000
+          "availableQuantity": 49300,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 112000,
-          "totalCapacity": 162000
+          "availableQuantity": 108600,
+          "totalCapacity": 162000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1234,12 +1580,14 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 5500,
-          "totalCapacity": 108000
+          "availableQuantity": 10300,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 126000,
-          "totalCapacity": 324000
+          "availableQuantity": 100000,
+          "totalCapacity": 324000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1252,16 +1600,28 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 118200,
-          "totalCapacity": 108000
+          "availableQuantity": 128000,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 41000,
+              "date": "2026-06-25T12:18:27.35"
+            },
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T14:16:16.11"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 268000,
-          "totalCapacity": 324000
+          "availableQuantity": 295000,
+          "totalCapacity": 324000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1275,15 +1635,18 @@
       "products": {
         "بنزين": {
           "availableQuantity": 0,
-          "totalCapacity": 108000
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
           "availableQuantity": 0,
-          "totalCapacity": 108000
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1296,20 +1659,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 0,
-          "totalCapacity": 112000
+          "availableQuantity": 68050,
+          "totalCapacity": 112000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 0,
-          "totalCapacity": 112000
+          "availableQuantity": 48800,
+          "totalCapacity": 112000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 0,
-          "totalCapacity": 108000
+          "availableQuantity": 36150,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1322,16 +1689,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 44900,
-          "totalCapacity": 108000
+          "availableQuantity": 54400,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 57360,
-          "totalCapacity": 108000
+          "availableQuantity": 42700,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1344,16 +1714,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 10700,
-          "totalCapacity": 108000
+          "availableQuantity": 31800,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T12:30:27.65"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 59900,
-          "totalCapacity": 108000
+          "availableQuantity": 54200,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1366,16 +1744,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 7600,
-          "totalCapacity": 108000
+          "availableQuantity": 71500,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 28100,
-          "totalCapacity": 108000
+          "availableQuantity": 13000,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1388,16 +1769,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 0,
-          "totalCapacity": 108000
+          "availableQuantity": 17450,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T12:59:08.77"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 0,
-          "totalCapacity": 216000
+          "availableQuantity": 114550,
+          "totalCapacity": 216000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1410,16 +1799,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 9080,
-          "totalCapacity": 108000
+          "availableQuantity": 56082,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
-          "availableQuantity": 12560,
-          "totalCapacity": 0
+          "availableQuantity": 44365,
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 66180,
-          "totalCapacity": 108000
+          "availableQuantity": 26482,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1432,16 +1824,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 39200,
-          "totalCapacity": 108000
+          "availableQuantity": 28500,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T14:48:44.197"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 29600,
-          "totalCapacity": 108000
+          "availableQuantity": 41800,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1454,12 +1854,14 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 3000,
-          "totalCapacity": 108000
+          "availableQuantity": 25500,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 59400,
-          "totalCapacity": 162000
+          "availableQuantity": 80100,
+          "totalCapacity": 162000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1472,16 +1874,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 2000,
-          "totalCapacity": 108000
+          "availableQuantity": 47000,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T14:57:03.51"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 65000,
-          "totalCapacity": 108000
+          "availableQuantity": 64000,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 1000,
-          "totalCapacity": 54000
+          "availableQuantity": 32000,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1494,12 +1904,14 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 4850,
-          "totalCapacity": 108000
+          "availableQuantity": 70600,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 124600,
-          "totalCapacity": 216000
+          "availableQuantity": 139400,
+          "totalCapacity": 216000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1512,16 +1924,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 3350,
-          "totalCapacity": 108000
+          "availableQuantity": 29400,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T09:33:03.56"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 36050,
-          "totalCapacity": 108000
+          "availableQuantity": 32255,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1534,16 +1954,32 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 42500,
-          "totalCapacity": 216000
+          "availableQuantity": 51550,
+          "totalCapacity": 216000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T12:24:32.05"
+            },
+            {
+              "quantity": 44000,
+              "date": "2026-06-25T13:00:35.973"
+            },
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T13:16:44.42"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 100100,
-          "totalCapacity": 216000
+          "availableQuantity": 181100,
+          "totalCapacity": 216000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1556,16 +1992,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 1700,
-          "totalCapacity": 108000
+          "availableQuantity": 8300,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T11:14:41.023"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 57100,
-          "totalCapacity": 108000
+          "availableQuantity": 83290,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 1500,
-          "totalCapacity": 54000
+          "availableQuantity": 7440,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1578,12 +2022,14 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 13400,
-          "totalCapacity": 162000
+          "availableQuantity": 58600,
+          "totalCapacity": 162000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 35500,
-          "totalCapacity": 108000
+          "availableQuantity": 55500,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1596,12 +2042,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 2800,
-          "totalCapacity": 162000
+          "availableQuantity": 81200,
+          "totalCapacity": 162000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T11:28:46.197"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 31400,
-          "totalCapacity": 108000
+          "availableQuantity": 58000,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1614,16 +2067,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 37100,
-          "totalCapacity": 54000
+          "availableQuantity": 37500,
+          "totalCapacity": 54000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T15:16:55.62"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 28900,
-          "totalCapacity": 54000
+          "availableQuantity": 42500,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1636,12 +2097,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 3400,
-          "totalCapacity": 108000
+          "availableQuantity": 20200,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T10:40:33.613"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 76300,
-          "totalCapacity": 162000
+          "availableQuantity": 81200,
+          "totalCapacity": 162000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1654,16 +2122,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 14650,
-          "totalCapacity": 108000
+          "availableQuantity": 34110,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 35600,
-          "totalCapacity": 108000
+          "availableQuantity": 16840,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1676,16 +2147,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 2950,
-          "totalCapacity": 108000
+          "availableQuantity": 22800,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 41900,
-          "totalCapacity": 108000
+          "availableQuantity": 70200,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1698,12 +2172,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 43300,
-          "totalCapacity": 108000
+          "availableQuantity": 30120,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T14:39:50.533"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 30900,
-          "totalCapacity": 108000
+          "availableQuantity": 60750,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1716,20 +2197,29 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 920,
-          "totalCapacity": 108000
+          "availableQuantity": 58300,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T18:29:52.547"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 78850,
-          "totalCapacity": 108000
+          "availableQuantity": 44650,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
           "availableQuantity": 0,
-          "totalCapacity": 54000
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1742,16 +2232,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 0,
-          "totalCapacity": 108000
+          "availableQuantity": 66950,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 0,
-          "totalCapacity": 108000
+          "availableQuantity": 61350,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1764,16 +2257,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 5600,
-          "totalCapacity": 108000
+          "availableQuantity": 26000,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 29000,
-          "totalCapacity": 108000
+          "availableQuantity": 38900,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1786,16 +2282,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 32800,
-          "totalCapacity": 108000
+          "availableQuantity": 21150,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 36100,
-          "totalCapacity": 108000
+          "availableQuantity": 24400,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1808,16 +2307,19 @@
       "positionImportance": "المحطات الغير مؤثرة",
       "products": {
         "بنزين": {
-          "availableQuantity": 25950,
-          "totalCapacity": 108000
+          "availableQuantity": 70200,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 30250,
-          "totalCapacity": 54000
+          "availableQuantity": 36950,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
           "availableQuantity": 2062,
-          "totalCapacity": 54000
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1830,12 +2332,14 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 8700,
-          "totalCapacity": 108000
+          "availableQuantity": 72900,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 53450,
-          "totalCapacity": 108000
+          "availableQuantity": 62300,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1848,16 +2352,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 7300,
-          "totalCapacity": 108000
+          "availableQuantity": 47650,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 43000,
+              "date": "2026-06-25T10:19:00.737"
+            }
+          ]
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 72050,
-          "totalCapacity": 108000
+          "availableQuantity": 120700,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1870,16 +2382,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 3500,
-          "totalCapacity": 108000
+          "availableQuantity": 46750,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 85350,
-          "totalCapacity": 108000
+          "availableQuantity": 64850,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1892,20 +2407,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 18900,
-          "totalCapacity": 108000
+          "availableQuantity": 36300,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 124600,
-          "totalCapacity": 162000
+          "availableQuantity": 175400,
+          "totalCapacity": 162000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 1875,
-          "totalCapacity": 54000
+          "availableQuantity": 18675,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -1918,16 +2437,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 48300,
-          "totalCapacity": 108000
+          "availableQuantity": 89800,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 74700,
-          "totalCapacity": 216000
+          "availableQuantity": 79400,
+          "totalCapacity": 216000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
           "availableQuantity": 2400,
-          "totalCapacity": 54000
+          "totalCapacity": 54000,
+          "incomeQuantity": [
+            {
+              "quantity": 37966,
+              "date": "2026-06-25T12:21:19.103"
+            }
+          ]
         }
       }
     },
@@ -1940,16 +2467,33 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 47400,
-          "totalCapacity": 108000
+          "availableQuantity": 74900,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T16:50:39.147"
+            },
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T17:54:38.407"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 41700,
-          "totalCapacity": 108000
+          "availableQuantity": 52600,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 2150,
-          "totalCapacity": 54000
+          "availableQuantity": 5200,
+          "totalCapacity": 54000,
+          "incomeQuantity": [
+            {
+              "quantity": 37429,
+              "date": "2026-06-25T12:26:38.497"
+            }
+          ]
         }
       }
     },
@@ -1962,8 +2506,18 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "بنزين محسن": {
-          "availableQuantity": 0,
-          "totalCapacity": 108000
+          "availableQuantity": 12650,
+          "totalCapacity": 108000,
+          "incomeQuantity": [
+            {
+              "quantity": 13202,
+              "date": "2026-06-25T10:46:16.017"
+            },
+            {
+              "quantity": 35450,
+              "date": "2026-06-25T10:54:40.52"
+            }
+          ]
         }
       }
     },
@@ -1977,7 +2531,13 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 54000
+          "totalCapacity": 54000,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T07:17:29.24"
+            }
+          ]
         }
       }
     },
@@ -1990,12 +2550,14 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "زیت الغاز مولدات": {
-          "availableQuantity": 0,
-          "totalCapacity": null
+          "availableQuantity": 44650,
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
-          "availableQuantity": 0,
-          "totalCapacity": null
+          "availableQuantity": 22250,
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2008,8 +2570,9 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "زیت الغاز مولدات": {
-          "availableQuantity": 99700,
-          "totalCapacity": 108000
+          "availableQuantity": 126500,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -2022,8 +2585,9 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "زیت الغاز مولدات": {
-          "availableQuantity": 10100,
-          "totalCapacity": 108000
+          "availableQuantity": 83940,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -2036,20 +2600,24 @@
       "positionImportance": "المحطات الغير مؤثرة",
       "products": {
         "زيت الغاز ": {
-          "availableQuantity": 27220,
-          "totalCapacity": 108000
+          "availableQuantity": 82530,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 2020,
-          "totalCapacity": 108000
+          "availableQuantity": 3700,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "بنزين": {
-          "availableQuantity": 7750,
-          "totalCapacity": 108000
+          "availableQuantity": 108400,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -2063,11 +2631,13 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2081,7 +2651,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2095,7 +2666,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2109,7 +2681,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2123,7 +2696,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2137,7 +2711,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2151,7 +2726,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2165,7 +2741,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2179,7 +2756,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2193,7 +2771,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2207,7 +2786,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2221,7 +2801,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2235,7 +2816,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 0
+          "totalCapacity": 0,
+          "incomeQuantity": null
         }
       }
     },
@@ -2249,7 +2831,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2263,7 +2846,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2277,11 +2861,13 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "اسطوانات غاز": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2295,7 +2881,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2309,11 +2896,13 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2327,11 +2916,13 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2354,11 +2945,13 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2372,7 +2965,8 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2386,11 +2980,13 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2404,11 +3000,13 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2422,15 +3020,18 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "اسطوانات غاز": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2444,11 +3045,13 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2471,11 +3074,13 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2488,16 +3093,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 14640,
-          "totalCapacity": null
+          "availableQuantity": 48770,
+          "totalCapacity": null,
+          "incomeQuantity": [
+            {
+              "quantity": 36000,
+              "date": "2026-06-25T11:10:14.347"
+            }
+          ]
         },
         "زيت الغاز ": {
-          "availableQuantity": 78870,
-          "totalCapacity": null
+          "availableQuantity": 56630,
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
-          "availableQuantity": 200,
-          "totalCapacity": null
+          "availableQuantity": 220,
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2510,12 +3123,14 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "نفط أبيض": {
-          "availableQuantity": 2200,
-          "totalCapacity": 54000
+          "availableQuantity": 16400,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 29100,
-          "totalCapacity": 54000
+          "availableQuantity": 36400,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -2529,11 +3144,13 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2547,11 +3164,13 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2565,11 +3184,13 @@
       "products": {
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2582,12 +3203,14 @@
       "positionImportance": "محطات المركز",
       "products": {
         "زيت الغاز ": {
-          "availableQuantity": 36960,
-          "totalCapacity": 81000
+          "availableQuantity": 12420,
+          "totalCapacity": 81000,
+          "incomeQuantity": null
         },
         "بنزين": {
-          "availableQuantity": 6120,
-          "totalCapacity": 81000
+          "availableQuantity": 42900,
+          "totalCapacity": 81000,
+          "incomeQuantity": null
         }
       }
     },
@@ -2600,16 +3223,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 10650,
-          "totalCapacity": 108000
+          "availableQuantity": 68700,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 53750,
-          "totalCapacity": 108000
+          "availableQuantity": 65400,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 1500,
-          "totalCapacity": 54000
+          "availableQuantity": 3050,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -2622,16 +3248,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 1900,
-          "totalCapacity": 54000
+          "availableQuantity": 0,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 46500,
-          "totalCapacity": 54000
+          "availableQuantity": 0,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 54000
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -2644,16 +3273,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 40800,
-          "totalCapacity": 108000
+          "availableQuantity": 54160,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 46360,
-          "totalCapacity": 108000
+          "availableQuantity": 79600,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 6000,
-          "totalCapacity": 54000
+          "availableQuantity": 29000,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -2666,20 +3298,24 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 71050,
-          "totalCapacity": 162000
+          "availableQuantity": 101100,
+          "totalCapacity": 162000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 74000,
-          "totalCapacity": 108000
+          "availableQuantity": 106900,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 1040,
-          "totalCapacity": 54000
+          "availableQuantity": 29600,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "غاز سائل (LPG)": {
-          "availableQuantity": 544,
-          "totalCapacity": 20000
+          "availableQuantity": 4339,
+          "totalCapacity": 20000,
+          "incomeQuantity": null
         }
       }
     },
@@ -2692,12 +3328,14 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "زيت الغاز ": {
-          "availableQuantity": 3400,
-          "totalCapacity": 54000
+          "availableQuantity": 14000,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": null
+          "totalCapacity": null,
+          "incomeQuantity": null
         }
       }
     },
@@ -2710,16 +3348,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 0,
-          "totalCapacity": 72000
+          "availableQuantity": 54400,
+          "totalCapacity": 72000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 0,
-          "totalCapacity": 72000
+          "availableQuantity": 79400,
+          "totalCapacity": 72000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 0,
-          "totalCapacity": 36000
+          "availableQuantity": 16900,
+          "totalCapacity": 36000,
+          "incomeQuantity": null
         }
       }
     },
@@ -2732,12 +3373,14 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 5200,
-          "totalCapacity": 36000
+          "availableQuantity": 74300,
+          "totalCapacity": 36000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 46500,
-          "totalCapacity": 36000
+          "availableQuantity": 55800,
+          "totalCapacity": 36000,
+          "incomeQuantity": null
         }
       }
     },
@@ -2750,12 +3393,14 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 7400,
-          "totalCapacity": 36000
+          "availableQuantity": 58700,
+          "totalCapacity": 36000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 4300,
-          "totalCapacity": 36000
+          "availableQuantity": 27100,
+          "totalCapacity": 36000,
+          "incomeQuantity": null
         }
       }
     },
@@ -2768,16 +3413,19 @@
       "positionImportance": "محطات الاقضية و النواحي",
       "products": {
         "بنزين": {
-          "availableQuantity": 41800,
-          "totalCapacity": 108000
+          "availableQuantity": 81500,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 60900,
-          "totalCapacity": 108000
+          "availableQuantity": 59300,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 22600,
-          "totalCapacity": 36000
+          "availableQuantity": 18800,
+          "totalCapacity": 36000,
+          "incomeQuantity": null
         }
       }
     },
@@ -2790,16 +3438,19 @@
       "positionImportance": "محطات المركز",
       "products": {
         "بنزين": {
-          "availableQuantity": 14600,
-          "totalCapacity": 144000
+          "availableQuantity": 53200,
+          "totalCapacity": 144000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 85970,
-          "totalCapacity": 108000
+          "availableQuantity": 52600,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 5260,
-          "totalCapacity": 108000
+          "availableQuantity": 10300,
+          "totalCapacity": 108000,
+          "incomeQuantity": null
         }
       }
     },
@@ -2812,16 +3463,19 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "بنزين": {
-          "availableQuantity": 4650,
-          "totalCapacity": 54000
+          "availableQuantity": 18869,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
           "availableQuantity": 0,
-          "totalCapacity": 54000
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 3419,
-          "totalCapacity": 54000
+          "availableQuantity": 40500,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     },
@@ -2834,30 +3488,37 @@
       "positionImportance": "المحطات الحكومية",
       "products": {
         "بنزين": {
-          "availableQuantity": 0,
-          "totalCapacity": 54000
+          "availableQuantity": 111000,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "زيت الغاز ": {
-          "availableQuantity": 72000,
-          "totalCapacity": 54000
+          "availableQuantity": 135960,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "نفط أبيض": {
           "availableQuantity": 0,
-          "totalCapacity": 36000
+          "totalCapacity": 36000,
+          "incomeQuantity": null
         },
         "بنزين محسن": {
-          "availableQuantity": 0,
-          "totalCapacity": 54000
+          "availableQuantity": 36000,
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         },
         "بنزين سوبر": {
           "availableQuantity": 0,
-          "totalCapacity": 36000
+          "totalCapacity": 36000,
+          "incomeQuantity": null
         },
         "زیت الغاز مولدات": {
           "availableQuantity": 0,
-          "totalCapacity": 54000
+          "totalCapacity": 54000,
+          "incomeQuantity": null
         }
       }
     }
-  ]
+  ],
+  "visitor_count": 0
 }
