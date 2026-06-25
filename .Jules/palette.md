@@ -1,0 +1,3 @@
+## 2024-03-24 - Make interactive div cards keyboard accessible
+**Learning:** In this application, `.stat-card` and `.station-card` elements are interactive `div`s with click listeners, but initially lacked `tabindex`, `role="button"`, `aria-label`, and `keydown` event listeners, making them inaccessible to keyboard and screen reader users.
+**Action:** When adding interactive `div`s (or similar non-button elements) that act like buttons, always add `tabindex="0"`, `role="button"`, an appropriate `aria-label`, a `keydown` event listener for 'Enter' and 'Space' keys, and `:focus-visible` styles for visual feedback.

@@ -477,6 +477,9 @@ function renderStationsList() {
         const card = document.createElement('div');
         card.className = `station-card ${appState.activeCardId === st.stationId ? 'active-card' : ''}`;
         card.dataset.id = st.stationId;
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', `تفاصيل محطة ${st.stationName}`);
         
         card.innerHTML = `
             <div class="station-card-header">
@@ -509,10 +512,16 @@ function renderStationsList() {
             </div>
         `;
 
-        card.addEventListener('click', (e) => {
+        const handleCardInteraction = (e) => {
+            if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+            if (e.type === 'keydown') e.preventDefault(); // Prevent page scroll for Space
+
             if (e.target.closest('.btn-report-product') || e.target.closest('.btn-report-station')) return;
             selectStation(st);
-        });
+        };
+
+        card.addEventListener('click', handleCardInteraction);
+        card.addEventListener('keydown', handleCardInteraction);
 
         DOM.stationsList.appendChild(card);
     });
@@ -782,7 +791,10 @@ function setupListeners() {
     DOM.tabMapBtn.addEventListener('click', () => switchTab('map'));
 
     document.querySelectorAll('.stat-card').forEach(card => {
-        card.addEventListener('click', () => {
+        const handleStatCardInteraction = (e) => {
+            if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+            if (e.type === 'keydown') e.preventDefault(); // Prevent page scroll for Space
+
             const product = card.dataset.filter;
             if (!product && product !== '') return;
             document.querySelectorAll('.filter-pill').forEach(pill => {
@@ -797,7 +809,10 @@ function setupListeners() {
             
             const activePill = document.querySelector('.filter-pill.active');
             if (activePill) activePill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        });
+        };
+
+        card.addEventListener('click', handleStatCardInteraction);
+        card.addEventListener('keydown', handleStatCardInteraction);
     });
     
     updateVisitorCount();
