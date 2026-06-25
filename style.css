@@ -307,6 +307,11 @@ body {
     border-color: rgba(255, 255, 255, 0.15);
 }
 
+.stat-card:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
 .stat-icon {
     width: 40px;
     height: 40px;
@@ -544,6 +549,11 @@ body {
     transform: translateY(-2px);
     border-color: rgba(255, 255, 255, 0.15);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.station-card:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
 }
 
 .station-card.active-card {
