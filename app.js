@@ -60,7 +60,7 @@ const productIcons = {
     'اسطوانات غاز': 'fa-cylinder text-orange'
 };
 
-// ⚡ Bolt: Performance optimization
+// Bolt: Performance optimization
 // Debounce frequent events (like typing) to reduce unnecessary recalculations, DOM rebuilds, and Map rendering.
 function debounce(func, wait) {
     let timeout;
@@ -777,7 +777,7 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    // ⚡ Bolt: Debounce the search input to prevent expensive applyFilters() calls on every keystroke
+    // Bolt: Debounce the search input to prevent expensive applyFilters() calls on every keystroke
     const debouncedApplyFilters = debounce(applyFilters, 300);
     DOM.stationSearch.addEventListener('input', debouncedApplyFilters);
 
