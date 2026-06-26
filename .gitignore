@@ -1,0 +1,6 @@
+data.json
+reports.json
+visitors.json
+server.log
+__pycache__/
+*.pyc
