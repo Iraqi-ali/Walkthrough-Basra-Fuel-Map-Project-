@@ -1017,3 +1017,13 @@ body {
         gap: 6px;
     }
 }
+
+/* Focus Visible Utility */
+.btn:focus-visible,
+.filter-pill:focus-visible,
+.nav-tab:focus-visible,
+.btn-icon-only:focus-visible,
+.card-action-btn:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
