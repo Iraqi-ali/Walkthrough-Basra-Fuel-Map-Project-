@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "basrafuelmap",
+  "compatibility_date": "2026-06-16",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "exclude": [
+      ".gitignore",
+      "server.py",
+      "wrangler.jsonc",
+      "README.md",
+      "AGENTS.md",
+      ".Jules"
+    ]
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
