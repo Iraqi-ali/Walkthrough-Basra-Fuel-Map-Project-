@@ -11,3 +11,6 @@ visitors.json
 __pycache__/
 *.pyc
 server.log
+
+# ignore build
+dist/

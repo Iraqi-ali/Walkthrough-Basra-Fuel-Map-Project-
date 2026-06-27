@@ -6,16 +6,7 @@
     "enabled": true
   },
   "assets": {
-    "directory": ".",
-    "binding": "ASSETS",
-    "exclude": [
-      ".gitignore",
-      "server.py",
-      "wrangler.jsonc",
-      "README.md",
-      "AGENTS.md",
-      ".Jules"
-    ]
+    "directory": "."
   },
   "compatibility_flags": [
     "nodejs_compat"
