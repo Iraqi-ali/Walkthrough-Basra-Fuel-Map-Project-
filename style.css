@@ -1017,3 +1017,13 @@ body {
         gap: 6px;
     }
 }
+
+/* Accessibility enhancements */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+.filter-pill:focus-visible,
+.btn-icon-only:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}

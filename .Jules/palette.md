@@ -1,0 +1,3 @@
+## 2024-06-27 - [A11Y] Arabic RTL Interface Keyboard Navigation & Screen Readers
+**Learning:** In Arabic RTL web applications like this map interface, interactive elements like map controls, filter pills, and icon-only buttons (`btn-icon-only`) often lack accessible names or keyboard focus indicators by default. Because visual styling resets outline (`outline: none`), users navigating via keyboard cannot see where they are.
+**Action:** Always ensure that icon-only interactive elements have clear, localized `aria-label` attributes in Arabic, and that all interactive components (buttons, links, inputs, and custom pills) have a `:focus-visible` CSS rule applied to restore accessible keyboard navigation.
