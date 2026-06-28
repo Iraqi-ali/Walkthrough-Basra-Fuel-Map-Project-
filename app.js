@@ -60,7 +60,7 @@ const productIcons = {
     'اسطوانات غاز': 'fa-cylinder text-orange'
 };
 
-// ⚡ Bolt Performance Optimization:
+// Bolt Performance Optimization:
 // Debounce helper to prevent rapid sequential function calls.
 // Used here to delay search execution until the user stops typing,
 // significantly reducing unnecessary re-renders and filter calculations.
@@ -779,7 +779,7 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    // ⚡ Bolt: Debounce the search input by 300ms to reduce unneeded filter calculations and DOM updates
+    // Bolt: Debounce the search input by 300ms to reduce unneeded filter calculations and DOM updates
     DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
