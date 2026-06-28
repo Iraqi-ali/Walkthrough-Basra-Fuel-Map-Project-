@@ -1,0 +1,4 @@
+## 2026-06-28 - Source Code Disclosure via Fallback Route
+**Vulnerability:** The application's web server allowed direct HTTP access to any local file in the directory (`server.py`, `data.json`, `reports.json`, `visitors.json`), resulting in source code and sensitive data disclosure.
+**Learning:** `SimpleHTTPRequestHandler` serves files unconditionally if not intercepted. The previous `do_GET` implementation forwarded all unhandled routes (everything outside of `/api/` endpoints) back to the base `super().do_GET()`, creating an open directory traversal vector.
+**Prevention:** Always implement an explicit, strict allowlist for served files in custom request handlers (e.g., `["/index.html", "/app.js", "/style.css"]`), and return a `403 Forbidden` for everything else, instead of defaulting to serving requested files.

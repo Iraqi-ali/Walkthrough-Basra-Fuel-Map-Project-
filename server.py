@@ -361,7 +361,17 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
-            return super().do_GET()
+            # SECURITY: Allowlist for static files to prevent source code and data disclosure
+            # Note: The root path '/' was already mapped to '/index.html' at the beginning of do_GET
+            allowed_files = ["/index.html", "/app.js", "/style.css", "/favicon.ico"]
+            if self.path in allowed_files:
+                return super().do_GET()
+            else:
+                self.send_response(403)
+                self.send_header("Content-Type", "text/plain; charset=utf-8")
+                self.end_headers()
+                self.wfile.write(b"403 Forbidden")
+                return
 
     def end_headers(self):
         if self.path.startswith("/api/"):
