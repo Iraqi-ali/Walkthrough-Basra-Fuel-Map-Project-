@@ -46,6 +46,20 @@ const DOM = {
     statVisitors: document.getElementById('statVisitors')
 };
 
+// Utility: Debounce function for performance optimization
+// ⚡ Bolt: Limits how often a function can be called, preventing unnecessary executions (e.g., during rapid typing)
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 // Helper Icon Map
 const productIcons = {
     'بنزين': 'fa-gas-pump text-green',
@@ -763,7 +777,9 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    // ⚡ Bolt: Debounce the search input to avoid recalculating filters and re-rendering map markers on every keystroke
+    const debouncedApplyFilters = debounce(applyFilters, 300);
+    DOM.stationSearch.addEventListener('input', debouncedApplyFilters);
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');

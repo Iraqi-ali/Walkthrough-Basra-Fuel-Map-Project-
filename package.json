@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo no build needed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iraqi-ali/Walkthrough-Basra-Fuel-Map-Project-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Iraqi-ali/Walkthrough-Basra-Fuel-Map-Project-/issues"
+  },
+  "homepage": "https://github.com/Iraqi-ali/Walkthrough-Basra-Fuel-Map-Project-#readme"
+}
