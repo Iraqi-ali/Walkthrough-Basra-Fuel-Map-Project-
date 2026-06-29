@@ -1,0 +1,3 @@
+## 2024-05-20 - Dual Keyboard/Screen Reader Support for Custom Cards
+**Learning:** When using custom `div`-based interactive cards (like `.station-card`) as primary navigation/selection elements, adding `tabindex="0"` and `role="button"` makes them focusable, but they require a dedicated `keydown` listener (handling both `Enter` and `Space`) and distinct `:focus-visible` styles to be truly accessible to keyboard users. Without this, keyboard users are completely blocked from viewing details.
+**Action:** Always verify that interactive elements not built with native `<button>` or `<a>` tags have complete ARIA roles, focus management, and keyboard event handlers.

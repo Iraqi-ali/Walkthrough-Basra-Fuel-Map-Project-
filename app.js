@@ -477,6 +477,9 @@ function renderStationsList() {
         const card = document.createElement('div');
         card.className = `station-card ${appState.activeCardId === st.stationId ? 'active-card' : ''}`;
         card.dataset.id = st.stationId;
+        card.tabIndex = 0;
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `عرض تفاصيل محطة ${st.stationName}`);
         
         card.innerHTML = `
             <div class="station-card-header">
@@ -510,8 +513,16 @@ function renderStationsList() {
         `;
 
         card.addEventListener('click', (e) => {
-            if (e.target.closest('.btn-report-product') || e.target.closest('.btn-report-station')) return;
+            if (e.target.closest('.btn-report-product') || e.target.closest('.btn-report-station') || e.target.closest('.btn-directions')) return;
             selectStation(st);
+        });
+
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault(); // Prevent scrolling on Space
+                if (e.target.closest('.btn-report-product') || e.target.closest('.btn-report-station') || e.target.closest('.btn-directions')) return;
+                selectStation(st);
+            }
         });
 
         DOM.stationsList.appendChild(card);
