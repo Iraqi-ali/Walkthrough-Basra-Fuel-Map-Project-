@@ -47,6 +47,11 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+*:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
@@ -552,6 +557,15 @@ body {
 }
 
 .station-card.active-card::before {
+    background: var(--accent-blue);
+}
+
+.station-card:focus-visible {
+    border-color: var(--accent-blue);
+    background-color: rgba(59, 130, 246, 0.04);
+}
+
+.station-card:focus-visible::before {
     background: var(--accent-blue);
 }
 
