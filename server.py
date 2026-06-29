@@ -3,6 +3,7 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
 import threading
 import time
 import os
@@ -269,12 +270,38 @@ def get_station_report_status(station_id):
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        if self.path == "/":
+        # Parse path to strip query strings
+        parsed_path = urllib.parse.urlparse(self.path).path
+
+        # Explicit allowlist to prevent source code disclosure (e.g. server.py, data.json, etc.)
+        ALLOWED_STATIC_FILES = ["/index.html", "/app.js", "/style.css", "/favicon.ico"]
+
+        if parsed_path == "/":
             increment_visitor_count()
             self.path = "/index.html"
             return super().do_GET()
+
+        elif not parsed_path.startswith("/api/") and parsed_path not in ALLOWED_STATIC_FILES:
+            # Block unauthorized file access
+            self.send_response(403)
+            self.send_header("Content-Type", "text/plain; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(b"403 Forbidden")
+            return
+
+        # In Python SimpleHTTPRequestHandler, a request starting with '/api/../'
+        # bypasses 'not self.path.startswith("/api/")' and can be resolved out of the API.
+        # This explicit check prevents this type of path traversal. We decode the URL
+        # first to catch encoded bypass attempts like %2e%2e
+        unquoted_path = urllib.parse.unquote(self.path)
+        if "/../" in unquoted_path or "/.." == unquoted_path[-3:]:
+            self.send_response(403)
+            self.send_header("Content-Type", "text/plain; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(b"403 Forbidden")
+            return
         
-        elif self.path == "/api/stations":
+        elif parsed_path == "/api/stations":
             cleanup_expired_reports()
             
             if not os.path.exists(DATA_FILE):
@@ -328,7 +355,7 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({"error": f"Internal Server Error: {str(e)}"}).encode('utf-8'))
             return
         
-        elif self.path == "/api/visitors":
+        elif parsed_path == "/api/visitors":
             count = get_visitor_count()
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
@@ -336,7 +363,7 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps({"count": count}, ensure_ascii=False).encode('utf-8'))
             return
         
-        elif self.path == "/api/reports":
+        elif parsed_path == "/api/reports":
             query = {}
             if '?' in self.path:
                 params = self.path.split('?')[1]
@@ -371,10 +398,11 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
         super().end_headers()
 
     def do_POST(self):
+        parsed_path = urllib.parse.urlparse(self.path).path
         content_length = int(self.headers.get('Content-Length', 0))
         post_data = json.loads(self.rfile.read(content_length)) if content_length > 0 else {}
         
-        if self.path == "/api/refresh":
+        if parsed_path == "/api/refresh":
             success = fetch_data_from_source()
             if success:
                 self.send_response(200)
@@ -388,7 +416,7 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({"success": False, "message": "Failed to contact source API"}).encode('utf-8'))
             return
         
-        elif self.path == "/api/report":
+        elif parsed_path == "/api/report":
             station_id = str(post_data.get("station_id", ""))
             report_type = post_data.get("type", "")
             product_name = post_data.get("product_name")
