@@ -3,6 +3,7 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
 import threading
 import time
 import os
@@ -269,6 +270,14 @@ def get_station_report_status(station_id):
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
+        # Decode path to prevent URL-encoded bypasses (e.g., %2e%2e for ..)
+        decoded_path = urllib.parse.unquote(self.path)
+
+        # Prevent path traversal vulnerabilities
+        if "/../" in decoded_path or "\\..\\" in decoded_path or decoded_path.endswith("/.."):
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
@@ -361,6 +370,12 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            # Explicit allowlist to prevent source code and sensitive data disclosure
+            allowed_files = ["/index.html", "/app.js", "/style.css", "/favicon.ico"]
+            base_path = self.path.split('?')[0]
+            if base_path not in allowed_files:
+                self.send_error(403, "Forbidden")
+                return
             return super().do_GET()
 
     def end_headers(self):
