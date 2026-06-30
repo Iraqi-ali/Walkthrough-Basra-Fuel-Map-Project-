@@ -1,0 +1,4 @@
+## 2026-06-30 - [Source Code Disclosure and Path Traversal]
+**Vulnerability:** The `server.py` implementation used `SimpleHTTPRequestHandler`'s default `super().do_GET()` to handle unrecognized paths. This inherently exposes all files in the execution directory, including the source code (`server.py`) and data files (`data.json`, `reports.json`). Additionally, the handler did not protect against URL-encoded path traversal attacks (`%2e%2e`).
+**Learning:** Overriding `do_GET` without implementing an explicit allowlist and relying on the base class handler creates a direct source code and sensitive data disclosure vulnerability in Python's `http.server`. Path traversal checks must also explicitly unquote paths to handle encoded payloads.
+**Prevention:** Always implement an explicit allowlist for static file serving when using `SimpleHTTPRequestHandler`. Additionally, properly decode and validate incoming paths to protect against traversal attempts.
