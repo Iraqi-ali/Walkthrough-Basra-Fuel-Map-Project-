@@ -60,6 +60,20 @@ const productIcons = {
     'اسطوانات غاز': 'fa-cylinder text-orange'
 };
 
+// ⚡ Bolt: Debounce function to prevent unnecessary rapid executions
+// Reduces main thread blocking by limiting function calls (e.g. during typing)
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func.apply(this, args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 // Helper: Create unique user session ID
 function getUserSessionId() {
     let sessionId = localStorage.getItem('fuel_map_session_id');
@@ -763,7 +777,9 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    // ⚡ Bolt: Debounce the search input to avoid recalculating on every keystroke
+    const debouncedSearch = debounce(applyFilters, 300);
+    DOM.stationSearch.addEventListener('input', debouncedSearch);
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
