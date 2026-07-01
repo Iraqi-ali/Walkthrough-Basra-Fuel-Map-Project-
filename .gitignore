@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+reports.json
+visitors.json
+server.log
+server_output.log
+*.png
+videos/
