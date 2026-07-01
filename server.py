@@ -3,6 +3,9 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
+import posixpath
+import re
 import threading
 import time
 import os
@@ -361,6 +364,19 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            # Decode URL, strip query params, collapse multiple slashes, and normalize the path
+            decoded_path = urllib.parse.unquote(self.path).split('?')[0]
+            decoded_path = re.sub(r'/+', '/', decoded_path)
+            normalized_path = posixpath.normpath(decoded_path)
+
+            # Security: Explicit blocklist to prevent source code and sensitive data disclosure
+            blocked_extensions = (".py", ".pyc", ".md", ".log", ".sh")
+            blocked_files = ("/data.json", "/reports.json", "/visitors.json")
+
+            if normalized_path.endswith(blocked_extensions) or normalized_path in blocked_files or "/.git" in normalized_path or "/.jules" in normalized_path:
+                self.send_error(403, "Forbidden")
+                return
+
             return super().do_GET()
 
     def end_headers(self):
