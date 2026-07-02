@@ -1,0 +1,5 @@
+## 2026-07-02 - Path Traversal & Arbitrary File Read in Static Server
+
+**Vulnerability:** Arbitrary file read and path traversal bypass in `server.py` `do_GET` static file handler. Attackers could access backend code (like `server.py`), configuration, or sensitive cache state files (like `data.json` or `reports.json`) directly through URL encoding (`%2e%2e`) or path traversal (`/api/../data.json`).
+**Learning:** Python's `SimpleHTTPRequestHandler` combined with custom API path handling needs extremely careful static file handling. Custom logic intercepting API routes before delegating back to `super().do_GET()` inadvertently permitted unsafe path resolution on the server.
+**Prevention:** Always sanitize the requested path before processing static file service. Decode (`urllib.parse.unquote`), strip query parameters, collapse multiple slashes (`re.sub(r'/+', '/', path)`), and normalize (`posixpath.normpath`). Always use an explicit blocklist (or allowlist) checking against the normalized path before delegating to default file handlers.

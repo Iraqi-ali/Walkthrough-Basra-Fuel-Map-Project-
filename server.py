@@ -3,9 +3,12 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
 import threading
 import time
 import os
+import re
+import posixpath
 from datetime import datetime, timedelta
 
 PORT = 8000
@@ -361,6 +364,24 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            parsed_url = urllib.parse.urlparse(self.path)
+            clean_path = urllib.parse.unquote(parsed_url.path)
+            clean_path = re.sub(r'/+', '/', clean_path)
+            clean_path = posixpath.normpath(clean_path)
+
+            # Security: Explicit blocklist
+            if (clean_path.endswith(('.py', '.md', '.log', '.sh')) or
+                clean_path in ('/data.json', '/reports.json', '/visitors.json') or
+                '/.git' in clean_path or clean_path == '/.git'):
+                self.send_response(403)
+                self.send_header("Content-Type", "text/plain; charset=utf-8")
+                self.end_headers()
+                self.wfile.write(b"403 Forbidden")
+                return
+
+            # Do NOT mutate self.path directly to avoid breaking directory redirects
+            # Let super().do_GET() handle the original path mapping.
+            # We already validated that the *resolved* path would be safe above.
             return super().do_GET()
 
     def end_headers(self):
