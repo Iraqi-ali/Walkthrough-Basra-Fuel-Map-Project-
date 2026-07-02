@@ -66,7 +66,7 @@
                     <i class="fas fa-clock text-accent"></i>
                     <span id="lastUpdated">آخر تحديث: ...</span>
                 </div>
-                <button id="refreshBtn" class="btn btn-secondary" title="تحديث البيانات يدوياً">
+                <button id="refreshBtn" class="btn btn-secondary" title="تحديث البيانات يدوياً" aria-label="تحديث البيانات يدوياً">
                     <i class="fas fa-rotate" id="refreshIcon"></i>
                     <span class="btn-text">تحديث الآن</span>
                 </button>
@@ -133,7 +133,7 @@
             <aside class="sidebar" id="sidebarPanel">
                 <div class="search-box">
                     <i class="fas fa-magnifying-glass search-icon"></i>
-                    <input type="text" id="stationSearch" class="form-control" placeholder="ابحث باسم المحطة أو القضاء أو المنطقة...">
+                    <input type="text" id="stationSearch" class="form-control" placeholder="ابحث باسم المحطة أو القضاء أو المنطقة..." aria-label="ابحث باسم المحطة أو القضاء أو المنطقة">
                 </div>
 
                 <!-- Product Filters Scroll Container -->
@@ -152,7 +152,7 @@
 
                 <!-- Geolocation and Sorting Controls -->
                 <div class="geo-controls">
-                    <button id="geoSortBtn" class="btn btn-primary btn-block">
+                    <button id="geoSortBtn" class="btn btn-primary btn-block" aria-label="ترتيب المحطات حسب الأقرب لموقعي الحالي">
                         <i class="fas fa-location-crosshairs"></i>
                         <span>ترتيب حسب الأقرب لموقعي الحالي</span>
                     </button>
@@ -188,11 +188,11 @@
         
         <!-- Mobile Navigation bar -->
         <div class="mobile-nav">
-            <button class="nav-tab active" id="tabListBtn">
+            <button class="nav-tab active" id="tabListBtn" aria-label="عرض قائمة المحطات">
                 <i class="fas fa-list-ul"></i>
                 <span>قائمة المحطات</span>
             </button>
-            <button class="nav-tab" id="tabMapBtn">
+            <button class="nav-tab" id="tabMapBtn" aria-label="عرض الخريطة">
                 <i class="fas fa-map-location-dot"></i>
                 <span>عرض الخريطة</span>
             </button>
