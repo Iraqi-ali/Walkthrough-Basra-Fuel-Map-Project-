@@ -70,6 +70,21 @@ function getUserSessionId() {
     return sessionId;
 }
 
+// Helper: Debounce utility to prevent excessive rapid function calls
+function debounce(func, wait) {
+    var timeout;
+    return function() {
+        var context = this;
+        var args = arguments;
+        var later = function() {
+            timeout = null;
+            func.apply(context, args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 // Clean and normalize fuel product names
 function cleanProductName(name) {
     if (!name) return "";
@@ -763,7 +778,8 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    const debouncedApplyFilters = debounce(applyFilters, 300);
+    DOM.stationSearch.addEventListener('input', debouncedApplyFilters);
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');

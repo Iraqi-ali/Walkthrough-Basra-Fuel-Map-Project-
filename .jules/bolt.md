@@ -1,0 +1,3 @@
+## 2024-05-18 - [Debounce Search Input to Reduce UI Lag]
+**Learning:** The application experiences O(n) rendering lag caused by synchronous DOM list and Leaflet map marker rebuilds (`applyFilters` which triggers `renderStationsList` and `renderMapMarkers`) on rapid input events. The solution requires adding a custom `debounce(func, wait)` utility in `app.js` to mitigate this since there is no external utility library like Lodash available.
+**Action:** Always check for missing debouncing/throttling on frequent events (like search inputs) that trigger expensive UI updates (e.g., list and map re-renders), and ensure custom utilities are added if needed.
