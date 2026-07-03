@@ -6,6 +6,9 @@ import urllib.error
 import threading
 import time
 import os
+import re
+import posixpath
+import urllib.parse
 from datetime import datetime, timedelta
 
 PORT = 8000
@@ -266,11 +269,6 @@ def get_station_report_status(station_id):
         "lock_until": lock_until_str,
         "threshold": REPORT_THRESHOLD
     }
-
-import re
-import posixpath
-
-import urllib.parse
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def is_blocked(self, path):
