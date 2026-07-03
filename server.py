@@ -6,6 +6,9 @@ import urllib.error
 import threading
 import time
 import os
+import re
+import posixpath
+import urllib.parse
 from datetime import datetime, timedelta
 
 PORT = 8000
@@ -268,7 +271,45 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def is_blocked(self, path):
+        # We split to get just the path part, avoiding urlparse bug with double slashes
+        path_only = path.split('?')[0].split('#')[0]
+
+        decoded_path = urllib.parse.unquote(path_only)
+        collapsed_path = re.sub(r'/+', '/', decoded_path)
+        normalized_path = posixpath.normpath(collapsed_path)
+
+        if not normalized_path.startswith('/'):
+            normalized_path = '/' + normalized_path
+
+        blocked_exts = ('.py', '.md', '.log', '.sh')
+        blocked_dirs_files = ('/data.json', '/reports.json', '/visitors.json', '/.git')
+
+        if normalized_path.endswith(blocked_exts):
+            return True
+
+        for blocked in blocked_dirs_files:
+            if normalized_path == blocked or normalized_path.startswith(blocked + '/'):
+                return True
+
+        return False
+
+    def do_HEAD(self):
+        if self.is_blocked(self.path):
+            self.send_response(403)
+            self.send_header("Content-Type", "text/plain; charset=utf-8")
+            self.end_headers()
+            return
+        super().do_HEAD()
+
     def do_GET(self):
+        if self.is_blocked(self.path):
+            self.send_response(403)
+            self.send_header("Content-Type", "text/plain; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(b"403 Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
