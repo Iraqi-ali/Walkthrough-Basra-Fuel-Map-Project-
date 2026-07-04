@@ -6,6 +6,9 @@ import urllib.error
 import threading
 import time
 import os
+import urllib.parse
+import posixpath
+import re
 from datetime import datetime, timedelta
 
 PORT = 8000
@@ -268,7 +271,38 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def _is_path_blocked(self):
+        path = self.path.split('?')[0].split('#')[0]
+        path = urllib.parse.unquote(path)
+        path = re.sub(r'/+', '/', path)
+        path = posixpath.normpath(path)
+
+        blocked_extensions = ('.py', '.pyc', '.md', '.log', '.sh', '.env')
+        blocked_files = ('/reports.json', '/visitors.json', '/server.py')
+        blocked_dirs = ('/.git', '/__pycache__')
+
+        if any(path.endswith(ext) for ext in blocked_extensions):
+            return True
+
+        if any(path == f or path.startswith(f + '/') for f in blocked_files):
+            return True
+
+        if any(path == d or path.startswith(d + '/') for d in blocked_dirs):
+            return True
+
+        return False
+
+    def do_HEAD(self):
+        if self._is_path_blocked():
+            self.send_error(403, "Forbidden")
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
+        if self._is_path_blocked():
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
