@@ -278,7 +278,7 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
         path = posixpath.normpath(path)
 
         blocked_extensions = ('.py', '.pyc', '.md', '.log', '.sh', '.env')
-        blocked_files = ('/data.json', '/reports.json', '/visitors.json', '/server.py')
+        blocked_files = ('/reports.json', '/visitors.json', '/server.py')
         blocked_dirs = ('/.git', '/__pycache__')
 
         if any(path.endswith(ext) for ext in blocked_extensions):
