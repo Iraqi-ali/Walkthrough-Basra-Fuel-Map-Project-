@@ -1,0 +1,12 @@
+{
+  "name": "basra-fuel-map",
+  "version": "1.0.0",
+  "description": "Basra Fuel Map",
+  "scripts": {
+    "build": "echo 'Building...'",
+    "test": "echo \"No test specified\""
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
