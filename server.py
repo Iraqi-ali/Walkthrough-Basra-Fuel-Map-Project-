@@ -6,6 +6,8 @@ import urllib.error
 import threading
 import time
 import os
+import posixpath
+import re
 from datetime import datetime, timedelta
 
 PORT = 8000
@@ -268,7 +270,35 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def is_path_blocked(self, path):
+        p = path.split('?', 1)[0].split('#', 1)[0]
+        p = urllib.parse.unquote(p)
+        p = re.sub(r'/+', '/', p)
+        p = posixpath.normpath(p)
+
+        if p.endswith(('.py', '.md', '.log', '.sh')):
+            return True
+        parts = p.split('/')
+        if '.git' in parts or '.jules' in parts or '.Jules' in parts:
+            return True
+        filename = posixpath.basename(p)
+        if filename in ('reports.json', 'visitors.json'):
+            return True
+        return False
+
+    def do_HEAD(self):
+        if self.is_path_blocked(self.path):
+            self.send_response(403)
+            self.end_headers()
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
+        if self.is_path_blocked(self.path):
+            self.send_response(403)
+            self.end_headers()
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
