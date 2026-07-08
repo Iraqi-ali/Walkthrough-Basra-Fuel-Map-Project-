@@ -3,6 +3,9 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
+import posixpath
+import re
 import threading
 import time
 import os
@@ -267,8 +270,37 @@ def get_station_report_status(station_id):
         "threshold": REPORT_THRESHOLD
     }
 
+def _is_blocked_path(path):
+    p = path.split('?')[0].split('#')[0]
+    p = urllib.parse.unquote(p)
+    p = re.sub(r'/+', '/', p)
+    p = posixpath.normpath(p)
+
+    p_lower = p.lower()
+    blocked_exts = ['.py', '.md', '.log', '.sh', '.env', '.sqlite', '.db']
+    if any(p_lower.endswith(ext) for ext in blocked_exts):
+        return True
+    if p_lower in ['/reports.json', '/visitors.json']:
+        return True
+    if '/.git' in p_lower or p_lower.startswith('/.git') or '/.jules' in p_lower or p_lower.startswith('/.jules'):
+        return True
+
+    return False
+
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def do_HEAD(self):
+        if _is_blocked_path(self.path):
+            self.send_response(403)
+            self.end_headers()
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
+        if _is_blocked_path(self.path):
+            self.send_response(403)
+            self.end_headers()
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
