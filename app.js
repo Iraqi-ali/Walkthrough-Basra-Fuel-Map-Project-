@@ -70,6 +70,18 @@ function getUserSessionId() {
     return sessionId;
 }
 
+// Utility: Debounce function for performance optimization
+// Reduces re-renders and map updates during rapid input events
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            func.apply(this, args);
+        }, wait);
+    };
+}
+
 // Clean and normalize fuel product names
 function cleanProductName(name) {
     if (!name) return "";
@@ -763,7 +775,9 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    // Use debounced applyFilters to optimize rapid search input
+    const debouncedApplyFilters = debounce(applyFilters, 300);
+    DOM.stationSearch.addEventListener('input', debouncedApplyFilters);
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
