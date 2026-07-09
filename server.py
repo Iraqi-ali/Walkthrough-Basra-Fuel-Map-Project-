@@ -3,9 +3,12 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
 import threading
 import time
 import os
+import re
+import posixpath
 from datetime import datetime, timedelta
 
 PORT = 8000
@@ -268,7 +271,39 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def _is_request_blocked(self):
+        # Extract the path by splitting on `?` and `#`
+        path = self.path.split('?')[0].split('#')[0]
+        # Decode via `urllib.parse.unquote`
+        path = urllib.parse.unquote(path)
+        # Collapse slashes
+        path = re.sub(r'/+', '/', path)
+        # Normalize with `posixpath.normpath`
+        path = posixpath.normpath(path)
+
+        # Block access to backend code and other sensitive files
+        if path.endswith(('.py', '.md', '.log', '.sh', '.pyc')):
+            return True
+
+        # Block access to sensitive files (except /data.json)
+        blocked_paths = ['/reports.json', '/visitors.json', '/.git', '/.jules', '/.Jules']
+        for b in blocked_paths:
+            if path == b or path.startswith(b + '/'):
+                return True
+
+        return False
+
+    def do_HEAD(self):
+        if self._is_request_blocked():
+            self.send_error(403, "Forbidden")
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
+        if self._is_request_blocked():
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
