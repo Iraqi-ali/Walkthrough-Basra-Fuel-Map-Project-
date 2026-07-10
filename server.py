@@ -288,7 +288,7 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
         if lower_path.endswith(blocked_exts):
             return False
 
-        blocked_paths = ('/reports.json', '/visitors.json', '/.git', '/.jules')
+        blocked_paths = ('/.git', '/.jules')
         for bp in blocked_paths:
             if lower_path == bp or lower_path.startswith(bp + '/'):
                 return False
