@@ -70,6 +70,20 @@ function getUserSessionId() {
     return sessionId;
 }
 
+
+// ⚡ Bolt Optimization: Debounce utility to prevent UI blocking
+// Mitigates O(n) rendering lag caused by synchronous DOM list
+// and Leaflet map marker rebuilds on rapid input events.
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            func.apply(this, args);
+        }, wait);
+    };
+}
+
 // Clean and normalize fuel product names
 function cleanProductName(name) {
     if (!name) return "";
@@ -763,7 +777,7 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
