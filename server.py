@@ -2,10 +2,13 @@ import http.server
 import socketserver
 import json
 import urllib.request
+import urllib.parse
 import urllib.error
 import threading
 import time
 import os
+import re
+import posixpath
 from datetime import datetime, timedelta
 
 PORT = 8000
@@ -268,7 +271,33 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def is_path_blocked(self):
+        parsed_path = self.path.split('?')[0].split('#')[0]
+        parsed_path = urllib.parse.unquote(parsed_path)
+        parsed_path = re.sub(r'/+', '/', parsed_path)
+        parsed_path = posixpath.normpath(parsed_path)
+        if not parsed_path.startswith('/'):
+            parsed_path = '/' + parsed_path
+
+        if any(parsed_path.endswith(ext) for ext in ('.py', '.md', '.log', '.sh')):
+            return True
+        if any(parsed_path.startswith(prefix) for prefix in ('/.git', '/.jules', '/.Jules', '/__pycache__')):
+            return True
+        if parsed_path in ('/reports.json', '/visitors.json', '/.env', '/wrangler.jsonc', '/package.json', '/package-lock.json'):
+            return True
+        return False
+
+    def do_HEAD(self):
+        if self.is_path_blocked():
+            self.send_error(403, "Forbidden")
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
+        if self.is_path_blocked():
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
