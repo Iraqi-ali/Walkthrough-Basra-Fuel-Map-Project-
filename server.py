@@ -12,7 +12,7 @@ import os
 from datetime import datetime, timedelta
 
 PORT = 8000
-DATA_FILE = "data.json"
+DATA_FILE = "public/data.json"
 REPORTS_FILE = "reports.json"
 VISITORS_FILE = "visitors.json"
 SOURCE_API_URL = "https://basrah.iraqstation.com/api.php"
@@ -315,7 +315,11 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         if self.path == "/":
             increment_visitor_count()
-            self.path = "/index.html"
+            self.path = "/public/index.html"
+            return super().do_GET()
+
+        elif self.path in ["/app.js", "/style.css", "/data.json"]:
+            self.path = "/public" + self.path
             return super().do_GET()
         
         elif self.path == "/api/stations":
