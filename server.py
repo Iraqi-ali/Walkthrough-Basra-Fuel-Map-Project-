@@ -9,7 +9,7 @@ import os
 from datetime import datetime, timedelta
 
 PORT = 8000
-DATA_FILE = "data.json"
+DATA_FILE = "public/data.json"
 REPORTS_FILE = "reports.json"
 VISITORS_FILE = "visitors.json"
 SOURCE_API_URL = "https://basrah.iraqstation.com/api.php"
@@ -268,10 +268,51 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def _is_blocked(self):
+        import urllib.parse
+        import re
+        import posixpath
+
+        req_path = self.path
+        if req_path.startswith('http://') or req_path.startswith('https://'):
+            extracted = urllib.parse.urlparse(req_path).path
+        else:
+            extracted = req_path.split('?')[0].split('#')[0]
+
+        extracted = urllib.parse.unquote(extracted)
+        extracted = re.sub(r'/+', '/', extracted)
+        extracted = posixpath.normpath(extracted)
+        if not extracted.startswith('/'):
+            extracted = '/' + extracted
+
+        extracted_lower = extracted.lower()
+
+        blocked_exts = ['.py', '.md', '.log', '.sh']
+        blocked_paths = [
+            '/reports.json', '/visitors.json', '/.git', '/.env',
+            '/.jules', '/__pycache__'
+        ]
+
+        if any(extracted_lower.endswith(ext) for ext in blocked_exts):
+            return True
+        if any(extracted_lower == p or extracted_lower.startswith(p + '/') for p in blocked_paths):
+            return True
+        return False
+
+    def do_HEAD(self):
+        if self._is_blocked():
+            self.send_error(403, "Forbidden")
+            return
+        super().do_HEAD()
+
     def do_GET(self):
+        if self._is_blocked():
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
-            self.path = "/index.html"
+            self.path = "/public/index.html"
             return super().do_GET()
         
         elif self.path == "/api/stations":
@@ -361,6 +402,8 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if not self.path.startswith("/api/") and not self.path.startswith("/public/"):
+                self.path = "/public" + self.path
             return super().do_GET()
 
     def end_headers(self):
