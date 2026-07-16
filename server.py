@@ -6,10 +6,13 @@ import urllib.error
 import threading
 import time
 import os
+import posixpath
+import re
+import urllib.parse
 from datetime import datetime, timedelta
 
 PORT = 8000
-DATA_FILE = "data.json"
+DATA_FILE = "public/data.json"
 REPORTS_FILE = "reports.json"
 VISITORS_FILE = "visitors.json"
 SOURCE_API_URL = "https://basrah.iraqstation.com/api.php"
@@ -268,7 +271,37 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def _validate_path(self):
+        parsed = urllib.parse.urlparse(self.path)
+        path = parsed.path if self.path.startswith(('http://', 'https://')) else self.path.split('?')[0].split('#')[0]
+        path = urllib.parse.unquote(path)
+        path = re.sub(r'/+', '/', path)
+        path = posixpath.normpath(path)
+        if not path.startswith('/'):
+            path = '/' + path
+
+        path_lower = path.lower()
+        if (path_lower.endswith(('.py', '.md', '.log', '.sh')) or
+            any(blocked in path_lower for blocked in ['/reports.json', '/visitors.json', '/.git', '/.env', '/.jules', '/__pycache__'])):
+            return False
+        return True
+
+    def translate_path(self, path):
+        path = super().translate_path(path)
+        rel_path = os.path.relpath(path, os.getcwd())
+        return os.path.join(os.getcwd(), 'public', rel_path)
+
+    def do_HEAD(self):
+        if not self._validate_path():
+            self.send_error(403, "Forbidden")
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
+        if not self._validate_path():
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
