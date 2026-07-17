@@ -1,0 +1,10 @@
+.jules/
+.Jules/
+__pycache__/
+*.pyc
+server.log
+server_output.log
+reports.json
+visitors.json
+*.png
+videos/
