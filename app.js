@@ -79,6 +79,18 @@ function cleanProductName(name) {
     return clean;
 }
 
+// Utility: Debounce function to limit the rate at which a function can fire
+function debounce(func, wait) {
+    let timeout;
+    return function() {
+        const args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            func.apply(this, args);
+        }, wait);
+    };
+}
+
 // Distance Calculation (Haversine Formula in KM)
 function calculateDistance(lat1, lon1, lat2, lon2) {
     if (!lat1 || !lon1 || !lat2 || !lon2) return null;
@@ -763,7 +775,9 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    // Use debounce for search to prevent excessive DOM updates and map re-renders on rapid typing
+    const debouncedApplyFilters = debounce(applyFilters, 300);
+    DOM.stationSearch.addEventListener('input', debouncedApplyFilters);
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
