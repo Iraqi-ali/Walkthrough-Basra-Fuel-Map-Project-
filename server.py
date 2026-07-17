@@ -6,6 +6,9 @@ import urllib.error
 import threading
 import time
 import os
+import urllib.parse
+import re
+import posixpath
 from datetime import datetime, timedelta
 
 PORT = 8000
@@ -268,10 +271,59 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def check_blocklist(self):
+        path = urllib.parse.urlparse(self.path).path if self.path.startswith(('http://', 'https://')) else self.path.split('?')[0].split('#')[0]
+        path = urllib.parse.unquote(path)
+        path = re.sub(r'/+', '/', path)
+        path = posixpath.normpath(path)
+        if not path.startswith('/'):
+            path = '/' + path
+
+        path_lower = path.lower()
+
+        blocklist_extensions = ['.py', '.md', '.log', '.sh']
+        blocklist_exact = ['/reports.json', '/visitors.json', '/.env']
+        blocklist_dirs = ['/.git', '/.jules', '/.Jules', '/__pycache__']
+
+        if any(path_lower.endswith(ext) for ext in blocklist_extensions):
+            return False
+        if path_lower in blocklist_exact:
+            return False
+        if any(path_lower.startswith(dir) for dir in blocklist_dirs):
+            return False
+
+        return True
+
+    def do_HEAD(self):
+        if not self.check_blocklist():
+            self.send_error(403, "Forbidden")
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
+        if not self.check_blocklist():
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
-            self.path = "/index.html"
+            self.path = "/public/index.html"
+            return super().do_GET()
+
+        elif self.path == "/index.html":
+            self.path = "/public/index.html"
+            return super().do_GET()
+
+        elif self.path == "/style.css":
+            self.path = "/public/style.css"
+            return super().do_GET()
+
+        elif self.path == "/app.js":
+            self.path = "/public/app.js"
+            return super().do_GET()
+
+        elif self.path == "/data.json":
+            self.path = "/public/data.json"
             return super().do_GET()
         
         elif self.path == "/api/stations":
