@@ -1,0 +1,8 @@
+reports.json
+visitors.json
+__pycache__/
+*.pyc
+*.png
+videos/
+.jules/
+.Jules/

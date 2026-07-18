@@ -268,10 +268,63 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def _is_blocked(self, request_path):
+        import urllib.parse
+        import posixpath
+        import re
+
+        path = request_path
+        if path.startswith('http://') or path.startswith('https://'):
+            path = urllib.parse.urlparse(path).path
+        else:
+            path = path.split('?')[0].split('#')[0]
+
+        path = urllib.parse.unquote(path)
+        path = re.sub(r'/+', '/', path)
+        path = posixpath.normpath(path)
+        if not path.startswith('/'):
+            path = '/' + path
+
+        path_lower = path.lower()
+
+        blocked_extensions = ('.py', '.pyc', '.md', '.log', '.sh', '.txt')
+        blocked_files = ('/reports.json', '/visitors.json', '/package.json', '/package-lock.json', '/wrangler.jsonc', '/.gitignore')
+        blocked_dirs = ('/.git/', '/.env/', '/.jules/', '/.Jules/', '/__pycache__/', '/.wrangler/')
+
+        if path_lower.endswith(blocked_extensions):
+            return True
+        if path_lower in blocked_files:
+            return True
+        for b_dir in blocked_dirs:
+            if b_dir in path_lower or path_lower == b_dir.rstrip('/'):
+                return True
+        return False
+
+    def do_HEAD(self):
+        if self._is_blocked(self.path):
+            self.send_response(403)
+            self.end_headers()
+            return
+
+        if self.path == "/":
+            self.path = "/public/index.html"
+            return super().do_HEAD()
+
+        if not self.path.startswith('/api/'):
+            self.path = '/public' + self.path
+        return super().do_HEAD()
+
     def do_GET(self):
+        if self._is_blocked(self.path):
+            self.send_response(403)
+            self.send_header("Content-Type", "text/plain; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(b"403 Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
-            self.path = "/index.html"
+            self.path = "/public/index.html"
             return super().do_GET()
         
         elif self.path == "/api/stations":
@@ -361,6 +414,8 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if not self.path.startswith('/api/'):
+                self.path = '/public' + self.path
             return super().do_GET()
 
     def end_headers(self):
