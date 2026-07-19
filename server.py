@@ -313,7 +313,7 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         if self.path == "/":
             increment_visitor_count()
-            self.path = "/index.html"
+            self.path = "/public/index.html"
             return super().do_GET()
         
         elif self.path == "/api/stations":
@@ -403,6 +403,8 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if not self.path.startswith('/api/'):
+                self.path = '/public' + self.path
             return super().do_GET()
 
     def end_headers(self):
