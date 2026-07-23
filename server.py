@@ -271,8 +271,10 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/":
             increment_visitor_count()
-            self.path = "/index.html"
+            self.path = "/public/index.html"
             return super().do_GET()
+        elif not self.path.startswith('/api/') and self.path != '/data.json':
+            self.path = '/public' + self.path
         
         elif self.path == "/api/stations":
             cleanup_expired_reports()
