@@ -92,6 +92,19 @@ function debounce(func, wait) {
     };
 }
 
+// Utility: Debounce function to limit execution rate
+function debounce(func, wait) {
+    let timeout;
+    return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            func.apply(context, args);
+        }, wait);
+    };
+}
+
 // Distance Calculation (Haversine Formula in KM)
 function calculateDistance(lat1, lon1, lat2, lon2) {
     if (!lat1 || !lon1 || !lat2 || !lon2) return null;
