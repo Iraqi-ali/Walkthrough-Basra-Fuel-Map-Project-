@@ -6,6 +6,9 @@ import urllib.error
 import threading
 import time
 import os
+import urllib.parse
+import posixpath
+import re
 from datetime import datetime, timedelta
 
 PORT = 8000
@@ -268,7 +271,37 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def _is_path_blocked(self, path):
+        if path.startswith('http://') or path.startswith('https://'):
+            parsed_path = urllib.parse.urlparse(path).path
+        else:
+            parsed_path = path.split('?')[0].split('#')[0]
+        decoded_path = urllib.parse.unquote(parsed_path)
+        collapsed_path = re.sub(r'/+', '/', decoded_path)
+        normalized_path = posixpath.normpath(collapsed_path)
+        if not normalized_path.startswith('/'):
+            normalized_path = '/' + normalized_path
+        lower_path = normalized_path.lower()
+
+        if lower_path.endswith(('.py', '.pyc', '.md', '.log', '.sh')): return True
+        if lower_path in ('/reports.json', '/visitors.json', '/.env'): return True
+        for d in ('/.git', '/.jules', '/.Jules', '/__pycache__'):
+            if lower_path == d or lower_path.startswith(d + '/'): return True
+        return False
+
+    def do_HEAD(self):
+        if self._is_path_blocked(self.path):
+            self.send_response(403)
+            self.end_headers()
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
+        if self._is_path_blocked(self.path):
+            self.send_response(403)
+            self.end_headers()
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
