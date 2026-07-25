@@ -9,7 +9,7 @@ import os
 from datetime import datetime, timedelta
 
 PORT = 8000
-DATA_FILE = "data.json"
+DATA_FILE = "public/data.json"
 REPORTS_FILE = "reports.json"
 VISITORS_FILE = "visitors.json"
 SOURCE_API_URL = "https://basrah.iraqstation.com/api.php"
