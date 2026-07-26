@@ -450,7 +450,7 @@ function renderStationsList() {
                             <i class="fas ${isAvail ? 'fa-circle-check' : 'fa-circle-xmark'}"></i>
                             ${isAvail ? 'متوفر' : 'غير متوفر'}
                         </span>
-                        <button class="btn-report-product" data-station-id="${st.stationId}" data-product="${pName}" data-status="${isAvail ? 'available' : 'empty'}" title="الإبلاغ عن هذه المادة">
+                        <button class="btn-report-product" data-station-id="${st.stationId}" data-product="${pName}" data-status="${isAvail ? 'available' : 'empty'}" title="الإبلاغ عن هذه المادة" aria-label="الإبلاغ عن حالة ${pName} في ${st.stationName}">
                             <i class="fas fa-flag"></i>
                         </button>
                     </div>
