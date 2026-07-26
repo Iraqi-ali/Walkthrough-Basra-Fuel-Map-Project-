@@ -1,0 +1,12 @@
+reports.json
+visitors.json
+server.log
+server_output.log
+__pycache__/
+*.pyc
+*.png
+videos/
+.jules/
+.Jules/
+.wrangler/
+dist/
