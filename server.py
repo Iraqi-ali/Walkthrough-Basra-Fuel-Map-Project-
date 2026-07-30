@@ -3,13 +3,16 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
+import posixpath
+import re
 import threading
 import time
 import os
 from datetime import datetime, timedelta
 
 PORT = 8000
-DATA_FILE = "data.json"
+DATA_FILE = "public/data.json"
 REPORTS_FILE = "reports.json"
 VISITORS_FILE = "visitors.json"
 SOURCE_API_URL = "https://basrah.iraqstation.com/api.php"
@@ -268,10 +271,65 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def _is_path_blocked(self, path):
+        if path.startswith('http://') or path.startswith('https://'):
+            path = urllib.parse.urlparse(path).path
+        else:
+            path = path.split('?')[0].split('#')[0]
+
+        path = urllib.parse.unquote(path)
+        path = re.sub(r'/+', '/', path)
+        if not path.startswith('/'):
+            path = '/' + path
+
+        norm_path = posixpath.normpath(path).lower()
+
+        blocked_exts = ('.py', '.md', '.log', '.sh', '.pyc')
+        if norm_path.endswith(blocked_exts):
+            return True
+
+        blocked_paths = (
+            '/reports.json',
+            '/visitors.json',
+            '/.git',
+            '/.env',
+            '/.jules',
+            '/__pycache__'
+        )
+
+        for bp in blocked_paths:
+            if norm_path == bp or norm_path.startswith(bp + '/'):
+                return True
+
+        return False
+
+    def do_HEAD(self):
+        if self._is_path_blocked(self.path):
+            self.send_error(403, "Forbidden")
+            return
+
+        if self.path == "/":
+            self.path = "/public/index.html"
+            return super().do_HEAD()
+
+        elif not self.path.startswith('/api/'):
+            self.path = '/public' + self.path
+            return super().do_HEAD()
+
+        super().do_HEAD()
+
     def do_GET(self):
+        if self._is_path_blocked(self.path):
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
-            self.path = "/index.html"
+            self.path = "/public/index.html"
+            return super().do_GET()
+
+        elif not self.path.startswith('/api/'):
+            self.path = '/public' + self.path
             return super().do_GET()
         
         elif self.path == "/api/stations":
