@@ -9,7 +9,7 @@ import os
 from datetime import datetime, timedelta
 
 PORT = 8000
-DATA_FILE = "data.json"
+DATA_FILE = "public/data.json"
 REPORTS_FILE = "reports.json"
 VISITORS_FILE = "visitors.json"
 SOURCE_API_URL = "https://basrah.iraqstation.com/api.php"
@@ -269,9 +269,23 @@ def get_station_report_status(station_id):
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
+        import urllib.parse, posixpath, re
+
+        parsed_path = urllib.parse.urlparse(self.path).path if self.path.startswith('http') else self.path.split('?')[0].split('#')[0]
+        decoded_path = urllib.parse.unquote(parsed_path)
+        collapsed_path = re.sub(r'/+', '/', decoded_path)
+        if not collapsed_path.startswith('/'):
+            collapsed_path = '/' + collapsed_path
+        normalized_path = posixpath.normpath(collapsed_path).lower()
+
+        blocklist = ['.py', '.md', '.log', '.sh', '.pyc', '/reports.json', '/visitors.json', '/.git', '/.env', '/.jules', '/.Jules', '/__pycache__']
+        if any(normalized_path.endswith(ext) or ext in normalized_path for ext in blocklist):
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
-            self.path = "/index.html"
+            self.path = "/public/index.html"
             return super().do_GET()
         
         elif self.path == "/api/stations":
@@ -361,7 +375,31 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if not self.path.startswith('/api/'):
+                self.path = '/public' + self.path
             return super().do_GET()
+
+    def do_HEAD(self):
+        import urllib.parse, posixpath, re
+
+        parsed_path = urllib.parse.urlparse(self.path).path if self.path.startswith('http') else self.path.split('?')[0].split('#')[0]
+        decoded_path = urllib.parse.unquote(parsed_path)
+        collapsed_path = re.sub(r'/+', '/', decoded_path)
+        if not collapsed_path.startswith('/'):
+            collapsed_path = '/' + collapsed_path
+        normalized_path = posixpath.normpath(collapsed_path).lower()
+
+        blocklist = ['.py', '.md', '.log', '.sh', '.pyc', '/reports.json', '/visitors.json', '/.git', '/.env', '/.jules', '/.Jules', '/__pycache__']
+        if any(normalized_path.endswith(ext) or ext in normalized_path for ext in blocklist):
+            self.send_error(403, "Forbidden")
+            return
+
+        if not self.path.startswith('/api/'):
+            if self.path == "/":
+                self.path = "/public/index.html"
+            else:
+                self.path = '/public' + self.path
+        return super().do_HEAD()
 
     def end_headers(self):
         if self.path.startswith("/api/"):
