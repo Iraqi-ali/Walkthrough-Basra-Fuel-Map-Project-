@@ -1,0 +1,4 @@
+## 2026-08-02 - Path Traversal & Sensitive File Exposure in SimpleHTTPRequestHandler
+**Vulnerability:** Python's `http.server.SimpleHTTPRequestHandler` serves all files in the directory by default. The custom handler didn't override `do_GET` or `do_HEAD` adequately to prevent downloading the backend source code (`server.py`), environment files, state files (`reports.json`, `visitors.json`), and permitted directory traversal.
+**Learning:** Extending default HTTP handlers often inherits their default dangerous behaviors unless explicitly explicitly intercepted and strictly validated.
+**Prevention:** Always implement a strict blocklist (or allowlist) for file extensions and specific paths when subclassing `SimpleHTTPRequestHandler` to serve custom directories, and thoroughly normalize incoming requested paths using `urllib.parse` and `posixpath.normpath`.

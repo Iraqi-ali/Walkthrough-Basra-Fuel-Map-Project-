@@ -3,13 +3,16 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
+import posixpath
+import re
 import threading
 import time
 import os
 from datetime import datetime, timedelta
 
 PORT = 8000
-DATA_FILE = "data.json"
+DATA_FILE = "public/data.json"
 REPORTS_FILE = "reports.json"
 VISITORS_FILE = "visitors.json"
 SOURCE_API_URL = "https://basrah.iraqstation.com/api.php"
@@ -268,10 +271,50 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def check_path_allowed(self):
+        if self.path.startswith('http://') or self.path.startswith('https://'):
+            path = urllib.parse.urlparse(self.path).path
+        else:
+            path = self.path.split('?')[0].split('#')[0]
+
+        path = urllib.parse.unquote(path)
+        path = re.sub(r'/+', '/', path)
+        if not path.startswith('/'):
+            path = '/' + path
+        path = posixpath.normpath(path).lower()
+
+        if path.endswith(('.py', '.md', '.log', '.sh', '.pyc')):
+            return False
+
+        blocked_exact = ['/reports.json', '/visitors.json', '/.git', '/.env', '/.jules', '/.Jules', '/__pycache__']
+        for b in blocked_exact:
+            if path == b or path.startswith(b + '/'):
+                return False
+
+        return True
+
+    def do_HEAD(self):
+        if not self.check_path_allowed():
+            self.send_error(403, "Forbidden")
+            return
+
+        if self.path == "/":
+            self.path = "/public/index.html"
+            return super().do_HEAD()
+
+        if not self.path.startswith('/api/'):
+            self.path = '/public' + self.path
+
+        return super().do_HEAD()
+
     def do_GET(self):
+        if not self.check_path_allowed():
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
-            self.path = "/index.html"
+            self.path = "/public/index.html"
             return super().do_GET()
         
         elif self.path == "/api/stations":
@@ -361,6 +404,8 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if not self.path.startswith('/api/'):
+                self.path = '/public' + self.path
             return super().do_GET()
 
     def end_headers(self):
