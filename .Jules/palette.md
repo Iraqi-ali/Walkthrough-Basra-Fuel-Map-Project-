@@ -1,0 +1,3 @@
+## 2024-05-15 - Dynamic ARIA Labels in Templates
+**Learning:** Static attributes on buttons in repeatable template lists are often insufficiently descriptive for screen readers. Using template literals allows injection of specific context (like station and product names) directly into the `aria-label`, making generic actions accessible.
+**Action:** When adding interactive components within mapped or repeated template strings, always inject unique contextual variables into the `aria-label` attribute instead of relying solely on generic tooltips or static ARIA strings.
