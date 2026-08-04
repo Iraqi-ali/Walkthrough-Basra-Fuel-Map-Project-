@@ -373,6 +373,18 @@ function isProductAvailable(station, productName) {
     return prod && prod.availableQuantity > AVAILABILITY_THRESHOLD;
 }
 
+// Utility: Debounce function
+function debounce(func, wait) {
+    let timeout;
+    return function() {
+        const context = this, args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            func.apply(context, args);
+        }, wait);
+    };
+}
+
 // Search and Filter logic
 function applyFilters() {
     const query = DOM.stationSearch.value.trim().toLowerCase();
@@ -763,7 +775,7 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
