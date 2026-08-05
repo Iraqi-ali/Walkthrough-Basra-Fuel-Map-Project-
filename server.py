@@ -12,7 +12,7 @@ import posixpath
 from datetime import datetime, timedelta
 
 PORT = 8000
-DATA_FILE = "data.json"
+DATA_FILE = "public/data.json"
 REPORTS_FILE = "reports.json"
 VISITORS_FILE = "visitors.json"
 SOURCE_API_URL = "https://basrah.iraqstation.com/api.php"
@@ -302,6 +302,12 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.send_response(403)
             self.end_headers()
             return
+
+        if self.path == "/":
+            self.path = "/public/index.html"
+        elif not self.path.startswith('/api/'):
+            self.path = '/public' + self.path
+
         return super().do_HEAD()
 
     def do_GET(self):
@@ -314,7 +320,7 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         if self.path == "/":
             increment_visitor_count()
-            self.path = "/index.html"
+            self.path = "/public/index.html"
             return super().do_GET()
         
         elif self.path == "/api/stations":
@@ -404,6 +410,8 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if not self.path.startswith('/api/'):
+                self.path = '/public' + self.path
             return super().do_GET()
 
     def end_headers(self):
