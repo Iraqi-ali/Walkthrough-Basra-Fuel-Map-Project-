@@ -399,6 +399,23 @@ body {
     box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
 }
 
+.btn:focus-visible, .btn-icon-only:focus-visible, .filter-pill:focus-visible, .nav-tab:focus-visible, .btn-report-product:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 .filter-section {
     padding: 16px 20px;
     border-bottom: 1px solid var(--border-color);
@@ -629,6 +646,11 @@ body {
 .btn-icon-only:hover {
     background: rgba(255, 255, 255, 0.08);
     color: var(--text-primary);
+}
+
+.btn-icon-only:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
 }
 
 .btn-directions:hover {

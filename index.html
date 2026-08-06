@@ -132,8 +132,9 @@
             <!-- Sidebar Navigation and Filter Panel -->
             <aside class="sidebar" id="sidebarPanel">
                 <div class="search-box">
-                    <i class="fas fa-magnifying-glass search-icon"></i>
-                    <input type="text" id="stationSearch" class="form-control" placeholder="ابحث باسم المحطة أو القضاء أو المنطقة...">
+                    <label for="stationSearch" class="visually-hidden">ابحث عن محطة</label>
+                    <i class="fas fa-magnifying-glass search-icon" aria-hidden="true"></i>
+                    <input type="text" id="stationSearch" class="form-control" placeholder="ابحث باسم المحطة أو القضاء أو المنطقة..." aria-label="ابحث باسم المحطة أو القضاء أو المنطقة">
                 </div>
 
                 <!-- Product Filters Scroll Container -->
@@ -188,12 +189,12 @@
         
         <!-- Mobile Navigation bar -->
         <div class="mobile-nav">
-            <button class="nav-tab active" id="tabListBtn">
-                <i class="fas fa-list-ul"></i>
+            <button class="nav-tab active" id="tabListBtn" aria-label="عرض قائمة المحطات">
+                <i class="fas fa-list-ul" aria-hidden="true"></i>
                 <span>قائمة المحطات</span>
             </button>
-            <button class="nav-tab" id="tabMapBtn">
-                <i class="fas fa-map-location-dot"></i>
+            <button class="nav-tab" id="tabMapBtn" aria-label="عرض الخريطة التفاعلية">
+                <i class="fas fa-map-location-dot" aria-hidden="true"></i>
                 <span>عرض الخريطة</span>
             </button>
         </div>
