@@ -648,10 +648,6 @@ body {
     color: var(--text-primary);
 }
 
-.btn-icon-only:focus-visible {
-    outline: 2px solid var(--accent-blue);
-    outline-offset: 2px;
-}
 
 .btn-directions:hover {
     background: var(--color-available-dim);
