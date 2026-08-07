@@ -9,7 +9,7 @@ import os
 from datetime import datetime, timedelta
 
 PORT = 8000
-DATA_FILE = "data.json"
+DATA_FILE = "public/data.json"
 REPORTS_FILE = "reports.json"
 VISITORS_FILE = "visitors.json"
 SOURCE_API_URL = "https://basrah.iraqstation.com/api.php"
@@ -268,10 +268,43 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def validate_path(self):
+        import urllib.parse
+        import re
+        import posixpath
+
+        if self.path.startswith('http://') or self.path.startswith('https://'):
+            extracted_path = urllib.parse.urlparse(self.path).path
+        else:
+            extracted_path = self.path.split('?')[0].split('#')[0]
+
+        extracted_path = urllib.parse.unquote(extracted_path)
+        extracted_path = re.sub(r'/+', '/', extracted_path)
+        if not extracted_path.startswith('/'):
+            extracted_path = '/' + extracted_path
+
+        normalized = posixpath.normpath(extracted_path).lower()
+
+        blocklist = ['.py', '.md', '.log', '.sh', '.pyc', '/reports.json', '/visitors.json', '/.git', '/.env', '/.jules', '/__pycache__']
+        for blocked in blocklist:
+            if blocked in normalized:
+                return False
+        return True
+
+    def do_HEAD(self):
+        if not self.validate_path():
+            self.send_error(403, "Forbidden")
+            return
+        super().do_HEAD()
+
     def do_GET(self):
+        if not self.validate_path():
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
-            self.path = "/index.html"
+            self.path = "/public/index.html"
             return super().do_GET()
         
         elif self.path == "/api/stations":
@@ -361,6 +394,8 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if not self.path.startswith('/api/'):
+                self.path = '/public' + self.path
             return super().do_GET()
 
     def end_headers(self):
