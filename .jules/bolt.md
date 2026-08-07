@@ -1,0 +1,3 @@
+## 2024-05-24 - Unnecessary re-renders in vanilla JS app
+**Learning:** The application's vanilla JavaScript frontend architecture lacks a Virtual DOM and manually rebuilds the entire DOM list and Leaflet map markers from scratch on every state change (e.g., via `applyFilters()`). Any functions tied to high-frequency events (like `input`) must be wrapped in a `debounce` utility to prevent UI freezing and main thread blocking.
+**Action:** When working on vanilla JS apps, always debounce inputs that trigger full DOM rebuilds. Preserving the context (`func.apply(context, args)`) in the custom debounce utility is vital.
