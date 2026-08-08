@@ -399,6 +399,14 @@ body {
     box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
 }
 
+.btn:focus-visible,
+.form-control:focus-visible,
+.filter-pill:focus-visible,
+.nav-tab:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
 .filter-section {
     padding: 16px 20px;
     border-bottom: 1px solid var(--border-color);
