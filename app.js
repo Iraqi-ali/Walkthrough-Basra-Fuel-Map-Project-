@@ -450,7 +450,7 @@ function renderStationsList() {
                             <i class="fas ${isAvail ? 'fa-circle-check' : 'fa-circle-xmark'}"></i>
                             ${isAvail ? 'متوفر' : 'غير متوفر'}
                         </span>
-                        <button class="btn-report-product" data-station-id="${st.stationId}" data-product="${pName}" data-status="${isAvail ? 'available' : 'empty'}" title="الإبلاغ عن هذه المادة">
+                        <button class="btn-report-product" data-station-id="${st.stationId}" data-product="${pName}" data-status="${isAvail ? 'available' : 'empty'}" title="الإبلاغ عن هذه المادة" aria-label="الإبلاغ عن حالة ${pName}">
                             <i class="fas fa-flag"></i>
                         </button>
                     </div>
@@ -502,7 +502,7 @@ function renderStationsList() {
                             <i class="fas fa-diamond-turn-right"></i>
                         </a>
                     ` : ''}
-                    <button class="btn-icon-only btn-report-station" data-station-id="${st.stationId}" title="الإبلاغ عن حالة المحطة">
+                    <button class="btn-icon-only btn-report-station" data-station-id="${st.stationId}" title="الإبلاغ عن حالة المحطة" aria-label="الإبلاغ عن حالة المحطة">
                         <i class="fas fa-flag"></i>
                     </button>
                 </div>

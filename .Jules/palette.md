@@ -1,0 +1,3 @@
+## 2024-08-08 - Added focus-visible and aria-labels
+**Learning:** Found several icon-only interactive elements and inputs that lacked context for screen readers (`aria-label`) and visual feedback for keyboard users (`:focus-visible`). The application uses native DOM generation with string templates and a vanilla CSS setup, which means `.btn:focus` alone isn't sufficient for accessibility without `:focus-visible`.
+**Action:** Always verify if `:focus-visible` exists for global elements like buttons and inputs. Add dynamic `aria-label` attributes to template literals using available variables (e.g. `${pName}`) for clear context.
