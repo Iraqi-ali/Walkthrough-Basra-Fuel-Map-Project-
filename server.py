@@ -3,6 +3,9 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
+import posixpath
+import re
 import threading
 import time
 import os
@@ -268,10 +271,46 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def _is_blocked_path(self):
+        path = self.path
+        if path.startswith('http://') or path.startswith('https://'):
+            path = urllib.parse.urlparse(path).path
+        else:
+            path = path.split('?')[0].split('#')[0]
+        path = urllib.parse.unquote(path)
+        path = re.sub(r'/+', '/', path)
+        if not path.startswith('/'):
+            path = '/' + path
+        path = posixpath.normpath(path).lower()
+
+        for blocked in ['.py', '.md', '.log', '.sh', '.pyc']:
+            if path.endswith(blocked): return True
+        for blocked in ['/reports.json', '/visitors.json', '/.git', '/.env', '/.jules', '/.Jules', '/__pycache__']:
+            if path == blocked or path.startswith(blocked + '/'): return True
+        return False
+
+    def do_HEAD(self):
+        if self._is_blocked_path():
+            self.send_response(403)
+            self.end_headers()
+            return
+        if self.path in ["/index.html", "/app.js", "/style.css"]:
+            self.path = "/public" + self.path
+        return super().do_HEAD()
+
     def do_GET(self):
+        if self._is_blocked_path():
+            self.send_response(403)
+            self.end_headers()
+            self.wfile.write(b"403 Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
-            self.path = "/index.html"
+            self.path = "/public/index.html"
+            return super().do_GET()
+        elif self.path in ["/index.html", "/app.js", "/style.css"]:
+            self.path = "/public" + self.path
             return super().do_GET()
         
         elif self.path == "/api/stations":
