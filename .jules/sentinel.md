@@ -1,4 +1,0 @@
-## 2026-08-09 - Path Traversal & Sensitive File Exposure in Base HTTP Server
-**Vulnerability:** The Python `http.server.SimpleHTTPRequestHandler` in `server.py` blindly serves files from the root directory for any unhandled GET/HEAD request. Because the server root is the codebase root, this exposes backend source code (`server.py`), sensitive data (`reports.json`, `visitors.json`), and potentially `.git` or `.env` directories.
-**Learning:** Default behavior of `SimpleHTTPRequestHandler` is to serve any requested file from the working directory. It lacks built-in protection against path traversal or serving unintended files unless overridden.
-**Prevention:** Implement a strict blocklist checking in a common request validation method before passing to `super().do_GET()` and `super().do_HEAD()`. The path should be normalized (`posixpath.normpath`), unquoted, and checked against restricted extensions (`.py`, `.md`) and paths (`/reports.json`, `/.git`).

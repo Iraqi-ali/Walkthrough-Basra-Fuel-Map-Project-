@@ -294,6 +294,8 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.send_response(403)
             self.end_headers()
             return
+        if self.path in ["/index.html", "/app.js", "/style.css"]:
+            self.path = "/public" + self.path
         return super().do_HEAD()
 
     def do_GET(self):
@@ -305,7 +307,10 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         if self.path == "/":
             increment_visitor_count()
-            self.path = "/index.html"
+            self.path = "/public/index.html"
+            return super().do_GET()
+        elif self.path in ["/index.html", "/app.js", "/style.css"]:
+            self.path = "/public" + self.path
             return super().do_GET()
         
         elif self.path == "/api/stations":
