@@ -1,0 +1,3 @@
+## 2024-08-09 - Vanilla JS Missing Debounce on Input Events
+**Learning:** In vanilla JS applications lacking a Virtual DOM, executing complete data filtering and DOM rebuilding (including Leaflet map markers) on every `input` event stroke blocks the main thread and causes severe UI lag, especially with hundreds of records.
+**Action:** Always wrap high-frequency event handlers like search inputs in a `debounce` utility to ensure the expensive DOM operations only fire after the user pauses typing. Remember to use `func.apply(this, args)` inside the debounce to preserve the correct `this` context for DOM events.
