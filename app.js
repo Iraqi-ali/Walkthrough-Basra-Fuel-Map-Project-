@@ -373,6 +373,17 @@ function isProductAvailable(station, productName) {
     return prod && prod.availableQuantity > AVAILABILITY_THRESHOLD;
 }
 
+// Debounce utility to limit the rate of function execution
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            func.apply(this, args);
+        }, wait);
+    };
+}
+
 // Search and Filter logic
 function applyFilters() {
     const query = DOM.stationSearch.value.trim().toLowerCase();
@@ -763,7 +774,8 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    // ⚡ Bolt: Debounce search input to prevent main thread blocking during typing, reducing expensive DOM and map rebuilds
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
