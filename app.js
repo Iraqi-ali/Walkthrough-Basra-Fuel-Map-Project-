@@ -3,6 +3,18 @@ const AVAILABILITY_THRESHOLD = 9000; // threshold for "available" fuel in liters
 const BASRA_CENTER = [30.5081, 47.7835];
 const REPORT_THRESHOLD = 2;
 
+// Utility functions
+function debounce(func, wait) {
+    let timeout;
+    return function() {
+        const args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            func.apply(this, args);
+        }, wait);
+    };
+}
+
 // Application State
 let appState = {
     stations: [],
@@ -763,7 +775,7 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
