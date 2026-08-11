@@ -361,6 +361,20 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            resolved_path = self.translate_path(self.path)
+            basename = os.path.basename(resolved_path)
+            path_parts = resolved_path.split(os.sep)
+
+            blocked_exts = ('.py', '.md', '.log', '.sh', '.pyc')
+            blocked_files = ('reports.json', 'visitors.json', '.env')
+            blocked_dirs = ('.git', '.jules', '.Jules', '__pycache__')
+
+            if (basename.endswith(blocked_exts) or
+                basename in blocked_files or
+                any(d in path_parts for d in blocked_dirs)):
+                self.send_error(403, "Forbidden")
+                return
+
             return super().do_GET()
 
     def end_headers(self):
