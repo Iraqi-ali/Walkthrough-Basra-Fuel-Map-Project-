@@ -1,0 +1,3 @@
+## 2024-05-18 - Debounce Search Input
+**Learning:** The application's vanilla JavaScript frontend architecture lacks a Virtual DOM and manually rebuilds the entire DOM list and Leaflet map markers from scratch on every state change (e.g., via `applyFilters()`). Any functions tied to high-frequency events (like `input`) must be wrapped in a `debounce` utility to prevent UI freezing and main thread blocking.
+**Action:** Always implement debouncing for input handlers in pure JS architectures where rendering operations are expensive and completely recreate the DOM/UI components.
