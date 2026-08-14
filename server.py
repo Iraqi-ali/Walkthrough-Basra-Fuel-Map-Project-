@@ -268,7 +268,35 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def is_forbidden(self):
+        resolved_path = self.translate_path(self.path)
+        filename = os.path.basename(resolved_path)
+
+        forbidden_extensions = ('.py', '.md', '.log', '.sh', '.pyc', '.env')
+        forbidden_files = ('reports.json', 'visitors.json')
+        forbidden_dirs = ('.git', '.jules', '.Jules', '__pycache__')
+
+        if filename.endswith(forbidden_extensions) or filename in forbidden_files:
+            return True
+
+        path_parts = resolved_path.split(os.sep)
+        for d in forbidden_dirs:
+            if d in path_parts:
+                return True
+
+        return False
+
+    def do_HEAD(self):
+        if self.is_forbidden():
+            self.send_error(403, "Forbidden")
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
+        if not self.path.startswith("/api/") and self.is_forbidden():
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"

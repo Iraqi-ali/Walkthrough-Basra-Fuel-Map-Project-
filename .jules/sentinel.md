@@ -1,0 +1,4 @@
+## 2025-02-20 - Unauthenticated Source Code & Data Exfiltration via HTTP Request Handler Override
+**Vulnerability:** The Python `SimpleHTTPRequestHandler` in `server.py` was serving all files in the current working directory, including the source code (`server.py`) and sensitive application state (`reports.json`, `visitors.json`), because it lacked an access control blocklist to restrict statically served files.
+**Learning:** Overriding `do_GET` to handle API routes doesn't implicitly secure non-API file requests unless an explicit blocklist (via `translate_path`) or allowlist is implemented. Furthermore, `do_HEAD` must also be overridden because `curl -I` can exfiltrate metadata.
+**Prevention:** Always implement a strict blocklist (or allowlist) evaluated on the normalized, translated path (`self.translate_path(self.path)`) in custom `SimpleHTTPRequestHandler` implementations to prevent source code and sensitive data leakage.
