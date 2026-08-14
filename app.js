@@ -60,6 +60,19 @@ const productIcons = {
     'اسطوانات غاز': 'fa-cylinder text-orange'
 };
 
+// Helper: Debounce function to limit frequent function calls
+function debounce(func, delay) {
+    let timeoutId;
+    return function (...args) {
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+        timeoutId = setTimeout(() => {
+            func.apply(this, args);
+        }, delay);
+    };
+}
+
 // Helper: Create unique user session ID
 function getUserSessionId() {
     let sessionId = localStorage.getItem('fuel_map_session_id');
@@ -763,7 +776,7 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
