@@ -271,9 +271,14 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/":
             increment_visitor_count()
-            self.path = "/index.html"
+            self.path = "/public/index.html"
             return super().do_GET()
         
+        # Route static files to public dir if not API or explicit data paths
+        if not self.path.startswith('/api/') and self.path not in ('/data.json', '/visitors.json', '/reports.json'):
+            if not self.path.startswith('/public/'):
+                self.path = '/public' + self.path
+
         elif self.path == "/api/stations":
             cleanup_expired_reports()
             
