@@ -1,0 +1,3 @@
+## 2024-05-18 - Missing Virtual DOM Requires Aggressive Event Debouncing
+**Learning:** The application's vanilla JavaScript frontend architecture lacks a Virtual DOM, meaning it manually rebuilds the entire DOM list and Leaflet map markers from scratch on every state change (like filtering). Unthrottled high-frequency events like search inputs block the main thread and freeze the UI.
+**Action:** When working with direct DOM manipulation apps, always wrap high-frequency event handlers (like `input` or `scroll`) in a `debounce` utility (preserving `this` context via `apply`) to prevent expensive synchronous UI rebuilds.
