@@ -60,6 +60,19 @@ const productIcons = {
     'اسطوانات غاز': 'fa-cylinder text-orange'
 };
 
+// Helper: Debounce utility to prevent main thread blocking on frequent events
+function debounce(func, wait) {
+    let timeout;
+    return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            func.apply(context, args);
+        }, wait);
+    };
+}
+
 // Helper: Create unique user session ID
 function getUserSessionId() {
     let sessionId = localStorage.getItem('fuel_map_session_id');
@@ -763,7 +776,8 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    // Debounce the search input to reduce unnecessary re-renders of the DOM and map markers
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
