@@ -1,0 +1,4 @@
+## 2024-05-18 - Path Traversal Vulnerability in SimpleHTTPRequestHandler
+**Vulnerability:** The Python `SimpleHTTPRequestHandler` serves arbitrary files from the filesystem when overriding `do_GET` and falling back to `super().do_GET()` without path normalization and a secure blocklist/allowlist.
+**Learning:** `SimpleHTTPRequestHandler` is inherently designed to serve files from the current directory and its subdirectories. When using it to build a custom API, any unhandled path falls back to the default handler, making sensitive files (like `.git/config`, `server.py`, or `.env`) accessible. Path traversal attacks (`../`) are also possible if path resolution isn't strict.
+**Prevention:** Always normalize the request path using `self.translate_path(self.path)` and implement an explicit blocklist (or allowlist) to prevent access to sensitive files and directories before calling `super().do_GET()`.
