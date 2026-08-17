@@ -1,0 +1,3 @@
+## 2024-05-24 - Vanilla JS DOM Rebuilds on High-Frequency Events
+**Learning:** The application's vanilla JavaScript architecture lacks a Virtual DOM and manually rebuilds the entire DOM list and Leaflet map markers from scratch on every state change (e.g., via `applyFilters()`). Executing this on every `input` keystroke causes severe main thread blocking and UI freezing.
+**Action:** Any functions tied to high-frequency events (like `input`) in this architecture must be wrapped in a `debounce` utility to prevent main thread blocking, ensuring `func.apply(this, args)` is used to preserve the execution context.
