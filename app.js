@@ -759,11 +759,24 @@ async function triggerServerRefresh() {
     }
 }
 
+// Utility: Debounce high-frequency events
+// Reduces main thread blocking by delaying execution until after rapid events (e.g., typing) stop
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            func.apply(this, args);
+        }, wait);
+    };
+}
+
 // Set up UI Event Listeners
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    // Debounce the input handler to prevent full DOM/map rebuilds on every keystroke
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
