@@ -361,7 +361,38 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if not self.is_safe_path(self.path):
+                self.send_error(403, "Forbidden")
+                return
             return super().do_GET()
+
+    def do_HEAD(self):
+        if not self.is_safe_path(self.path):
+            self.send_error(403, "Forbidden")
+            return
+        return super().do_HEAD()
+
+    def is_safe_path(self, req_path):
+        resolved_path = self.translate_path(req_path)
+        normalized = resolved_path.replace("\\", "/")
+
+        blocked_parts = {".git", ".env", ".jules", ".Jules", "__pycache__"}
+        path_parts = normalized.split("/")
+        if any(part in blocked_parts for part in path_parts):
+            return False
+
+        basename = os.path.basename(resolved_path)
+        ext = os.path.splitext(basename)[1].lower()
+
+        blocked_exts = {".py", ".md", ".log", ".sh", ".pyc"}
+        if ext in blocked_exts:
+            return False
+
+        blocked_names = {"reports.json", "visitors.json"}
+        if basename in blocked_names:
+            return False
+
+        return True
 
     def end_headers(self):
         if self.path.startswith("/api/"):
