@@ -1,0 +1,4 @@
+## 2026-08-18 - Fix Path Traversal and Sensitive File Disclosure
+**Vulnerability:** The SimpleHTTPRequestHandler exposed the backend source code (`server.py`), internal reports state (`reports.json`), and potentially other sensitive files like `.env` and `.git` because there was no blocklist applied to standard static file serving in `do_GET` or `do_HEAD`.
+**Learning:** In a mixed API/Static file server using Python's `http.server`, raw file serving (`super().do_GET()`) defaults to serving all files in the current working directory, including backend source code and dynamically generated runtime states, requiring explicit blocklists mapping translated paths.
+**Prevention:** Always sanitize and validate static file requests using a robust blocklist on `self.translate_path(self.path)` before allowing `SimpleHTTPRequestHandler` to serve the file, ensuring both GET and HEAD methods are secured.
