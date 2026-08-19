@@ -1,0 +1,4 @@
+## 2026-08-19 - Add path traversal and access blocklist to SimpleHTTPRequestHandler
+**Vulnerability:** SimpleHTTPRequestHandler by default allows downloading the source code (server.py), sensitive logs (reports.json, visitors.json), and any other files in the project folder, and is susceptible to basic path traversal if untranslated paths are used.
+**Learning:** Using `os.path.basename` on the translated path (`self.translate_path(self.path)`) provides a solid foundation for verifying file extensions and filenames against a blocklist, preventing information disclosure. Also, both `do_GET` and `do_HEAD` must be secured to prevent leaking headers/metadata.
+**Prevention:** Always implement an explicit blocklist (or allowlist) for file extensions and directories when overriding Python's SimpleHTTPRequestHandler to serve public assets. Always override both `do_GET` and `do_HEAD`.
