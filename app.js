@@ -763,7 +763,14 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    // ⚡ Bolt Performance Optimization:
+    // Debounce the search input to reduce unnecessary filtering, sorting,
+    // and DOM re-renders (list and map markers) while the user is typing.
+    let searchDebounceTimer;
+    DOM.stationSearch.addEventListener('input', () => {
+        clearTimeout(searchDebounceTimer);
+        searchDebounceTimer = setTimeout(applyFilters, 300);
+    });
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
