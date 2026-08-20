@@ -361,7 +361,40 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if self._is_blocked_path():
+                self.send_response(403)
+                self.end_headers()
+                self.wfile.write(b"403 Forbidden")
+                return
             return super().do_GET()
+
+    def do_HEAD(self):
+        if self.path.startswith("/api/"):
+            self.send_response(405)
+            self.end_headers()
+            return
+        if self._is_blocked_path():
+            self.send_response(403)
+            self.end_headers()
+            return
+        return super().do_HEAD()
+
+    def _is_blocked_path(self):
+        resolved_path = self.translate_path(self.path)
+        basename = os.path.basename(resolved_path)
+
+        if basename.endswith(('.py', '.md', '.log', '.sh', '.pyc')):
+            return True
+
+        blocked_names = {'reports.json', 'visitors.json', '.git', '.env', '.jules', '.Jules', '__pycache__'}
+        if basename in blocked_names:
+            return True
+
+        parts = resolved_path.split(os.sep)
+        if any(part in blocked_names for part in parts):
+            return True
+
+        return False
 
     def end_headers(self):
         if self.path.startswith("/api/"):
