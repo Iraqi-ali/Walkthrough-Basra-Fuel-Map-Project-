@@ -1,0 +1,4 @@
+## 2026-08-20 - [Fix unauthorized file access in Python HTTP server]
+**Vulnerability:** Python's `SimpleHTTPRequestHandler` serves all files in the directory by default. When custom path logic falls back to `super().do_GET()`, it exposes backend source code, generated JSON reports, and hidden directories like `.git`.
+**Learning:** Never expose the root directory of a Python HTTP server without an explicit blocklist or allowlist. Even if custom routing handles API calls, unhandled paths will default to serving sensitive files.
+**Prevention:** Always implement a method like `_is_blocked_path()` that intercepts `do_GET()` and `do_HEAD()` to explicitly block sensitive file extensions (`.py`, `.log`), runtime files, and hidden directories before delegating to the base class handler. Use `self.translate_path(self.path)` to normalize paths against traversal attacks.
