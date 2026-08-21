@@ -1,0 +1,3 @@
+## 2024-08-21 - Icon-only buttons lacking ARIA labels
+**Learning:** Found an accessibility issue pattern in this app's dynamically generated station cards where several icon-only action buttons (like reporting station/product status and maps directions) lacked proper `aria-label` attributes.
+**Action:** Always ensure icon-only buttons created via template literals include an `aria-label` reflecting their title or purpose, especially in dynamic, non-English (RTL) contexts.
