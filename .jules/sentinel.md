@@ -1,0 +1,4 @@
+## 2026-08-24 - Prevent Sensitive File Exfiltration
+**Vulnerability:** `SimpleHTTPRequestHandler` in `server.py` inherits `do_GET` and `do_HEAD` which lack access controls, allowing directory traversal and sensitive file access (e.g., `reports.json`, `.git/config`, `server.py`).
+**Learning:** Python's `SimpleHTTPRequestHandler` serves all files in the directory by default. Raw request URI evaluation is bypassable via `../` or URL encoding. Path normalization with `translate_path` is essential before applying blocklists.
+**Prevention:** Always override `do_GET` and `do_HEAD` to check access controls against the normalized path (`translate_path`) before serving files or delegating to the parent class.
