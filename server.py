@@ -268,7 +268,31 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def _is_request_blocked(self):
+        resolved_path = self.translate_path(self.path)
+        blocked_exact = {'reports.json', 'visitors.json', '.git', '.env', '.jules', '.Jules', '__pycache__'}
+        blocked_exts = ('.py', '.md', '.log', '.sh', '.pyc')
+
+        path_parts = resolved_path.split(os.sep)
+        if any(part in blocked_exact for part in path_parts):
+            return True
+
+        if resolved_path.endswith(blocked_exts):
+            return True
+
+        return False
+
+    def do_HEAD(self):
+        if self._is_request_blocked():
+            self.send_error(403, "Forbidden")
+            return
+        super().do_HEAD()
+
     def do_GET(self):
+        if self._is_request_blocked():
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
