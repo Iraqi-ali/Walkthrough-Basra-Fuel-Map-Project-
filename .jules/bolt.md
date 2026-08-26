@@ -1,0 +1,3 @@
+## 2024-05-24 - Debouncing Shared Filter Functions
+**Learning:** In this codebase, the core `applyFilters` function is shared across multiple event triggers (like high-frequency search inputs and low-frequency filter clicks). Wrapping the function definition itself with a debounce adds an unnecessary delay to explicit user actions like clicking a filter pill.
+**Action:** When applying debounce optimizations to shared functions, wrap the specific high-frequency event listener (e.g., the `input` event) rather than the core function definition, to preserve immediate execution for other triggers (e.g., `click` events).
