@@ -1,0 +1,3 @@
+## 2024-05-15 - Debouncing Shared Filter Functions
+**Learning:** In vanilla JS apps like this one, shared state-update functions (`applyFilters`) are bound to both high-frequency events (typing) and low-frequency intentional events (button clicks). Debouncing the core function globally introduces unwanted latency to click events.
+**Action:** Always apply the debounce wrapper specifically at the event listener binding for high-frequency events (e.g., `input`) to preserve immediate execution for other triggers.
