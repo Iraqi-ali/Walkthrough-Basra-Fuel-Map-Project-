@@ -93,6 +93,19 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
     return R * c;
 }
 
+// ⚡ Bolt Performance Optimization: Debounce utility to reduce main thread blocking
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func.apply(this, args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 // Initialize Leaflet Map
 function initMap() {
     appState.map = L.map('map', {
@@ -763,7 +776,8 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    // ⚡ Bolt Performance Optimization: Debounce search input to reduce expensive re-renders
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');

@@ -1,0 +1,3 @@
+## 2024-05-18 - Debouncing Shared Filter Functions
+**Learning:** In this application's architecture, the `applyFilters` function is a shared heavy operation that not only filters arrays but recalculates distances using the Haversine formula and triggers full DOM/Map re-renders. Wrapping the core function definition in a debounce caused immediate UI actions (like clicking product filters) to lag.
+**Action:** When applying debounce optimizations to shared functions, wrap the specific high-frequency event listener (e.g., `input` for search) rather than the core function definition, to preserve immediate execution for other manual triggers (e.g., `click` events).
