@@ -268,7 +268,27 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def is_blocked_path(self, path):
+        resolved_path = self.translate_path(path)
+
+        # Block access to backend code and scripts
+        blocked_exts = ('.py', '.md', '.log', '.sh', '.pyc')
+        if resolved_path.endswith(blocked_exts):
+            return True
+
+        # Block access to sensitive data and config directories
+        blocked_names = {'reports.json', 'visitors.json', '.git', '.env', '.jules', '.Jules', '__pycache__'}
+        parts = resolved_path.split(os.sep)
+        if any(part in blocked_names for part in parts):
+            return True
+
+        return False
+
     def do_GET(self):
+        if self.is_blocked_path(self.path):
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
@@ -362,6 +382,12 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         else:
             return super().do_GET()
+
+    def do_HEAD(self):
+        if self.is_blocked_path(self.path):
+            self.send_error(403, "Forbidden")
+            return
+        return super().do_HEAD()
 
     def end_headers(self):
         if self.path.startswith("/api/"):
