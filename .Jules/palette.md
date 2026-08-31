@@ -1,0 +1,3 @@
+## 2025-03-05 - Enhance Accessibility for Icon-only Elements
+**Learning:** Found dynamically rendered icon-only buttons (`.btn-report-product`, `.btn-report-station`) and links (`.btn-directions`) within `app.js` using `title` attributes instead of proper screen reader support (`aria-label`).
+**Action:** Always add explicit `aria-label` attributes corresponding to `title` values when creating icon-only interactive UI elements, especially within dynamically injected JavaScript templates, to ensure full keyboard and screen reader accessibility.
