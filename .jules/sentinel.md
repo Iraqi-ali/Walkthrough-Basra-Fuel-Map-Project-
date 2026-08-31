@@ -1,0 +1,4 @@
+## 2026-08-31 - Path Traversal and File Exfiltration via SimpleHTTPRequestHandler
+**Vulnerability:** SimpleHTTPRequestHandler exposes all files in the current directory and subdirectories, including backend source code (server.py) and sensitive data files (reports.json, visitors.json) through both GET and HEAD requests.
+**Learning:** The default SimpleHTTPRequestHandler serves any file not explicitly caught by custom routing. Relying on path prefix checks or evaluating the raw URI instead of the resolved path is vulnerable to path traversal (../) and URL encoding bypasses. Furthermore, curl -I sends a HEAD request which can still leak metadata if only do_GET is overridden.
+**Prevention:** Always override both do_GET and do_HEAD, normalize the requested path using self.translate_path() before applying security checks, and enforce an explicit blocklist based on file extensions and specific sensitive directories/files in the resolved OS path.
