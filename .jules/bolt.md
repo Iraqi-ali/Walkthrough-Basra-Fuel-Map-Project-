@@ -1,0 +1,3 @@
+## 2024-09-01 - Debounce search input to reduce overhead
+**Learning:** The application updates the filtered station list and redraws all map markers and UI elements on every single keystroke in the stationSearch input. This causes heavy DOM and mapping recalculations, slowing down performance.
+**Action:** Always wrap high-frequency search input event listeners with a `debounce` utility to batch UI updates and drastically reduce processing overhead.
