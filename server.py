@@ -268,6 +268,22 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def _is_allowed_path(self):
+        resolved_path = self.translate_path(self.path)
+        basename = os.path.basename(resolved_path.rstrip(os.sep))
+        blocked_exts = ('.py', '.md', '.log', '.sh', '.pyc')
+        blocked_names = ('reports.json', 'visitors.json', '.git', '.env', '.jules', '.Jules', '__pycache__')
+        if basename.endswith(blocked_exts) or basename in blocked_names:
+            return False
+        return True
+
+    def do_HEAD(self):
+        if not self._is_allowed_path():
+            self.send_response(403)
+            self.end_headers()
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
         if self.path == "/":
             increment_visitor_count()
@@ -361,6 +377,12 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if not self._is_allowed_path():
+                self.send_response(403)
+                self.send_header("Content-Type", "text/plain; charset=utf-8")
+                self.end_headers()
+                self.wfile.write(b"403 Forbidden")
+                return
             return super().do_GET()
 
     def end_headers(self):
