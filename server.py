@@ -268,6 +268,20 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def _is_file_blocked(self):
+        import os
+        resolved_path = self.translate_path(self.path)
+        basename = os.path.basename(resolved_path).lower()
+        parts = resolved_path.split(os.sep)
+        is_hidden_dir = any(part.startswith('.') for part in parts if part not in ('.', '..', ''))
+        return basename.endswith('.py') or basename.endswith('.json') or basename.startswith('.') or is_hidden_dir
+
+    def do_HEAD(self):
+        if self._is_file_blocked():
+            self.send_error(403, "Access denied")
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
         if self.path == "/":
             increment_visitor_count()
@@ -361,6 +375,9 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if self._is_file_blocked():
+                self.send_error(403, "Access denied")
+                return
             return super().do_GET()
 
     def end_headers(self):
