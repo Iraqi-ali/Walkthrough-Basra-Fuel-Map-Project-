@@ -1,0 +1,3 @@
+## 2024-09-02 - Debounce Search Inputs
+**Learning:** Frequent input events on search bars trigger heavy UI updates and filtering logic on every keystroke, causing unnecessary re-renders and potential UI lag when filtering over 100 stations.
+**Action:** Always wrap high-frequency event listeners (like input) in a debounce function to limit execution and improve perceived performance without sacrificing functionality.
