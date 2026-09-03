@@ -361,7 +361,30 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            resolved_path = self.translate_path(self.path)
+            basename = os.path.basename(resolved_path).lower()
+            path_parts = resolved_path.split(os.sep)
+
+            if any(part.startswith('.') for part in path_parts if part) or \
+               basename.endswith('.py') or \
+               basename.endswith('.json'):
+                self.send_error(403, "Forbidden")
+                return
+
             return super().do_GET()
+
+    def do_HEAD(self):
+        resolved_path = self.translate_path(self.path)
+        basename = os.path.basename(resolved_path).lower()
+        path_parts = resolved_path.split(os.sep)
+
+        if any(part.startswith('.') for part in path_parts if part) or \
+           basename.endswith('.py') or \
+           basename.endswith('.json'):
+            self.send_error(403, "Forbidden")
+            return
+
+        return super().do_HEAD()
 
     def end_headers(self):
         if self.path.startswith("/api/"):
