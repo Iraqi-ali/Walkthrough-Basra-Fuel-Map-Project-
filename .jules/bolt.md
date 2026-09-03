@@ -1,0 +1,3 @@
+## 2024-05-23 - Debounce Search Input
+**Learning:** The `applyFilters` function is called on every keystroke in the search input. This function iterates over all stations, calculates distances, sorts the list, and then calls `renderStationsList` and `renderMapMarkers` which clear and recreate DOM elements and map layers. This synchronous work on every keystroke blocks the main thread.
+**Action:** Wrap the search input event listener with a debounce function to batch rapid keystrokes into a single render cycle, preserving immediate feedback for other triggers like clicks.
