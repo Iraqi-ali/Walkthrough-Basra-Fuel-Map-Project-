@@ -268,13 +268,35 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def is_blocked_path(self):
+        resolved = self.translate_path(self.path)
+        try:
+            rel_path = os.path.relpath(resolved, self.directory if hasattr(self, 'directory') else os.getcwd())
+        except ValueError:
+            return True
+        parts = rel_path.split(os.sep)
+        if any(part.startswith('.') and part != '.' for part in parts if part):
+            return True
+        basename = os.path.basename(resolved).lower()
+        if basename.endswith('.py') or basename.endswith('.json'):
+            return True
+        return False
+
+    def do_HEAD(self):
+        if self.is_blocked_path():
+            self.send_response(403)
+            self.end_headers()
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
-        if self.path == "/":
+        parsed_path = self.path.split('?')[0]
+        if parsed_path == "/":
             increment_visitor_count()
             self.path = "/index.html"
             return super().do_GET()
         
-        elif self.path == "/api/stations":
+        elif parsed_path == "/api/stations":
             cleanup_expired_reports()
             
             if not os.path.exists(DATA_FILE):
@@ -328,7 +350,7 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({"error": f"Internal Server Error: {str(e)}"}).encode('utf-8'))
             return
         
-        elif self.path == "/api/visitors":
+        elif parsed_path == "/api/visitors":
             count = get_visitor_count()
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
@@ -336,7 +358,7 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps({"count": count}, ensure_ascii=False).encode('utf-8'))
             return
         
-        elif self.path == "/api/reports":
+        elif parsed_path == "/api/reports":
             query = {}
             if '?' in self.path:
                 params = self.path.split('?')[1]
@@ -361,6 +383,11 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if self.is_blocked_path():
+                self.send_response(403)
+                self.end_headers()
+                self.wfile.write(b"Forbidden")
+                return
             return super().do_GET()
 
     def end_headers(self):
