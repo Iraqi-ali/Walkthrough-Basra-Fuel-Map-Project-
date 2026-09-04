@@ -1,0 +1,4 @@
+## 2026-09-04 - Fix Path Traversal and Metadata Disclosure
+**Vulnerability:** SimpleHTTPRequestHandler allowed accessing arbitrary files on the filesystem, exposing backend code (`server.py`) and data files (`.json`), and traversing to hidden directories like `.git`. The `HEAD` method was missing, meaning checking file existence by `HEAD` bypassed any application-level blocking if it existed.
+**Learning:** `do_GET` handles the actual transfer, but `do_HEAD` also needs blocking to prevent metadata leakage. Conditional checks based on string prefixes (`startswith`) can be bypassed by traversing (e.g. `../`). Parsing the path properly and verifying the resolved file path against a strict directory hierarchy is required.
+**Prevention:** Unconditionally validate the resolved filesystem path (e.g., using `is_blocked_path`) for both `do_GET` and `do_HEAD`. Use `urllib.parse` or strip query strings properly (`split('?')[0]`) to route paths reliably.
