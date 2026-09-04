@@ -1,0 +1,3 @@
+## 2024-05-24 - Debouncing DOM rendering on input events
+**Learning:** The application re-filters all stations, re-calculates all map distances, and fully re-renders both the list and map markers synchronously on every single character typed into the search bar. This is a severe bottleneck for large datasets.
+**Action:** Implemented a debounce wrapper specifically for the high-frequency input event listener, preserving immediate execution for other triggers like filter button clicks.
