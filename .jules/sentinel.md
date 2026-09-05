@@ -1,0 +1,4 @@
+## 2026-09-05 - Path Traversal & Sensitive File Exposure in SimpleHTTPRequestHandler
+**Vulnerability:** The Python `SimpleHTTPRequestHandler` in `server.py` exposes sensitive backend files (`server.py`, `.json` data files) and hidden directories (`.git/`) to clients via direct path requests or path traversal.
+**Learning:** `SimpleHTTPRequestHandler` serves all files in the directory by default. Without a secure path validation override like overriding `translate_path`, backend logic and sensitive data are leaked unconditionally. Merely routing `/api/` paths does not secure the static file fallback mechanism.
+**Prevention:** Override `translate_path` in `SimpleHTTPRequestHandler` derivatives to intercept and resolve all requested paths. Enforce blocklists (e.g., denying `.py`, `.json`, and hidden files/directories starting with `.`) before returning the resolved file path. Ensure case-insensitive checks and full path component analysis.
