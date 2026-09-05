@@ -268,6 +268,23 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def translate_path(self, path):
+        resolved = super().translate_path(path)
+        basename = os.path.basename(resolved).lower()
+
+        # Block access to python source and data files
+        if basename.endswith('.py') or basename.endswith('.json'):
+            return "/dev/null/doesnotexist"
+
+        # Block access to hidden files and directories (like .git, .env)
+        # Parse the URL path to avoid breaking if the app is deployed in a hidden parent directory
+        import urllib.parse
+        url_parts = urllib.parse.unquote(path).split('/')
+        if any(part.startswith('.') and part not in ('.', '..') for part in url_parts if part):
+            return "/dev/null/doesnotexist"
+
+        return resolved
+
     def do_GET(self):
         if self.path == "/":
             increment_visitor_count()
