@@ -1,0 +1,3 @@
+## 2025-01-30 - Debouncing Search Input
+**Learning:** In this application, the search input triggers `applyFilters` on every keystroke, which immediately rebuilds all DOM nodes for the station list and all Leaflet map markers. This synchronous client-side rendering on every input causes severe layout thrashing and main thread blocking.
+**Action:** When debouncing client-side filtering that involves heavy DOM/Map updates, always wrap the specific high-frequency event listener (e.g., `input`) using a `debounce` utility that preserves the `this` context, rather than the core filtering function itself. This preserves immediate execution for other triggers like category clicks or geolocation sorting.
