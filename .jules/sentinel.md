@@ -1,0 +1,4 @@
+## 2024-05-18 - Path Traversal in SimpleHTTPRequestHandler
+**Vulnerability:** SimpleHTTPRequestHandler by default allows accessing hidden files (like `.git/config`) and application source code/data (like `server.py`, `reports.json`) if not overridden.
+**Learning:** Always explicitly block access to hidden directories and sensitive files in custom request handlers inheriting from `SimpleHTTPRequestHandler` by checking the resolved and unquoted paths, avoiding prefix-based conditionals that can be bypassed via `..`.
+**Prevention:** Override `do_GET` and `do_HEAD` to inspect `urllib.parse.unquote(self.path)` and reject paths containing hidden segments or blocked extensions (.py, .json) before falling back to `super().do_GET()`.
