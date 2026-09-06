@@ -270,7 +270,8 @@ def get_station_report_status(station_id):
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def is_safe_path(self, path):
-        path = urllib.parse.unquote(path).split('?')[0]
+        path = urllib.parse.unquote(path)
+        path = urllib.parse.urlparse(path).path
         parts = path.split('/')
         if any(p.startswith('.') and p not in ['.', '..'] for p in parts):
             return False
