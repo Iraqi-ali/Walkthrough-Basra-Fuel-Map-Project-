@@ -267,7 +267,25 @@ def get_station_report_status(station_id):
         "threshold": REPORT_THRESHOLD
     }
 
+import urllib.parse
+
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def _is_path_allowed(self, path):
+        parsed = urllib.parse.urlparse(urllib.parse.unquote(path)).path
+        parts = parsed.split('/')
+        if any(p.startswith('.') for p in parts if p):
+            return False
+        blocked = ['server.py', 'data.json', 'reports.json', 'visitors.json']
+        if any(p in blocked for p in parts):
+            return False
+        return True
+
+    def do_HEAD(self):
+        if not self._is_path_allowed(self.path):
+            self.send_error(403, "Forbidden")
+            return
+        super().do_HEAD()
+
     def do_GET(self):
         if self.path == "/":
             increment_visitor_count()
@@ -361,6 +379,9 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if not self._is_path_allowed(self.path):
+                self.send_error(403, "Forbidden")
+                return
             return super().do_GET()
 
     def end_headers(self):
