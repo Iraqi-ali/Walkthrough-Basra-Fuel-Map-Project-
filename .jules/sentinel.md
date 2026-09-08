@@ -1,0 +1,4 @@
+## 2026-09-08 - Prevent Path Traversal and Source Exposure in SimpleHTTPRequestHandler
+**Vulnerability:** The Python `SimpleHTTPRequestHandler` implementation allowed unrestricted access to server files, enabling download of backend source code (`server.py`), internal API data/reports (`*.json`), and potentially hidden environment files via path traversal.
+**Learning:** Overriding `do_GET` to catch custom API routes leaves the catch-all `super().do_GET()` vulnerable if not guarded. Additionally, `do_HEAD` bypasses `do_GET` overrides, still leaking file existence and metadata.
+**Prevention:** Unconditionally block sensitive file extensions (`.py`, `.json`, `.md`) and hidden path segments (`.`) in both `do_GET` and `do_HEAD`. Ensure path sanitization handles URL decoding and fragment stripping correctly via `urllib.parse`.
