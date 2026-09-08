@@ -1017,3 +1017,9 @@ body {
         gap: 6px;
     }
 }
+
+/* Accessibility: Focus visible states for keyboard navigation */
+.btn:focus-visible, .btn-icon-only:focus-visible, .filter-pill:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--accent-blue);
+}
