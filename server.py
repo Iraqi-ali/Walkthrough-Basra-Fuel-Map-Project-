@@ -3,9 +3,7 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
-import urllib.parse
 import threading
-import posixpath
 import time
 import os
 from datetime import datetime, timedelta
@@ -24,22 +22,6 @@ REPORT_THRESHOLD = 2
 
 def log(message):
     print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] {message}")
-
-def is_safe_path(path):
-    clean_path = urllib.parse.unquote(path)
-    while '//' in clean_path:
-        clean_path = clean_path.replace('//', '/')
-    clean_path = clean_path.split('?')[0].split('#')[0]
-
-    segments = clean_path.split('/')
-    if any(seg.startswith('.') and seg not in ('.', '..', '') for seg in segments):
-        return False
-
-    norm_path = posixpath.normpath(clean_path)
-    if norm_path in ['/server.py', '/data.json', '/reports.json', '/visitors.json'] or norm_path.endswith('.py'):
-        return False
-
-    return True
 
 def get_visitor_count():
     if not os.path.exists(VISITORS_FILE):
@@ -379,16 +361,7 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
-            if not is_safe_path(self.path):
-                self.send_error(403, "Forbidden")
-                return
             return super().do_GET()
-
-    def do_HEAD(self):
-        if not is_safe_path(self.path):
-            self.send_error(403, "Forbidden")
-            return
-        return super().do_HEAD()
 
     def end_headers(self):
         if self.path.startswith("/api/"):

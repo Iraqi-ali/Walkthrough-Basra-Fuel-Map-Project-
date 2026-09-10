@@ -1,4 +1,0 @@
-## 2026-09-10 - Sensitive File Exposure in SimpleHTTPRequestHandler
-**Vulnerability:** The server exposed backend source code (`server.py`), database files (`data.json`, `reports.json`), and hidden files (e.g., `.git/config`) via both GET and HEAD requests.
-**Learning:** `SimpleHTTPRequestHandler` securely prevents simple `../` path traversals, but by default serves *any* file in the current directory if it is not explicitly blocked. Also, `HEAD` requests are handled by `do_HEAD`, not `do_GET`. Furthermore, relying on prefix checks (e.g., `startswith('/api/')`) can be bypassed using encoded path traversals like `/api/../server.py`.
-**Prevention:** Unconditionally validate paths before serving them by unquoting, resolving double slashes, stripping queries/fragments, checking for hidden file segments in the unquoted path, and explicitly checking against a blocklist. Implement access control on both `do_GET` and `do_HEAD`.
