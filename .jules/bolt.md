@@ -1,0 +1,3 @@
+## 2024-10-24 - Debouncing Map Re-renders
+**Learning:** The synchronous clearing and re-adding of Leaflet markers (`appState.markersGroup.clearLayers()`) in `renderMapMarkers()` within `applyFilters` creates a major main-thread bottleneck when bound directly to `input` keystroke events.
+**Action:** Always debounce search inputs that trigger heavy external library DOM/canvas updates (like Leaflet marker rendering) to prevent janky UI and excessive resource usage.
