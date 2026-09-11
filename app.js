@@ -763,7 +763,15 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    // Debounce search input to avoid excessive filtering and rendering on every keystroke
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    }
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
