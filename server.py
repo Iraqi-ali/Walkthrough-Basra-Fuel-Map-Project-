@@ -3,6 +3,7 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
 import threading
 import time
 import os
@@ -268,10 +269,40 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def is_path_allowed(self):
+        unquoted = urllib.parse.unquote(self.path)
+        while '//' in unquoted:
+            unquoted = unquoted.replace('//', '/')
+        clean_path = unquoted.split('?')[0].split('#')[0]
+        parts = clean_path.split('/')
+
+        if any(p.startswith('.') and p not in ('', '.', '..') for p in parts):
+            return False
+
+        filename = parts[-1]
+        if filename.endswith('.py'):
+            return False
+
+        if filename in ['data.json', 'reports.json', 'visitors.json']:
+            return False
+        return True
+
+    def do_HEAD(self):
+        if not self.is_path_allowed():
+            self.send_response(403)
+            self.end_headers()
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
+            if not self.is_path_allowed():
+                self.send_response(403)
+                self.end_headers()
+                self.wfile.write(b"403 Forbidden")
+                return
             return super().do_GET()
         
         elif self.path == "/api/stations":
@@ -361,6 +392,11 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if not self.is_path_allowed():
+                self.send_response(403)
+                self.end_headers()
+                self.wfile.write(b"403 Forbidden")
+                return
             return super().do_GET()
 
     def end_headers(self):
