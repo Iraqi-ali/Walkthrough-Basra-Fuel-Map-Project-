@@ -1,0 +1,3 @@
+## 2024-05-24 - Leaflet Marker Recreation Bottleneck
+**Learning:** In this application, `applyFilters` synchronously calls `renderMapMarkers`, which explicitly clears (`appState.markersGroup.clearLayers()`) and recreates all Leaflet map markers on every `input` keystroke. This causes severe main-thread blocking and UI jank because Leaflet DOM operations are expensive.
+**Action:** Always wrap high-frequency event listeners (like search inputs) that trigger heavy map operations in a `debounce` utility, ensuring to preserve `this` context with `apply(this, args)`.
