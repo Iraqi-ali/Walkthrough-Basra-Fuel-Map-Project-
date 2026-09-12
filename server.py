@@ -2,6 +2,7 @@ import http.server
 import socketserver
 import json
 import urllib.request
+import urllib.parse
 import urllib.error
 import threading
 import time
@@ -268,7 +269,35 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def is_path_blocked(self, path):
+        path = urllib.parse.unquote(path)
+        while '//' in path:
+            path = path.replace('//', '/')
+        clean_path = path.split('?')[0].split('#')[0]
+
+        if clean_path.endswith('.py') or clean_path.endswith('.md'):
+            return True
+
+        filename = clean_path.split('/')[-1]
+        if filename in ['data.json', 'reports.json', 'visitors.json']:
+            return True
+
+        for part in clean_path.split('/'):
+            if part.startswith('.') and part not in ('.', '..'):
+                return True
+        return False
+
+    def do_HEAD(self):
+        if self.is_path_blocked(self.path):
+            self.send_error(403, "Forbidden")
+            return
+        super().do_HEAD()
+
     def do_GET(self):
+        if self.is_path_blocked(self.path):
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
