@@ -1,0 +1,3 @@
+## 2023-10-24 - Screen Reader Support for Icon-only Buttons
+**Learning:** Icon-only buttons in this application's dynamic components consistently rely on `title` attributes for visual tooltips but omit `aria-label`s. Relying solely on `title` is insufficient for robust screen reader accessibility as it is not consistently mapped to the accessible name across all screen readers.
+**Action:** Always include an explicit `aria-label` attribute on icon-only interactive elements (like `btn-report-product` and `btn-directions`) alongside any `title` attribute to ensure reliable screen reader announcements.
