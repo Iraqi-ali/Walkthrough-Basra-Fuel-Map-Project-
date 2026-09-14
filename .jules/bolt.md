@@ -1,0 +1,3 @@
+## 2026-09-14 - Debouncing Map and List Renders
+**Learning:** In Leaflet + DOM list hybrid applications, filtering operations trigger both DOM node recreation and Leaflet marker layer clears/re-adds. Binding this directly to the `input` event without debouncing causes severe main thread blocking during rapid typing because the browser attempts to redraw both the DOM and the WebGL/Canvas map synchronously.
+**Action:** Always wrap search input handlers that trigger dual-view updates (Map + List) with a debounce utility (e.g., 300ms) to batch the expensive rendering cycles.
