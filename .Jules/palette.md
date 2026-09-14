@@ -1,0 +1,3 @@
+## 2024-05-24 - Dynamic ARIA Labels in Generated UI
+**Learning:** In dynamic map applications (like Basra Fuel Map) where UI cards are generated via JavaScript template literals (verified in `app.js` using `${pName}` and `${st.stationName}` variables), standard icon-only action buttons (e.g., `.btn-report-product`, `.btn-directions`, `.btn-report-station`) become accessibility black holes for screen readers. Using just a `title` attribute is insufficient.
+**Action:** Always inject contextual template variables directly into `aria-label` attributes during template generation. This provides screen readers with highly specific, actionable descriptions (e.g., 'Report availability of Premium Gas at Station X') without cluttering the visual UI.
