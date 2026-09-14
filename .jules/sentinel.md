@@ -1,0 +1,4 @@
+## 2026-09-14 - Python SimpleHTTPRequestHandler File Exposure
+**Vulnerability:** The application's web server uses Python's `SimpleHTTPRequestHandler` which by default serves any file in the directory, exposing sensitive files like `server.py` and potentially other internal state files if requested. Furthermore, `HEAD` requests via `curl -I` bypass `do_GET` custom logic and leak metadata.
+**Learning:** Default behavior of `SimpleHTTPRequestHandler` is insecure for production-like applications unless explicitly locked down to allow only necessary static assets (like `index.html`, `app.js`, `style.css`). Attackers can bypass naive prefix checks using path traversal (`/api/../server.py` or `//server.py`).
+**Prevention:** Always implement an explicit allowlist or robust denylist for served files. Unquote and normalize paths (`posixpath.normpath`) before extracting filenames. Validate both `do_GET` and `do_HEAD` handlers to prevent metadata exfiltration.
