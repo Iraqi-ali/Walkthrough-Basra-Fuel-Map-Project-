@@ -1,0 +1,3 @@
+## 2024-09-15 - Debouncing Search Inputs with Heavy DOM/Map Updates
+**Learning:** In applications where a search input directly triggers complex updates (like `applyFilters` rebuilding the entire list of station cards and `renderMapMarkers` clearing and recreating Leaflet `L.marker` and `L.divIcon` objects), handling updates on every single keystroke creates a significant performance bottleneck and blocks the main thread.
+**Action:** Always wrap search input event handlers in a `debounce` function (e.g., 300ms delay) when the filtering logic involves heavy DOM manipulation or third-party library rendering (like Leaflet markers) to minimize unnecessary re-renders.
