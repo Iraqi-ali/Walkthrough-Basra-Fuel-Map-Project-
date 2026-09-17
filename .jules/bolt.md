@@ -1,3 +1,0 @@
-## 2024-05-15 - Debouncing Search Input
-**Learning:** The `applyFilters` function calls `renderStationsList()` and `renderMapMarkers()` which synchronously re-render the DOM list and Leaflet map markers. Triggering this on every `input` keystroke causes severe main thread blocking for large station datasets, freezing the UI.
-**Action:** Always wrap frequent event listeners (like text input) that trigger heavy DOM or Map repaints in a `debounce` function to preserve the `this` context (using `func.apply(this, args)`) and prevent dropped frames.

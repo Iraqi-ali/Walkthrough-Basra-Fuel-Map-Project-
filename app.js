@@ -759,22 +759,11 @@ async function triggerServerRefresh() {
     }
 }
 
-// Helper: Debounce function to limit execution frequency
-function debounce(func, delay) {
-    let timeoutId;
-    return function (...args) {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => {
-            func.apply(this, args);
-        }, delay);
-    };
-}
-
 // Set up UI Event Listeners
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
+    DOM.stationSearch.addEventListener('input', applyFilters);
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
