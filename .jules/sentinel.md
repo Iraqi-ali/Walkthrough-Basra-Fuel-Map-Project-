@@ -1,0 +1,4 @@
+## 2026-09-17 - SimpleHTTPRequestHandler Sensitive File Exposure
+**Vulnerability:** SimpleHTTPRequestHandler by default serves any file in the current directory and its subdirectories, exposing sensitive files like `server.py` and `data.json` to attackers via path traversal and direct access.
+**Learning:** Relying on the default `SimpleHTTPRequestHandler` without overriding `do_GET` and `do_HEAD` to validate paths creates a critical information disclosure vulnerability.
+**Prevention:** Always implement a robust `_is_safe_path` check that unquotes paths, normalizes them, and strictly blocks sensitive file names and hidden directories unconditionally before passing the request to the handler.
