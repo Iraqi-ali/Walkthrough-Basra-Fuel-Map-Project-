@@ -759,11 +759,26 @@ async function triggerServerRefresh() {
     }
 }
 
+// Helper: Debounce function for frequent events
+// Optimizes performance by reducing the number of times a function is called
+function debounce(func, wait) {
+    let timeout;
+    return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            func.apply(context, args);
+        }, wait);
+    };
+}
+
 // Set up UI Event Listeners
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    // Debounce the search input to reduce DOM manipulations and filtering on every keystroke
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
