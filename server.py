@@ -6,6 +6,8 @@ import urllib.error
 import threading
 import time
 import os
+import urllib.parse
+import posixpath
 from datetime import datetime, timedelta
 
 PORT = 8000
@@ -269,6 +271,19 @@ def get_station_report_status(station_id):
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
+        clean_path = urllib.parse.unquote(self.path)
+        clean_path = clean_path.split('?')[0].split('#')[0]
+        while '//' in clean_path:
+            clean_path = clean_path.replace('//', '/')
+
+        normalized = posixpath.normpath(clean_path)
+        filename = posixpath.basename(normalized)
+
+        blocked_files = {'server.py', 'data.json', 'reports.json', 'visitors.json'}
+        if filename in blocked_files:
+            self.send_error(403, "Access Denied")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"

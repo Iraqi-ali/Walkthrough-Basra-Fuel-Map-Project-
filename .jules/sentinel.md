@@ -1,0 +1,4 @@
+## 2026-09-18 - Path traversal blocklist bypass
+**Vulnerability:** SimpleHTTPRequestHandler allowed downloading backend source code (`server.py`) using crafted URL paths like `//server.py`, `/%2fserver.py`, `/api/../server.py` or `/server.py/`.
+**Learning:** Python's `urlparse` can misinterpret paths starting with `//` as a network location (`netloc`). Bypass can also happen using URL encoding or appending slashes.
+**Prevention:** Unquote path, iteratively replace `//` with `/`, strip query/fragment, normalize with `posixpath.normpath`, and check `posixpath.basename(normalized)` unconditionally against an exact file blocklist.
