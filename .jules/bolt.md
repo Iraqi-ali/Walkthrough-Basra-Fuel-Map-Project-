@@ -1,0 +1,3 @@
+## 2024-10-24 - Debounce search input to prevent UI freezing
+**Learning:** Frequent input events on the search bar trigger synchronous sorting, filtering, and heavy DOM re-rendering (list and map markers) for hundreds of stations, which can block the main thread and cause typing lag.
+**Action:** Always wrap search input handlers that trigger DOM updates in a `debounce` function (preserving `this` context) to batch updates and improve main thread responsiveness.
