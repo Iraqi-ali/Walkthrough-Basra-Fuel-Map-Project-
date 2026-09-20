@@ -269,6 +269,22 @@ def get_station_report_status(station_id):
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
+        import urllib.parse
+        import posixpath
+
+        clean_path = urllib.parse.unquote(self.path).split('?')[0].split('#')[0]
+        while '//' in clean_path:
+            clean_path = clean_path.replace('//', '/')
+        normalized_path = posixpath.normpath(clean_path)
+        filename = posixpath.basename(normalized_path)
+
+        blocklist = {'server.py', 'reports.json', 'visitors.json'}
+        if filename in blocklist:
+            self.send_response(403)
+            self.end_headers()
+            self.wfile.write(b"403 Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
