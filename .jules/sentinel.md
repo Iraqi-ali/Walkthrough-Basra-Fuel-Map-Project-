@@ -1,0 +1,4 @@
+## 2024-05-18 - SimpleHTTPRequestHandler path bypass and sensitive file exposure
+**Vulnerability:** The default implementation of SimpleHTTPRequestHandler serves all files in the current directory, exposing source code, state files, and user reports (including session IDs). Furthermore, relying on string prefixes or `urlparse(path).path` can be bypassed using sequences like `//server.py` or URL encoded slashes.
+**Learning:** In SimpleHTTPRequestHandler, to securely block files, one must apply the blocklist unconditionally, manually unquote the path, replace double slashes, strip query strings, and use `posixpath.normpath` and `posixpath.basename` to extract the true filename before comparison.
+**Prevention:** Always implement an explicit blocklist or allowlist for served files in SimpleHTTPRequestHandler and normalize the request path to extract the basename safely to prevent directory traversal and file exposure bypasses.
