@@ -267,8 +267,26 @@ def get_station_report_status(station_id):
         "threshold": REPORT_THRESHOLD
     }
 
+import posixpath
+import urllib.parse
+
+def _is_safe_path(path):
+    unquoted = urllib.parse.unquote(path)
+    while '//' in unquoted:
+        unquoted = unquoted.replace('//', '/')
+    clean_path = unquoted.split('?')[0].split('#')[0]
+    normalized = posixpath.normpath(clean_path)
+    filename = posixpath.basename(normalized)
+    if filename in ['server.py', 'data.json', 'reports.json', 'visitors.json'] or '.git' in normalized.split('/'):
+        return False
+    return True
+
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
+        if not _is_safe_path(self.path):
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
@@ -369,6 +387,12 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.send_header('Pragma', 'no-cache')
             self.send_header('Expires', '0')
         super().end_headers()
+
+    def do_HEAD(self):
+        if not _is_safe_path(self.path):
+            self.send_error(403, "Forbidden")
+            return
+        return super().do_HEAD()
 
     def do_POST(self):
         content_length = int(self.headers.get('Content-Length', 0))
