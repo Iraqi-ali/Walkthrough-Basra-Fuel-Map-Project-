@@ -1,0 +1,3 @@
+## 2024-09-21 - Debounce UI Blocking Operations
+**Learning:** In applications rendering many DOM nodes and Leaflet map markers simultaneously on user input (like a search bar), omitting a debounce mechanism blocks the main thread on every keystroke, causing severe typing lag and jank.
+**Action:** Always wrap search input handlers that trigger heavy DOM or Map manipulations with a `debounce` function (e.g., 300ms) to ensure operations only fire when the user pauses typing.
