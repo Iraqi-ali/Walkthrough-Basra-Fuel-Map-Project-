@@ -3,6 +3,8 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
+import posixpath
 import threading
 import time
 import os
@@ -269,6 +271,19 @@ def get_station_report_status(station_id):
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
+        # Security: Unconditionally block access to backend and data files
+        path_without_query = self.path.split('?')[0]
+        unquoted_path = urllib.parse.unquote(path_without_query)
+        normalized_path = posixpath.normpath(unquoted_path)
+        filename = normalized_path.rstrip('/').split('/')[-1]
+
+        if filename in ["server.py", "data.json", "reports.json", "visitors.json"]:
+            self.send_response(403)
+            self.send_header("Content-Type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"403 Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
