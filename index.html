@@ -66,8 +66,8 @@
                     <i class="fas fa-clock text-accent"></i>
                     <span id="lastUpdated">آخر تحديث: ...</span>
                 </div>
-                <button id="refreshBtn" class="btn btn-secondary" title="تحديث البيانات يدوياً">
-                    <i class="fas fa-rotate" id="refreshIcon"></i>
+                <button id="refreshBtn" class="btn btn-secondary" title="تحديث البيانات يدوياً" aria-label="تحديث البيانات يدوياً">
+                    <i class="fas fa-rotate" id="refreshIcon" aria-hidden="true"></i>
                     <span class="btn-text">تحديث الآن</span>
                 </button>
             </div>
@@ -132,8 +132,8 @@
             <!-- Sidebar Navigation and Filter Panel -->
             <aside class="sidebar" id="sidebarPanel">
                 <div class="search-box">
-                    <i class="fas fa-magnifying-glass search-icon"></i>
-                    <input type="text" id="stationSearch" class="form-control" placeholder="ابحث باسم المحطة أو القضاء أو المنطقة...">
+                    <i class="fas fa-magnifying-glass search-icon" aria-hidden="true"></i>
+                    <input type="text" id="stationSearch" class="form-control" placeholder="ابحث باسم المحطة أو القضاء أو المنطقة..." aria-label="البحث عن محطة وقود">
                 </div>
 
                 <!-- Product Filters Scroll Container -->
@@ -152,8 +152,8 @@
 
                 <!-- Geolocation and Sorting Controls -->
                 <div class="geo-controls">
-                    <button id="geoSortBtn" class="btn btn-primary btn-block">
-                        <i class="fas fa-location-crosshairs"></i>
+                    <button id="geoSortBtn" class="btn btn-primary btn-block" aria-label="ترتيب حسب الأقرب لموقعي الحالي">
+                        <i class="fas fa-location-crosshairs" aria-hidden="true"></i>
                         <span>ترتيب حسب الأقرب لموقعي الحالي</span>
                     </button>
                     <div id="geoStatus" class="geo-status text-muted small mt-1 hidden"></div>
