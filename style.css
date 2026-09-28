@@ -1017,3 +1017,15 @@ body {
         gap: 6px;
     }
 }
+
+/* Accessibility Focus Rings */
+.btn-icon-only:focus-visible,
+.btn-report-product:focus-visible,
+.btn-report-station:focus-visible,
+.btn-directions:focus-visible,
+.btn:focus-visible,
+.filter-pill:focus-visible,
+.nav-tab:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
