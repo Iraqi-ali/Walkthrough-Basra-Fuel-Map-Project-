@@ -1,0 +1,4 @@
+## 2026-09-29 - Path Traversal & Internal File Exposure in SimpleHTTPRequestHandler
+**Vulnerability:** The server exposed its own source code (`server.py`) and internal state files (`reports.json`, `visitors.json`) because it fell back to `SimpleHTTPRequestHandler` without checking the path.
+**Learning:** `SimpleHTTPRequestHandler` serves all files in the directory by default. When using it to serve static frontends, it will also serve backend Python scripts and hidden directories like `.git` unless paths are explicitly validated and blocked.
+**Prevention:** Always implement an explicit allowlist or blocklist for paths when overriding `do_GET` in `SimpleHTTPRequestHandler`, using `self.translate_path(self.path)` and checking against forbidden files or hidden directories relative to the current working directory.

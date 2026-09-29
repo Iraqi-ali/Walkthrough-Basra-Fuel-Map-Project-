@@ -361,6 +361,17 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            local_path = self.translate_path(self.path)
+            rel_path = os.path.relpath(local_path, os.getcwd())
+            filename = os.path.basename(local_path)
+
+            is_hidden = any(part.startswith('.') and part not in ['.', '..'] for part in rel_path.split(os.sep))
+            is_restricted_file = filename in ['server.py', 'reports.json', 'visitors.json', 'server.log'] or filename.endswith('.py')
+
+            if is_hidden or is_restricted_file:
+                self.send_error(403, "Forbidden")
+                return
+
             return super().do_GET()
 
     def end_headers(self):
