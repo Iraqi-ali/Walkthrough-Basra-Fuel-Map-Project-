@@ -1,0 +1,3 @@
+## 2026-09-30 - Debounce search input to prevent excessive re-renders
+**Learning:** Implementing search in frontend vanilla JS lists without debouncing causes excessive computations on every keystroke, including filtering, array sorting (including expensive geographic distance calculations), and full DOM and map marker re-renders. This is a common bottleneck for map applications where marker updates block the main thread.
+**Action:** Always implement debouncing for text input search fields that trigger synchronous, expensive DOM manipulations or calculations like filtering and sorting.
