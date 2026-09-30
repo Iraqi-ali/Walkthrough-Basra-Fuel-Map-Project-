@@ -361,6 +361,17 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            local_path = self.translate_path(self.path)
+            rel_path = os.path.relpath(local_path, os.getcwd())
+            parts = rel_path.split(os.sep)
+
+            if any(part.startswith('.') and part not in ['.', '..'] for part in parts) or \
+               any(part.lower() in ['server.py', 'reports.json', 'visitors.json'] for part in parts):
+                self.send_response(403)
+                self.end_headers()
+                self.wfile.write(b"403 Forbidden")
+                return
+
             return super().do_GET()
 
     def end_headers(self):

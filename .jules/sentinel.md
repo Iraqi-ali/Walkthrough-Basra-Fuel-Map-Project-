@@ -1,0 +1,4 @@
+## 2026-09-30 - Fix Source Code and Hidden File Disclosure
+**Vulnerability:** The default SimpleHTTPRequestHandler allows fetching hidden directories (like `.git`) and the source code of the backend itself (`server.py`, `reports.json`, etc.) without restriction.
+**Learning:** Using Python's built-in SimpleHTTPRequestHandler as-is for an API backend allows direct read access to all local files in the directory by default. When handling custom API routes in `do_GET`, calling `super().do_GET()` for unhandled routes directly serves local files, which is a path traversal and source code disclosure risk.
+**Prevention:** Always implement an explicit blocklist for hidden files (files starting with `.`) and sensitive backend source/data files before falling back to `super().do_GET()`, using `self.translate_path` to resolve absolute paths safely.
