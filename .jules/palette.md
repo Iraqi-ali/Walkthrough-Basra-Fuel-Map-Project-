@@ -1,0 +1,3 @@
+## 2026-10-01 - Dynamic UI Screen Reader Accessibility
+**Learning:** Dynamic elements like toasts and empty states lack proper ARIA roles and live regions, preventing screen readers from announcing updates. Search inputs and icon-only buttons need proper labels.
+**Action:** Added `role="alert"`/`role="status"` and `aria-live` to dynamic containers, and `aria-label` to search inputs and icon-only buttons to ensure they are announced appropriately.
