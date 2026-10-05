@@ -268,7 +268,26 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def is_path_allowed(self, req_path):
+        local_path = self.translate_path(req_path)
+        rel_path = os.path.relpath(local_path, os.getcwd())
+        if any(part.startswith('.') and part not in ['.', '..'] for part in rel_path.split(os.sep)):
+            return False
+        filename = os.path.basename(local_path)
+        if filename.endswith('.py') or (filename.endswith('.json') and filename != 'data.json'):
+            return False
+        return True
+
+    def do_HEAD(self):
+        if not self.is_path_allowed(self.path):
+            self.send_error(403, "Forbidden")
+            return
+        super().do_HEAD()
+
     def do_GET(self):
+        if not self.is_path_allowed(self.path):
+            self.send_error(403, "Forbidden")
+            return
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
