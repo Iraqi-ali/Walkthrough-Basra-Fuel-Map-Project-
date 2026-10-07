@@ -479,3 +479,8 @@ def run_server():
 
 if __name__ == "__main__":
     run_server()
+
+from js import Response
+
+async def fetch(request):
+    return Response.new("Basrafuelmap is running", headers={"Content-Type": "text/plain"})

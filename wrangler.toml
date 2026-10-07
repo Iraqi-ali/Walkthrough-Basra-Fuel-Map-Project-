@@ -1,0 +1,6 @@
+name = "iraqione"
+main = "server.py"
+compatibility_date = "2026-10-07"
+
+[compatibility_flags]
+python_workers = true
