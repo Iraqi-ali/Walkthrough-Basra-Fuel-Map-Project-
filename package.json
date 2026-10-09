@@ -1,0 +1,11 @@
+{
+  "name": "basrafuelmap",
+  "version": "1.0.0",
+  "description": "Basra Fuel Map",
+  "main": "server.py",
+  "scripts": {
+    "test": "echo \"Error: no test specified\""
+  },
+  "author": "",
+  "license": "ISC"
+}
