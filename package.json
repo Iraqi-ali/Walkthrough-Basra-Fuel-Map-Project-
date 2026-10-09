@@ -1,0 +1,11 @@
+{
+  "name": "basra-fuel-map",
+  "version": "1.0.0",
+  "description": "Basra Fuel Map",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo 'Error: no test specified'"
+  },
+  "author": "",
+  "license": "ISC"
+}

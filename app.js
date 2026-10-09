@@ -17,20 +17,6 @@ let appState = {
 
 let userSessionId = null;
 
-// Utility: Debounce function to limit execution rate of frequent events
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-
 // UI Elements
 const DOM = {
     splashScreen: document.getElementById('splashScreen'),
@@ -73,6 +59,15 @@ const productIcons = {
     'غاز سائل': 'fa-fire-flame-simple text-orange',
     'اسطوانات غاز': 'fa-cylinder text-orange'
 };
+
+// ⚡ Bolt: Debounce helper for performance optimization
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+}
 
 // Helper: Create unique user session ID
 function getUserSessionId() {
@@ -777,6 +772,7 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
+    // ⚡ Bolt: Debounce search input to reduce expensive DOM and map re-renders
     DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
