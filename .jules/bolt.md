@@ -1,0 +1,3 @@
+## 2026-10-09 - Debounce Search Input
+**Learning:** The station search input triggered `applyFilters()` on every keystroke, leading to repeated calculations (filtering and distance sorting) and function calls like `renderStationsList()` and `renderMapMarkers()`.
+**Action:** Implemented a debounce function for the search input event listener (`DOM.stationSearch.addEventListener`) with a 300ms delay to batch these operations.
