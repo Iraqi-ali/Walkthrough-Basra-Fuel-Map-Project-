@@ -1,0 +1,4 @@
+## 2026-10-10 - Block Path Traversal and Sensitive Files in SimpleHTTPRequestHandler
+**Vulnerability:** Path traversal allowed accessing out-of-directory files, and local sensitive files (`server.py`, `.json` data files) were accessible because `SimpleHTTPRequestHandler` serves all files by default.
+**Learning:** `self.translate_path(self.path)` correctly resolves the absolute local file path, preventing parser differential bypasses that occur when manually decoding `self.path`. Also, both `do_GET` and `do_HEAD` must be secured to prevent file metadata leakage.
+**Prevention:** Override both `do_GET` and `do_HEAD` with identical validation logic using `self.translate_path` to verify the requested file is both within the intended directory and not on a restricted file extension/name blocklist.
