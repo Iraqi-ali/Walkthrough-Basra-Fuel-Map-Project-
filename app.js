@@ -498,12 +498,12 @@ function renderStationsList() {
                 <div class="card-actions" onclick="event.stopPropagation();">
                     ${hasCoords ? `
                         <a href="https://www.google.com/maps/dir/?api=1&destination=${st.lat},${st.lng}" 
-                           target="_blank" class="btn-icon-only btn-directions" title="الاتجاهات في خرائط جوجل">
-                            <i class="fas fa-diamond-turn-right"></i>
+                           target="_blank" class="btn-icon-only btn-directions" title="الاتجاهات في خرائط جوجل" aria-label="الحصول على الاتجاهات في خرائط جوجل">
+                            <i class="fas fa-diamond-turn-right" aria-hidden="true"></i>
                         </a>
                     ` : ''}
-                    <button class="btn-icon-only btn-report-station" data-station-id="${st.stationId}" title="الإبلاغ عن حالة المحطة">
-                        <i class="fas fa-flag"></i>
+                    <button class="btn-icon-only btn-report-station" data-station-id="${st.stationId}" title="الإبلاغ عن حالة المحطة" aria-label="الإبلاغ عن حالة المحطة">
+                        <i class="fas fa-flag" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
