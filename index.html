@@ -35,7 +35,7 @@
     <!-- Splash Screen -->
     <div id="splashScreen">
         <div class="splash-logo-container">
-            <i class="fas fa-gas-pump fuel-animation-icon"></i>
+            <i class="fas fa-gas-pump fuel-animation-icon" aria-hidden="true"></i>
             <div class="ripple"></div>
         </div>
         <h2 class="text-white fw-bold mt-4">سكربت للحلول الرقمية - خريطة وقود البصرة التفاعلية</h2>
@@ -53,7 +53,7 @@
         <header class="app-header">
             <div class="header-brand">
                 <div class="logo-box">
-                    <i class="fas fa-droplet icon-pulse"></i>
+                    <i class="fas fa-droplet icon-pulse" aria-hidden="true"></i>
                 </div>
                 <div>
                     <h1 class="header-title">سكربت للحلول الرقمية - موقف الوقود التفاعلي - البصرة</h1>
@@ -63,11 +63,11 @@
             
             <div class="header-actions">
                 <div class="update-status">
-                    <i class="fas fa-clock text-accent"></i>
+                    <i class="fas fa-clock text-accent" aria-hidden="true"></i>
                     <span id="lastUpdated">آخر تحديث: ...</span>
                 </div>
-                <button id="refreshBtn" class="btn btn-secondary" title="تحديث البيانات يدوياً">
-                    <i class="fas fa-rotate" id="refreshIcon"></i>
+                <button id="refreshBtn" class="btn btn-secondary" title="تحديث البيانات يدوياً" aria-label="تحديث البيانات يدوياً">
+                    <i class="fas fa-rotate" id="refreshIcon" aria-hidden="true"></i>
                     <span class="btn-text">تحديث الآن</span>
                 </button>
             </div>
@@ -77,7 +77,7 @@
         <section class="stats-ribbon">
             <!-- Visitor Counter Card -->
             <div class="stat-card" data-filter="">
-                <div class="stat-icon bg-purple-dim"><i class="fas fa-users"></i></div>
+                <div class="stat-icon bg-purple-dim"><i class="fas fa-users" aria-hidden="true"></i></div>
                 <div class="stat-info">
                     <span class="stat-value" id="statVisitors">0</span>
                     <span class="stat-label">إجمالي الزوار</span>
@@ -85,35 +85,35 @@
             </div>
             
             <div class="stat-card" data-filter="الكل">
-                <div class="stat-icon bg-blue-dim"><i class="fas fa-charging-station text-blue"></i></div>
+                <div class="stat-icon bg-blue-dim"><i class="fas fa-charging-station text-blue" aria-hidden="true"></i></div>
                 <div class="stat-info">
                     <span class="stat-value" id="statTotalStations">0</span>
                     <span class="stat-label">المحطات الكلية</span>
                 </div>
             </div>
             <div class="stat-card" data-filter="بنزين">
-                <div class="stat-icon bg-green-dim"><i class="fas fa-gas-pump text-green"></i></div>
+                <div class="stat-icon bg-green-dim"><i class="fas fa-gas-pump text-green" aria-hidden="true"></i></div>
                 <div class="stat-info">
                     <span class="stat-value" id="statRegular">0</span>
                     <span class="stat-label">بنزين متوفر</span>
                 </div>
             </div>
             <div class="stat-card" data-filter="بنزين محسن">
-                <div class="stat-icon bg-orange-dim"><i class="fas fa-bolt-lightning text-orange"></i></div>
+                <div class="stat-icon bg-orange-dim"><i class="fas fa-bolt-lightning text-orange" aria-hidden="true"></i></div>
                 <div class="stat-info">
                     <span class="stat-value" id="statPremium">0</span>
                     <span class="stat-label">محسن متوفر</span>
                 </div>
             </div>
             <div class="stat-card" data-filter="بنزين سوبر">
-                <div class="stat-icon bg-red-dim"><i class="fas fa-crown text-red"></i></div>
+                <div class="stat-icon bg-red-dim"><i class="fas fa-crown text-red" aria-hidden="true"></i></div>
                 <div class="stat-info">
                     <span class="stat-value" id="statSuper">0</span>
                     <span class="stat-label">سوبر متوفر</span>
                 </div>
             </div>
             <div class="stat-card" data-filter="زيت الغاز ">
-                <div class="stat-icon bg-grey-dim"><i class="fas fa-truck-field text-grey"></i></div>
+                <div class="stat-icon bg-grey-dim"><i class="fas fa-truck-field text-grey" aria-hidden="true"></i></div>
                 <div class="stat-info">
                     <span class="stat-value" id="statDiesel">0</span>
                     <span class="stat-label">ديزل متوفر</span>
@@ -122,7 +122,7 @@
         </section>
  <!-- Fixed Report Info Banner -->
         <div class="report-banner">
-            <i class="fas fa-flag-checkered"></i>
+            <i class="fas fa-flag-checkered" aria-hidden="true"></i>
             <span>📢 نظام الإبلاغ المجتمعي: يحتاج <strong>2 مستخدم</strong> للإبلاغ لتغيير حالة المحطة (متوفر / غير متوفر)، والتغيير يبقى ثابتاً حتى منتصف الليل</span>
         </div>
       
@@ -132,8 +132,8 @@
             <!-- Sidebar Navigation and Filter Panel -->
             <aside class="sidebar" id="sidebarPanel">
                 <div class="search-box">
-                    <i class="fas fa-magnifying-glass search-icon"></i>
-                    <input type="text" id="stationSearch" class="form-control" placeholder="ابحث باسم المحطة أو القضاء أو المنطقة...">
+                    <i class="fas fa-magnifying-glass search-icon" aria-hidden="true"></i>
+                    <input type="text" id="stationSearch" class="form-control" placeholder="ابحث باسم المحطة أو القضاء أو المنطقة..." aria-label="ابحث باسم المحطة أو القضاء أو المنطقة">
                 </div>
 
                 <!-- Product Filters Scroll Container -->
@@ -141,19 +141,19 @@
                     <h3 class="section-title">نوع الوقود المطلوب:</h3>
                     <div class="product-filters" id="productFiltersContainer">
                         <button class="filter-pill active" data-product="الكل">الكل</button>
-                        <button class="filter-pill" data-product="بنزين"><i class="fas fa-gas-pump"></i> بنزين عادي</button>
-                        <button class="filter-pill" data-product="بنزين محسن"><i class="fas fa-bolt-lightning"></i> بنزين محسن</button>
-                        <button class="filter-pill" data-product="بنزين سوبر"><i class="fas fa-crown"></i> بنزين سوبر</button>
-                        <button class="filter-pill" data-product="زيت الغاز "><i class="fas fa-truck-field"></i> زيت الغاز (ديزل)</button>
-                        <button class="filter-pill" data-product="نفط أبيض"><i class="fas fa-fire-burner"></i> نفط أبيض</button>
-                        <button class="filter-pill" data-product="غاز سائل (LPG)"><i class="fas fa-fire-flame-simple"></i> غاز سائل</button>
+                        <button class="filter-pill" data-product="بنزين"><i class="fas fa-gas-pump" aria-hidden="true"></i> بنزين عادي</button>
+                        <button class="filter-pill" data-product="بنزين محسن"><i class="fas fa-bolt-lightning" aria-hidden="true"></i> بنزين محسن</button>
+                        <button class="filter-pill" data-product="بنزين سوبر"><i class="fas fa-crown" aria-hidden="true"></i> بنزين سوبر</button>
+                        <button class="filter-pill" data-product="زيت الغاز "><i class="fas fa-truck-field" aria-hidden="true"></i> زيت الغاز (ديزل)</button>
+                        <button class="filter-pill" data-product="نفط أبيض"><i class="fas fa-fire-burner" aria-hidden="true"></i> نفط أبيض</button>
+                        <button class="filter-pill" data-product="غاز سائل (LPG)"><i class="fas fa-fire-flame-simple" aria-hidden="true"></i> غاز سائل</button>
                     </div>
                 </div>
 
                 <!-- Geolocation and Sorting Controls -->
                 <div class="geo-controls">
                     <button id="geoSortBtn" class="btn btn-primary btn-block">
-                        <i class="fas fa-location-crosshairs"></i>
+                        <i class="fas fa-location-crosshairs" aria-hidden="true"></i>
                         <span>ترتيب حسب الأقرب لموقعي الحالي</span>
                     </button>
                     <div id="geoStatus" class="geo-status text-muted small mt-1 hidden"></div>
@@ -189,11 +189,11 @@
         <!-- Mobile Navigation bar -->
         <div class="mobile-nav">
             <button class="nav-tab active" id="tabListBtn">
-                <i class="fas fa-list-ul"></i>
+                <i class="fas fa-list-ul" aria-hidden="true"></i>
                 <span>قائمة المحطات</span>
             </button>
             <button class="nav-tab" id="tabMapBtn">
-                <i class="fas fa-map-location-dot"></i>
+                <i class="fas fa-map-location-dot" aria-hidden="true"></i>
                 <span>عرض الخريطة</span>
             </button>
         </div>
