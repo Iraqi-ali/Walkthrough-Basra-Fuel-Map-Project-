@@ -268,7 +268,44 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+
+    def is_path_allowed(self, path):
+        # Resolve the requested path to an absolute path
+        local_path = self.translate_path(path)
+        base_dir = os.path.abspath(os.getcwd())
+
+        # Prevent directory traversal escaping the root
+        if not local_path.startswith(base_dir):
+            return False
+
+        rel_path = os.path.relpath(local_path, base_dir)
+        parts = rel_path.split(os.sep)
+
+        # Block hidden files/directories (like .git, .env)
+        if any(part.startswith('.') and part not in ['.', '..'] for part in parts):
+            return False
+
+        # Block specific sensitive files
+        blocked_files = ['server.py', 'reports.json', 'visitors.json', 'test_path.py', 'patch_server.py', 'patch_server2.py']
+        if any(part in blocked_files for part in parts):
+            return False
+
+        return True
+
+    def do_HEAD(self):
+        if not self.is_path_allowed(self.path):
+            self.send_response(403)
+            self.end_headers()
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
+        if not self.is_path_allowed(self.path):
+            self.send_response(403)
+            self.end_headers()
+            self.wfile.write(b"403 Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
