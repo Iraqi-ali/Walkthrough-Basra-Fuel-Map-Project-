@@ -268,8 +268,20 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    # SECURITY: Prevent path traversal and access to hidden files/directories (like .git)
+    def validate_path(self):
+        local_path = self.translate_path(self.path)
+        rel_path = os.path.relpath(local_path, os.getcwd())
+        if any(part.startswith('.') and part not in ['.', '..'] for part in rel_path.split(os.sep)):
+            return False
+        return True
+
     def do_GET(self):
+        if not self.validate_path():
+            self.send_error(403, "Forbidden")
+            return
         if self.path == "/":
+
             increment_visitor_count()
             self.path = "/index.html"
             return super().do_GET()
@@ -369,6 +381,12 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.send_header('Pragma', 'no-cache')
             self.send_header('Expires', '0')
         super().end_headers()
+
+    def do_HEAD(self):
+        if not self.validate_path():
+            self.send_error(403, "Forbidden")
+            return
+        super().do_HEAD()
 
     def do_POST(self):
         content_length = int(self.headers.get('Content-Length', 0))
