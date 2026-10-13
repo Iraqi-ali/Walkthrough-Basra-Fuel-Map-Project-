@@ -268,6 +268,29 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def _is_path_safe(self, path):
+        local_path = self.translate_path(path)
+        base_dir = os.path.abspath(os.getcwd())
+        abs_path = os.path.abspath(local_path)
+        if not abs_path.startswith(base_dir):
+            return False
+        rel_path = os.path.relpath(abs_path, base_dir)
+        if any(part.startswith('.') and part not in ['.', '..'] for part in rel_path.split(os.sep)):
+            return False
+        allowed_files = {'index.html', 'app.js', 'style.css'}
+        if rel_path not in allowed_files and rel_path != '.':
+            return False
+        return True
+
+    def do_HEAD(self):
+        if self.path == "/":
+            self.path = "/index.html"
+        if not self._is_path_safe(self.path):
+            self.send_response(403)
+            self.end_headers()
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
         if self.path == "/":
             increment_visitor_count()
@@ -361,6 +384,11 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if not self._is_path_safe(self.path):
+                self.send_response(403)
+                self.end_headers()
+                self.wfile.write(b"403 Forbidden")
+                return
             return super().do_GET()
 
     def end_headers(self):
