@@ -361,7 +361,38 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if not self.is_allowed_path():
+                self.send_error(403, "Forbidden")
+                return
             return super().do_GET()
+
+    def do_HEAD(self):
+        if not self.is_allowed_path():
+            self.send_error(403, "Forbidden")
+            return
+        return super().do_HEAD()
+
+    def is_allowed_path(self):
+        # We know / is mapped to /index.html earlier in do_GET, but let's handle directory specifically or just allow the base dir
+        # Wait, if translate_path removes .. inherently in do_GET but we want to prevent accessing things like .git/config which are in base dir
+        # Also simple HTTP server translate_path does handle .. but we want to restrict files.
+        abs_path = os.path.abspath(self.translate_path(self.path))
+        base_dir = os.path.abspath(os.getcwd())
+
+        # If it's outside base dir, deny
+        if not abs_path.startswith(base_dir):
+            return False
+
+        # Allow directory itself to support index mapping if needed
+        if abs_path == base_dir:
+            return True
+
+        # Explicitly deny sensitive files/folders in the base dir
+        rel_path = os.path.relpath(abs_path, base_dir)
+        if rel_path.startswith('.git') or rel_path == 'server.py' or rel_path == 'patch_server2.py' or rel_path.endswith('.py') or rel_path.startswith('.'):
+            return False
+
+        return True
 
     def end_headers(self):
         if self.path.startswith("/api/"):
