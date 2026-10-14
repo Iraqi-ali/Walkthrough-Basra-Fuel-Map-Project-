@@ -1,0 +1,3 @@
+## 2024-10-24 - Icon-Only Buttons Need Contextual Names
+**Learning:** Icon-only interactive elements (like the 'Report' flag and 'Directions' turn arrow) must be provided with dynamic, contextual `aria-label` attributes to ensure they are understandable by screen readers. For example, simply labeling a button "Report" is insufficient; it must be "Report product ${pName}". Additionally, the inner `<i>` tags should explicitly receive `aria-hidden="true"` to prevent redundant screen reader announcements.
+**Action:** When adding or reviewing interactive elements without visible text labels in vanilla JS UI components, ensure that unique, contextually aware `aria-label`s are applied and internal visual decorative elements are hidden from assistive technologies.
