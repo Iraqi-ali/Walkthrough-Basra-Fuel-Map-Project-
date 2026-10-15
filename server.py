@@ -361,7 +361,32 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if not self._is_path_allowed():
+                self.send_error(403, "Forbidden")
+                return
             return super().do_GET()
+
+    def _is_path_allowed(self):
+        if self.path == '/' or self.path.startswith('/?'):
+            self.path = '/index.html'
+        resolved_path = self.translate_path(self.path)
+        base_dir = os.path.abspath(os.getcwd())
+
+        if not resolved_path.startswith(base_dir + os.sep) and resolved_path != base_dir:
+            return False
+
+        allowed_extensions = ('.html', '.css', '.js', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.json')
+        if not any(resolved_path.endswith(ext) for ext in allowed_extensions):
+            if not os.path.isdir(resolved_path) or self.path not in ('/', '/index.html'):
+                return False
+
+        return True
+
+    def do_HEAD(self):
+        if not self._is_path_allowed():
+            self.send_error(403, "Forbidden")
+            return
+        return super().do_HEAD()
 
     def end_headers(self):
         if self.path.startswith("/api/"):

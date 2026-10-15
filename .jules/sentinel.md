@@ -1,0 +1,4 @@
+## 2026-10-15 - [Path Traversal in Python HTTP Server]
+**Vulnerability:** The Python `SimpleHTTPRequestHandler` in `server.py` allowed access to any file in the current directory (including `server.py` source code, which contains data like URLs) via `GET` and `HEAD` requests.
+**Learning:** `SimpleHTTPRequestHandler` defaults to serving all files in the base directory. When explicitly allowing only specific paths, `do_HEAD` must be patched along with `do_GET` to avoid metadata leaks or bypassing restrictions. Path matching should be done on the resolved absolute path (`self.translate_path`) to prevent path traversal bypasses.
+**Prevention:** Implement an explicit allowlist of static files for `SimpleHTTPRequestHandler`'s default file serving, checking against resolved absolute paths (`os.path.abspath`) and overriding both `do_GET` and `do_HEAD`.
