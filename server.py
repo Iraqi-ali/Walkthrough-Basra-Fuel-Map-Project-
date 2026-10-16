@@ -363,7 +363,9 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
         else:
             # Security: allowlist to prevent source code and sensitive data exposure
             path_without_query = self.path.split('?')[0]
-            if path_without_query not in ['/index.html', '/app.js', '/style.css']:
+
+            # Allow common Cloudflare Pages / Workers assets and static files
+            if path_without_query not in ['/index.html', '/app.js', '/style.css', '/_worker.js', '/_routes.json'] and not path_without_query.startswith('/cdn-cgi/'):
                 self.send_error(403, "Forbidden")
                 return
 
