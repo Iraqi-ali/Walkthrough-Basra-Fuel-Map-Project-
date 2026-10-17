@@ -269,8 +269,9 @@ def get_station_report_status(station_id):
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        if self.path == "/":
-            increment_visitor_count()
+        if self.path == "/" or self.path.startswith("/?"):
+            if self.path == "/":
+                increment_visitor_count()
             self.path = "/index.html"
             return super().do_GET()
         
@@ -361,6 +362,25 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            resolved_path = os.path.abspath(self.translate_path(self.path))
+            base_dir = os.path.abspath(os.getcwd())
+
+            # Revert to allowlist but with flexibility for cloudflare worker
+            allowed_paths = {
+                os.path.join(base_dir, 'index.html'),
+                os.path.join(base_dir, 'style.css'),
+                os.path.join(base_dir, 'app.js'),
+                os.path.join(base_dir, 'data.json')
+            }
+
+            if resolved_path not in allowed_paths and not resolved_path.endswith('.js') and not resolved_path.endswith('.txt'):
+                self.send_error(403, "Forbidden")
+                return
+
+            if not resolved_path.startswith(base_dir):
+                self.send_error(403, "Forbidden")
+                return
+
             return super().do_GET()
 
     def end_headers(self):
