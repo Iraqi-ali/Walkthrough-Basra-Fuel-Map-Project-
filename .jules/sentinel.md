@@ -1,0 +1,4 @@
+## 2026-10-17 - Path Traversal Vulnerability in SimpleHTTPRequestHandler
+**Vulnerability:** Path traversal in static file serving logic allowed unrestricted access to local system files outside the web root directory.
+**Learning:** Implementing `SimpleHTTPRequestHandler`'s generic fallback without access controls exposes all files. Implementing an allowlist requires explicitly whitelisting the root and query params paths as well, since `self.translate_path('/')` resolves to the base directory and fails the file-specific allowlist check.
+**Prevention:** Always use an absolute-path resolved allowlist (or explicit directory confinement) for static files and ensure explicit root (`/`) handling encompasses any potential query parameters.
