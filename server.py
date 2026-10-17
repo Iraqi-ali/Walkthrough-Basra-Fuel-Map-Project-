@@ -367,7 +367,8 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             allowed_paths = {
                 os.path.join(base_dir, 'index.html'),
                 os.path.join(base_dir, 'style.css'),
-                os.path.join(base_dir, 'app.js')
+                os.path.join(base_dir, 'app.js'),
+                os.path.join(base_dir, 'data.json')
             }
             if resolved_path not in allowed_paths:
                 self.send_error(403, "Forbidden")
