@@ -79,6 +79,23 @@ function cleanProductName(name) {
     return clean;
 }
 
+
+// Utility: Debounce function for performance
+// Expected Impact: Reduces redundant executions of costly filtering functions
+// during active user typing, yielding smoother UI interaction.
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const context = this;
+        const later = () => {
+            clearTimeout(timeout);
+            func.apply(context, args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 // Distance Calculation (Haversine Formula in KM)
 function calculateDistance(lat1, lon1, lat2, lon2) {
     if (!lat1 || !lon1 || !lat2 || !lon2) return null;
@@ -763,7 +780,7 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
