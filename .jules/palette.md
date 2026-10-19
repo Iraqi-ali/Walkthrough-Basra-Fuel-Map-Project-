@@ -1,0 +1,3 @@
+## 2026-10-19 - Adding ARIA labels to template literal components
+**Learning:** When adding `aria-label`s to dynamically generated elements in JavaScript, it is highly beneficial to use template literals to include contextual data (e.g., station name or product name). This significantly improves the experience for screen reader users by providing explicit context that is otherwise only conveyed visually through surrounding elements.
+**Action:** Always attempt to utilize available scoped variables to inject specific context into `aria-label`s on icon-only buttons within iterated lists or cards.
