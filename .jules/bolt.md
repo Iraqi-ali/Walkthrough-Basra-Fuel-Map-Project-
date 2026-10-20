@@ -1,3 +1,0 @@
-## 2024-10-21 - Debouncing Input Searches
-**Learning:** The application had an expensive `applyFilters` function that ran synchronously on every keystroke in the station search input. This function iterates through all stations and their products, calculates distances for each station if geolocation is enabled, sorts the list, and triggers a full UI re-render of both list cards and map markers. Running this on every input event triggers expensive recalculations and re-renders unnecessarily during active typing.
-**Action:** Implemented a debounce function and wrapped the `applyFilters` call in a `debounce` to ensure the heavy filtering and re-rendering logic only executes once the user has stopped typing for a short duration.
