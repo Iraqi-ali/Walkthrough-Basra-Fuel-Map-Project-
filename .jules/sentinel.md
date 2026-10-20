@@ -1,0 +1,4 @@
+## 2026-10-20 - Information Disclosure in SimpleHTTPRequestHandler
+**Vulnerability:** Python's `SimpleHTTPRequestHandler` exposes all files in the current working directory to the public by default. In this codebase, sensitive files like `reports.json`, `server.py` and `.git/config` could be directly accessed via HTTP GET requests.
+**Learning:** Returning `super().do_GET()` as a fallback without verifying the path essentially turns the server into an open directory lister. Also, when restricting paths, explicit roots like `/` must be checked and handled to avoid blocking the index page.
+**Prevention:** Implement an explicit allowlist that resolves the requested path via `self.translate_path(self.path)` and strictly checks it against allowed absolute paths (e.g. `['index.html', 'style.css', 'app.js']`) before calling the underlying GET handler. Return a 403 Forbidden for everything else.
