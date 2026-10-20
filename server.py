@@ -269,7 +269,7 @@ def get_station_report_status(station_id):
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        if self.path == "/":
+        if self.path == "/" or self.path.startswith("/?"):
             increment_visitor_count()
             self.path = "/index.html"
             return super().do_GET()
@@ -361,7 +361,18 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
-            return super().do_GET()
+            # 🛡️ Sentinel: Restrict file serving to only allowed public frontend files to prevent information disclosure
+            resolved_path = self.translate_path(self.path)
+            allowed_files = ['index.html', 'style.css', 'app.js']
+            allowed_paths = [os.path.join(os.getcwd(), f) for f in allowed_files]
+
+            if resolved_path in allowed_paths:
+                return super().do_GET()
+            else:
+                self.send_response(403)
+                self.end_headers()
+                self.wfile.write(b"403 Forbidden - Access to sensitive files is denied")
+                return
 
     def end_headers(self):
         if self.path.startswith("/api/"):
