@@ -366,6 +366,16 @@ function updateStatsRibbon() {
     DOM.statDiesel.innerText = dieselCount;
 }
 
+// Utility: Debounce function to limit the rate at which a function can fire
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+}
+
 // Check if a station has a specific product in stock
 function isProductAvailable(station, productName) {
     if (productName === 'الكل') return true;
@@ -763,7 +773,7 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
