@@ -1,0 +1,4 @@
+## 2023-10-21 - Path Traversal Vulnerability in SimpleHTTPRequestHandler
+**Vulnerability:** Path traversal and unauthorized file access via generic `do_GET` handling in `http.server.SimpleHTTPRequestHandler`.
+**Learning:** Relying on `super().do_GET()` as a fallback for all unmatched routes allows attackers to access any file in the server directory (e.g., `/.git/config`, `/server.py`) simply by requesting its path.
+**Prevention:** Explicitly restrict static file serving to an allowlist of necessary public files (e.g., `index.html`, `app.js`, `style.css`) and explicitly handle query parameters on the root path so valid requests are not accidentally blocked.
