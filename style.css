@@ -245,6 +245,14 @@ body {
     transition: var(--transition-fast);
 }
 
+.btn:focus-visible,
+.btn-icon-only:focus-visible,
+.btn-report-product:focus-visible,
+.btn-report-station:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
 .btn-primary {
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
     color: white;
