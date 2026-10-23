@@ -1,0 +1,3 @@
+## 2026-10-23 - Debouncing Search Input
+**Learning:** In a single-page app managing a large dataset of map markers and DOM list items, filtering the dataset and re-rendering on every keystroke in a search input causes severe main thread blocking and lag. The `applyFilters` function recalculates distances and completely rebuilds the UI (`renderStationsList` and `renderMapMarkers`), which is an expensive operation to run on every `input` event.
+**Action:** Implement a `debounce` utility and wrap the search input event handler (`applyFilters`) to delay execution until the user stops typing, thereby preventing unnecessary re-renders and computations.
