@@ -361,6 +361,18 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            resolved_path = self.translate_path(self.path)
+            base_dir = os.path.abspath(os.getcwd())
+            allowed_files = {
+                os.path.join(base_dir, 'index.html'),
+                os.path.join(base_dir, 'app.js'),
+                os.path.join(base_dir, 'style.css')
+            }
+            if resolved_path != base_dir + os.sep and resolved_path not in allowed_files:
+                self.send_response(403)
+                self.end_headers()
+                self.wfile.write(b"403 Forbidden")
+                return
             return super().do_GET()
 
     def end_headers(self):
