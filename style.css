@@ -1017,3 +1017,20 @@ body {
         gap: 6px;
     }
 }
+
+/* Keyboard navigation focus styles */
+.btn:focus-visible,
+.btn-icon-only:focus-visible,
+.filter-pill:focus-visible,
+.nav-tab:focus-visible,
+.btn-report-product:focus-visible,
+.btn-report-station:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+}
+
+.btn-directions:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
