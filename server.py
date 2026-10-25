@@ -269,7 +269,7 @@ def get_station_report_status(station_id):
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        if self.path == "/":
+        if self.path == "/" or self.path.startswith('/?'):
             increment_visitor_count()
             self.path = "/index.html"
             return super().do_GET()
@@ -361,7 +361,16 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
-            return super().do_GET()
+            import urllib.parse
+            clean_path = urllib.parse.unquote(self.path.split('?')[0])
+            allowed_files = ['/index.html', '/app.js', '/style.css']
+
+            if clean_path in allowed_files:
+                self.path = clean_path
+                return super().do_GET()
+            else:
+                self.send_error(403, "Forbidden")
+                return
 
     def end_headers(self):
         if self.path.startswith("/api/"):

@@ -1,0 +1,4 @@
+## 2026-10-25 - Prevent Sensitive File Exposure in SimpleHTTPRequestHandler
+**Vulnerability:** The default `http.server.SimpleHTTPRequestHandler` exposed sensitive files, including the backend code (`server.py`), internal databases (`data.json`, `reports.json`, `visitors.json`), by directly serving them when requested via HTTP GET.
+**Learning:** `SimpleHTTPRequestHandler` serves all files in the directory by default. When building a custom backend that handles both API endpoints and serves frontend static files, failing to restrict static file serving to an explicit allowlist allows users to access any file in the server's working directory, creating a critical data leak and source code exposure.
+**Prevention:** Always implement an explicit allowlist for static file serving when overriding `do_GET` in `SimpleHTTPRequestHandler`, and ensure the parsed path is decoded (`urllib.parse.unquote`) and query strings stripped to prevent bypasses and hidden file exposure.
