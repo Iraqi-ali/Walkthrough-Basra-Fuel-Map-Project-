@@ -1017,3 +1017,14 @@ body {
         gap: 6px;
     }
 }
+
+/* Accessibility: Focus visible styles for keyboard navigation */
+button:focus-visible,
+input:focus-visible,
+a:focus-visible,
+.filter-pill:focus-visible,
+.stat-card:focus-visible,
+.nav-tab:focus-visible {
+    outline: 2px solid var(--accent-blue) !important;
+    outline-offset: 2px;
+}
