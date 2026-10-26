@@ -1,3 +1,15 @@
+
+// Debounce utility
+// Optimization: Reduces DOM re-renders by grouping frequent input events.
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+}
+
 // Global Constants and Thresholds
 const AVAILABILITY_THRESHOLD = 9000; // threshold for "available" fuel in liters
 const BASRA_CENTER = [30.5081, 47.7835];
@@ -763,7 +775,7 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
