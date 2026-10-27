@@ -1,0 +1,3 @@
+## 2026-10-12 - Accessible Icon-Only Buttons in Dynamic Content
+**Learning:** Icon-only buttons within dynamically injected HTML templates (like station cards) often lack context for screen readers. While they have title attributes for tooltips, they need explicit aria-labels that incorporate dynamic data (e.g., station name or product name) for proper accessibility.
+**Action:** Ensure dynamic templates generating icon-only buttons always include an aria-label that provides specific context, and add aria-hidden="true" to the decorative icons inside them.
