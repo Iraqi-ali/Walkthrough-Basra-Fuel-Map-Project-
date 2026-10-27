@@ -373,6 +373,20 @@ function isProductAvailable(station, productName) {
     return prod && prod.availableQuantity > AVAILABILITY_THRESHOLD;
 }
 
+
+// Utility: Debounce function for performance optimization
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 // Search and Filter logic
 function applyFilters() {
     const query = DOM.stationSearch.value.trim().toLowerCase();
@@ -763,7 +777,7 @@ async function triggerServerRefresh() {
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
