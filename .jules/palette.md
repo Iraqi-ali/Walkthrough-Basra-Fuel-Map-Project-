@@ -1,0 +1,3 @@
+## 2026-10-09 - Icon-Only Button Accessibility Pattern
+**Learning:** Discovered a pattern where icon-only action buttons (like reporting and directions) rely solely on `title` attributes, which are not reliably announced by all screen readers, hindering accessibility for visually impaired users.
+**Action:** Applied explicit `aria-label` attributes to these icon-only buttons to ensure their purpose is explicitly communicated to assistive technologies.
