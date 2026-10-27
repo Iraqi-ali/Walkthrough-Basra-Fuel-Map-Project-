@@ -1,3 +1,4 @@
+import os
 import http.server
 import socketserver
 import json
@@ -361,6 +362,32 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            local_path = self.translate_path(self.path)
+            basename = os.path.basename(local_path).lower()
+
+            # Translate path gives absolute path on the machine
+            # We want to check only the components *after* the base directory of our server
+            base_dir = os.getcwd()
+            try:
+                rel_path = os.path.relpath(local_path, base_dir)
+            except ValueError:
+                rel_path = local_path
+
+            # If path goes outside base_dir, it will start with '..'
+            if rel_path.startswith('..'):
+                self.send_response(403)
+                self.end_headers()
+                self.wfile.write(b"Forbidden")
+                return
+
+            parts = rel_path.split(os.sep)
+
+            if any(part.startswith('.') for part in parts) or basename in ['server.py', 'reports.json', 'visitors.json', 'server.log']:
+                self.send_response(403)
+                self.end_headers()
+                self.wfile.write(b"Forbidden")
+                return
+
             return super().do_GET()
 
     def end_headers(self):
