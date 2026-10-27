@@ -1,0 +1,3 @@
+## 2024-10-27 - Debouncing Search Input
+**Learning:** The application has a performance issue where typing in the station search input triggers `applyFilters` on every single keystroke. This causes the entire list of stations to be re-filtered, re-sorted, and more importantly, causes the map markers and station list UI to be completely re-rendered synchronously on every keystroke. This can lead to main thread blocking and a laggy typing experience.
+**Action:** Implement a `debounce` utility function and wrap the `applyFilters` event handler attached to the station search input to reduce unnecessary DOM re-renders and computations while typing.

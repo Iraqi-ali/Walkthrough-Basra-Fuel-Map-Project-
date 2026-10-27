@@ -760,10 +760,21 @@ async function triggerServerRefresh() {
 }
 
 // Set up UI Event Listeners
+
+// Optimization: Reduces DOM re-renders and computations while typing by limiting the rate at which applyFilters is called
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+}
+
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300)); // Optimization: debounced to reduce UI thrashing
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
