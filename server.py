@@ -336,7 +336,7 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps({"count": count}, ensure_ascii=False).encode('utf-8'))
             return
         
-        elif self.path == "/api/reports":
+        elif self.path.startswith("/api/reports"):
             query = {}
             if '?' in self.path:
                 params = self.path.split('?')[1]
@@ -361,6 +361,11 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            import urllib.parse
+            unquoted_path = urllib.parse.unquote(self.path).split('?')[0].split('#')[0]
+            if unquoted_path not in ["/index.html", "/app.js", "/style.css", "/"]:
+                self.send_error(403, "Forbidden")
+                return
             return super().do_GET()
 
     def end_headers(self):
