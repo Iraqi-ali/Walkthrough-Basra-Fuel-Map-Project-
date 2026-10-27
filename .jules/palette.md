@@ -1,0 +1,3 @@
+## 2026-09-29 - Added ARIA labels to icon-only buttons
+**Learning:** Found several icon-only buttons (like report station, get directions, and report product) and a search input missing `aria-label` attributes. Missing these makes navigation challenging for screen reader users since they have no context. Additionally, the decorative/font-awesome icons within these buttons did not have `aria-hidden="true"`, meaning screen readers might attempt to read them out (as confusing unicode).
+**Action:** Always add `aria-label` to icon-only buttons or inputs, and explicitly add `aria-hidden="true"` to any decorative `<i>` tags inside them to prevent confusing screen reader announcements.
