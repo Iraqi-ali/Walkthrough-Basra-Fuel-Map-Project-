@@ -269,7 +269,10 @@ def get_station_report_status(station_id):
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        if self.path == "/":
+        # Fix: Parse path properly to avoid query param bypasses
+        parsed_path = urllib.parse.unquote(self.path).split('?')[0]
+
+        if parsed_path == "/":
             increment_visitor_count()
             self.path = "/index.html"
             return super().do_GET()
@@ -361,7 +364,16 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
-            return super().do_GET()
+            # Fix: Explicitly allowlist static files to prevent arbitrary file exposure
+            allowed_files = ["/index.html", "/app.js", "/style.css"]
+            if urllib.parse.unquote(self.path).split('?')[0] in allowed_files:
+                return super().do_GET()
+            else:
+                self.send_response(403)
+                self.send_header("Content-Type", "text/plain; charset=utf-8")
+                self.end_headers()
+                self.wfile.write(b"403 Forbidden")
+                return
 
     def end_headers(self):
         if self.path.startswith("/api/"):
