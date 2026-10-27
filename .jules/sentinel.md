@@ -1,0 +1,4 @@
+## 2026-09-27 - Path Traversal & Sensitive File Exposure in SimpleHTTPRequestHandler
+**Vulnerability:** SimpleHTTPRequestHandler allowed downloading arbitrary sensitive files like `.git/config`, `server.py`, `reports.json`, and `data.json`. The vulnerability could be exploited directly or using parser differentials (`/%3F/../`) to bypass simple validation.
+**Learning:** Overriding `do_GET` without properly resolving or restricting the filesystem path exposes the entire working directory. Relying on simple string matching on `self.path` fails because curl/browsers can encode paths differently than python's standard parsers expect.
+**Prevention:** Always use `self.translate_path(self.path)` to normalize and resolve the local filesystem path before performing validation. Enforce explicit deny lists for hidden directories (`.*`) and sensitive extensions (`.py`, `.json`, `.log`), returning 403 Forbidden.

@@ -269,6 +269,23 @@ def get_station_report_status(station_id):
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
+        # Translate the path to an absolute local filesystem path using SimpleHTTPRequestHandler's built-in method
+        local_path = self.translate_path(self.path)
+
+        # Security: Prevent path traversal and direct access to sensitive files or hidden directories
+        # We only check the relative part of the path to avoid blocking if the app is hosted in a hidden folder
+        rel_path = os.path.relpath(local_path, os.getcwd())
+
+        if any(part.startswith('.') and part != '.' for part in rel_path.split(os.sep)):
+            self.send_error(403, "Forbidden")
+            return
+
+        filename = os.path.basename(local_path)
+        # We do not block data.json since it's the core public data.
+        if filename.lower() in ('server.py', 'reports.json', 'visitors.json') or filename.lower().endswith('.log'):
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
