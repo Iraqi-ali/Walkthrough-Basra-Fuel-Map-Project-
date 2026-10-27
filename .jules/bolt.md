@@ -1,0 +1,3 @@
+## 2026-10-04 - Unnecessary re-renders on search input
+**Learning:** Attaching heavy UI updates (like re-rendering Leaflet map markers and rebuilding DOM lists) synchronously to the `input` event causes excessive synchronous DOM list rebuilds and Leaflet map marker re-renders on every keystroke.
+**Action:** Always debounce search input handlers that trigger expensive DOM manipulations or map updates to ensure smooth typing and reduce unnecessary processing.
