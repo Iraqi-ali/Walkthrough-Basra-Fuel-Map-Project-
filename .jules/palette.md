@@ -1,0 +1,3 @@
+## 2026-10-03 - Missing ARIA Labels on Icon-Only Buttons
+**Learning:** The map interface uses several icon-only buttons (like directions and report buttons) that lacked ARIA labels, making them invisible or confusing for screen reader users. This is a common pattern when prioritizing visual design over a11y.
+**Action:** Add explicit `aria-label` attributes to all icon-only buttons and interactive elements without text.
