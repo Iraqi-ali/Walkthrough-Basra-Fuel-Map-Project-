@@ -1,0 +1,3 @@
+## 2026-09-26 - Un-debounced search input blocking main thread
+**Learning:** The application's search input was triggering complex synchronous operations (e.g., filtering, sorting, distance calculations, and DOM/map re-rendering) on every single keystroke.
+**Action:** Always apply a debounce wrapper to search inputs that drive heavy filtering calculations and re-renders to reduce unnecessary execution.
