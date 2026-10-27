@@ -1,0 +1,4 @@
+## 2026-10-03 - [Fix Path Traversal in SimpleHTTPRequestHandler]
+**Vulnerability:** [The Python SimpleHTTPRequestHandler was serving sensitive files like the source code (server.py), data files (reports.json, visitors.json), and hidden files (.git/config) and was vulnerable to parser differential bypasses (/%3F/../).]
+**Learning:** [Overriding do_GET alone is insufficient; do_HEAD must also be secured to prevent metadata leaks. Using self.translate_path(self.path) is critical to accurately resolve the absolute local file path before extracting the filename for validation, avoiding parser differential bypasses.]
+**Prevention:** [Implement a robust _is_path_allowed check using self.translate_path() that blocks hidden files and specific sensitive basenames, and apply it to both do_GET and do_HEAD.]
