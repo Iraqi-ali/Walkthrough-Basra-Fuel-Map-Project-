@@ -3,6 +3,7 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
 import threading
 import time
 import os
@@ -365,7 +366,7 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         else:
             # Fix: Explicitly allowlist static files to prevent arbitrary file exposure
-            allowed_files = ["/index.html", "/app.js", "/style.css"]
+            allowed_files = ["/index.html", "/app.js", "/style.css", "/favicon.ico"]
             if urllib.parse.unquote(self.path).split('?')[0] in allowed_files:
                 return super().do_GET()
             else:
