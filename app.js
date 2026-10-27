@@ -427,6 +427,9 @@ function renderStationsList() {
         return;
     }
 
+    // Optimization: Use DocumentFragment to batch DOM insertions
+    const fragment = document.createDocumentFragment();
+
     appState.filteredStations.forEach(st => {
         const hasCoords = st.lat !== null && st.lng !== null;
         
@@ -514,8 +517,10 @@ function renderStationsList() {
             selectStation(st);
         });
 
-        DOM.stationsList.appendChild(card);
+        fragment.appendChild(card);
     });
+
+    DOM.stationsList.appendChild(fragment);
 
     document.querySelectorAll('.btn-report-station').forEach(btn => {
         btn.addEventListener('click', async (e) => {
