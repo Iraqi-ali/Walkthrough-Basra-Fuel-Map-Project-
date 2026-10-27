@@ -269,7 +269,7 @@ def get_station_report_status(station_id):
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        if self.path == "/":
+        if self.path == "/" or self.path.startswith("/?"):  # Fix root path query bypass
             increment_visitor_count()
             self.path = "/index.html"
             return super().do_GET()
@@ -361,6 +361,14 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            # Security: allowlist to prevent source code and sensitive data exposure
+            path_without_query = self.path.split('?')[0]
+
+            # Allow common Cloudflare Pages / Workers assets and static files
+            if path_without_query not in ['/index.html', '/app.js', '/style.css', '/_worker.js', '/_routes.json'] and not path_without_query.startswith('/cdn-cgi/'):
+                self.send_error(403, "Forbidden")
+                return
+
             return super().do_GET()
 
     def end_headers(self):
