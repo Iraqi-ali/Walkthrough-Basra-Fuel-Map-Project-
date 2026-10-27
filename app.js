@@ -212,6 +212,8 @@ function showToast(message, type = 'info') {
     
     const toast = document.createElement('div');
     toast.className = 'toast-notification';
+    toast.setAttribute('role', 'alert');
+    toast.setAttribute('aria-live', 'assertive');
     toast.style.cssText = `
         position: fixed;
         bottom: 80px;
@@ -419,8 +421,8 @@ function renderStationsList() {
     
     if (appState.filteredStations.length === 0) {
         DOM.stationsList.innerHTML = `
-            <div class="text-center py-5 text-muted">
-                <i class="fas fa-gas-pump fa-3x opacity-20 mb-3"></i>
+            <div class="text-center py-5 text-muted" role="status" aria-live="polite">
+                <i class="fas fa-gas-pump fa-3x opacity-20 mb-3" aria-hidden="true"></i>
                 <p>لا توجد محطات مطابقة للبحث أو الفلتر الحالي.</p>
             </div>
         `;
@@ -450,8 +452,8 @@ function renderStationsList() {
                             <i class="fas ${isAvail ? 'fa-circle-check' : 'fa-circle-xmark'}"></i>
                             ${isAvail ? 'متوفر' : 'غير متوفر'}
                         </span>
-                        <button class="btn-report-product" data-station-id="${st.stationId}" data-product="${pName}" data-status="${isAvail ? 'available' : 'empty'}" title="الإبلاغ عن هذه المادة">
-                            <i class="fas fa-flag"></i>
+                        <button class="btn-report-product" data-station-id="${st.stationId}" data-product="${pName}" data-status="${isAvail ? 'available' : 'empty'}" title="الإبلاغ عن هذه المادة" aria-label="الإبلاغ عن توفر ${pName}">
+                            <i class="fas fa-flag" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
@@ -498,12 +500,12 @@ function renderStationsList() {
                 <div class="card-actions" onclick="event.stopPropagation();">
                     ${hasCoords ? `
                         <a href="https://www.google.com/maps/dir/?api=1&destination=${st.lat},${st.lng}" 
-                           target="_blank" class="btn-icon-only btn-directions" title="الاتجاهات في خرائط جوجل">
-                            <i class="fas fa-diamond-turn-right"></i>
+                           target="_blank" class="btn-icon-only btn-directions" title="الاتجاهات في خرائط جوجل" aria-label="الاتجاهات في خرائط جوجل">
+                            <i class="fas fa-diamond-turn-right" aria-hidden="true"></i>
                         </a>
                     ` : ''}
-                    <button class="btn-icon-only btn-report-station" data-station-id="${st.stationId}" title="الإبلاغ عن حالة المحطة">
-                        <i class="fas fa-flag"></i>
+                    <button class="btn-icon-only btn-report-station" data-station-id="${st.stationId}" title="الإبلاغ عن حالة المحطة" aria-label="الإبلاغ عن حالة المحطة">
+                        <i class="fas fa-flag" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
