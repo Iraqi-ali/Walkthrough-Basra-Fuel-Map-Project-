@@ -1,0 +1,15 @@
+.jules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+reports.json
+visitors.json
+.wrangler/
