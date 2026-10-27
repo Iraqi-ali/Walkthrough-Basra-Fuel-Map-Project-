@@ -3,10 +3,14 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
 import threading
 import time
 import os
+import posixpath
+import re
 from datetime import datetime, timedelta
+
 
 PORT = 8000
 DATA_FILE = "data.json"
@@ -19,6 +23,24 @@ reports_lock = threading.Lock()
 visitors_lock = threading.Lock()
 
 REPORT_THRESHOLD = 2
+
+def is_blocked_path(path):
+    p = path.split('?')[0].split('#')[0]
+    p = urllib.parse.unquote(p)
+    p = re.sub(r'/+', '/', p)
+    p = posixpath.normpath(p)
+
+    parts = p.split('/')
+    blocked_exts = {'.py', '.md', '.log', '.sh'}
+    _, ext = posixpath.splitext(p)
+    if ext in blocked_exts:
+        return True
+
+    blocked_names = {'reports.json', 'visitors.json', '.git', '.jules', '.Jules', '__pycache__'}
+    if any(part in blocked_names for part in parts):
+        return True
+
+    return False
 
 def log(message):
     print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] {message}")
@@ -268,7 +290,17 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def do_HEAD(self):
+        if is_blocked_path(self.path):
+            self.send_error(403, "Forbidden")
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
+        if is_blocked_path(self.path):
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"
