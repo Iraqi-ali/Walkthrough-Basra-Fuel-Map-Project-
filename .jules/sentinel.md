@@ -1,0 +1,4 @@
+## 2026-10-04 - Fix Path Traversal and Sensitive File Exposure
+**Vulnerability:** The Python `SimpleHTTPRequestHandler` exposed backend source code (`server.py`) and application state (`reports.json`, `visitors.json`) to direct GET and HEAD requests, allowing unauthorized access.
+**Learning:** Relying on `SimpleHTTPRequestHandler` defaults without explicitly validating local paths using `translate_path` creates critical information disclosure vulnerabilities. Furthermore, overriding `do_GET` without also securing `do_HEAD` leaves a metadata leakage vector open.
+**Prevention:** Always implement an explicit `is_path_allowed()` function checking absolute resolved paths (via `self.translate_path(self.path)`) against an explicit allowlist or strict blocklist, and ensure validation is uniformly applied across all implemented HTTP methods.
