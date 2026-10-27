@@ -361,6 +361,15 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            import os
+
+            # Use translate_path to accurately resolve the local file path, preventing parser differential bypasses
+            local_path = self.translate_path(self.path)
+            filename = os.path.basename(local_path)
+
+            if filename.endswith(('.py', '.json', '.log', '.md')) or filename.startswith('.'):
+                self.send_error(403, "Forbidden")
+                return
             return super().do_GET()
 
     def end_headers(self):
