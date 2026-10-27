@@ -1,0 +1,3 @@
+## 2026-09-28 - Debouncing Search Inputs for DOM/Map Performance
+**Learning:** Triggering expensive operations (like filtering an array, re-sorting by geolocation distance, re-rendering DOM lists, and clearing/redrawing Leaflet map markers) synchronously on every 'input' event keystroke can severely block the main thread and lead to a laggy user experience, especially on mobile devices or with large datasets.
+**Action:** Always implement a debounce on text input fields that trigger heavy UI updates (like map rendering and large list DOM manipulation) to batch these operations until the user pauses typing.

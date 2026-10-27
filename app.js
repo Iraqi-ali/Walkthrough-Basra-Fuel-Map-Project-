@@ -761,9 +761,19 @@ async function triggerServerRefresh() {
 
 // Set up UI Event Listeners
 function setupListeners() {
+    // Helper: Debounce function to limit execution rate
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    }
+
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    // Debounce search input to prevent excessive re-rendering and map updates on every keystroke
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
