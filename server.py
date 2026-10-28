@@ -3,6 +3,7 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
 import threading
 import time
 import os
@@ -361,6 +362,12 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            parsed_path = urllib.parse.unquote(self.path).split('?')[0]
+            # Security fix: Prevent directory traversal and source code disclosure
+            if parsed_path.endswith('.py') or parsed_path in ['/data.json', '/reports.json', '/visitors.json'] or '/.' in parsed_path or parsed_path == '/server.log':
+                self.send_response(403)
+                self.end_headers()
+                return
             return super().do_GET()
 
     def end_headers(self):
