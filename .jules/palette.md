@@ -1,0 +1,3 @@
+## 2023-10-27 - Keyboard Navigable UI Cards
+**Learning:** Dynamic UI cards (like station listings) acting as interactive elements must explicitly receive `tabindex="0"` and `keydown` event handlers for Enter/Space to ensure keyboard accessibility.
+**Action:** Always verify custom interactive `div` elements include proper `role`, `tabindex`, and keyboard event handlers when building interactive lists.
