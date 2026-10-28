@@ -1,0 +1,4 @@
+## 2024-05-15 - Unrestricted File Access via SimpleHTTPRequestHandler
+**Vulnerability:** The Python backend server built on `SimpleHTTPRequestHandler` serves arbitrary source code files and directories (e.g. `server.py`, `reports.json`) without restricting allowed paths.
+**Learning:** In standard library HTTP handlers, overriding `do_GET` to handle API endpoints while delegating `else` branches entirely to `super().do_GET()` bypasses path restrictions, leading to arbitrary file disclosure.
+**Prevention:** Maintain an explicit blocklist or allowlist inside the `else` block using `urllib.parse.unquote` to sanitize `self.path` before passing handling to `super().do_GET()`.
