@@ -450,7 +450,7 @@ function renderStationsList() {
                             <i class="fas ${isAvail ? 'fa-circle-check' : 'fa-circle-xmark'}"></i>
                             ${isAvail ? 'متوفر' : 'غير متوفر'}
                         </span>
-                        <button class="btn-report-product" data-station-id="${st.stationId}" data-product="${pName}" data-status="${isAvail ? 'available' : 'empty'}" title="الإبلاغ عن هذه المادة">
+                        <button class="btn-report-product" data-station-id="${st.stationId}" data-product="${pName}" data-status="${isAvail ? 'available' : 'empty'}" title="الإبلاغ عن هذه المادة" aria-label="الإبلاغ عن هذه المادة">
                             <i class="fas fa-flag"></i>
                         </button>
                     </div>
@@ -477,6 +477,8 @@ function renderStationsList() {
         const card = document.createElement('div');
         card.className = `station-card ${appState.activeCardId === st.stationId ? 'active-card' : ''}`;
         card.dataset.id = st.stationId;
+        card.tabIndex = 0;
+        card.setAttribute('role', 'button');
         
         card.innerHTML = `
             <div class="station-card-header">
@@ -498,11 +500,11 @@ function renderStationsList() {
                 <div class="card-actions" onclick="event.stopPropagation();">
                     ${hasCoords ? `
                         <a href="https://www.google.com/maps/dir/?api=1&destination=${st.lat},${st.lng}" 
-                           target="_blank" class="btn-icon-only btn-directions" title="الاتجاهات في خرائط جوجل">
+                           target="_blank" class="btn-icon-only btn-directions" title="الاتجاهات في خرائط جوجل" aria-label="الاتجاهات في خرائط جوجل">
                             <i class="fas fa-diamond-turn-right"></i>
                         </a>
                     ` : ''}
-                    <button class="btn-icon-only btn-report-station" data-station-id="${st.stationId}" title="الإبلاغ عن حالة المحطة">
+                    <button class="btn-icon-only btn-report-station" data-station-id="${st.stationId}" title="الإبلاغ عن حالة المحطة" aria-label="الإبلاغ عن حالة المحطة">
                         <i class="fas fa-flag"></i>
                     </button>
                 </div>
@@ -510,8 +512,15 @@ function renderStationsList() {
         `;
 
         card.addEventListener('click', (e) => {
-            if (e.target.closest('.btn-report-product') || e.target.closest('.btn-report-station')) return;
+            if (e.target.closest('.btn-report-product') || e.target.closest('.btn-report-station') || e.target.closest('a')) return;
             selectStation(st);
+        });
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                if (e.target.closest('.btn-report-product') || e.target.closest('.btn-report-station') || e.target.closest('a')) return;
+                e.preventDefault();
+                selectStation(st);
+            }
         });
 
         DOM.stationsList.appendChild(card);
