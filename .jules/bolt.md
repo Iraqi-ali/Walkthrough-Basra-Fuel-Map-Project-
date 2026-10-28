@@ -1,0 +1,3 @@
+## 2024-07-25 - Rebuilding DOM elements on every keystroke
+**Learning:** The `applyFilters` function calls `renderStationsList` and `renderMapMarkers`, which completely rebuild the DOM elements and map markers for all stations via `innerHTML = ''` and `clearLayers()` on every filter change. Synchronous text input filtering will severely block the main thread.
+**Action:** Always debounce text inputs in architectures lacking DOM virtualization or granular reactivity to avoid freezing the UI.
