@@ -3,6 +3,7 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
 import threading
 import time
 import os
@@ -361,6 +362,11 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            req_path = urllib.parse.unquote(self.path).split('?')[0]
+            base_name = req_path.lstrip('/')
+            if '/.' in req_path or base_name.startswith('.') or req_path.endswith('.py') or base_name in ['reports.json', 'visitors.json']:
+                self.send_error(403, "Forbidden")
+                return
             return super().do_GET()
 
     def end_headers(self):
