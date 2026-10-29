@@ -1,0 +1,3 @@
+## 2024-10-29 - Interactive Cards Keyboard Accessibility
+**Learning:** Custom div elements used as interactive cards (like `.station-card`) must have explicitly added `tabIndex=0`, `role="button"`, and keyboard event listeners for Enter/Space, and nested interactive elements must be protected from triggering parent card actions.
+**Action:** Always ensure interactive container divs receive full keyboard accessibility support.
