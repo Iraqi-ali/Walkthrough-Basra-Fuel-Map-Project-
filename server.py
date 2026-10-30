@@ -3,6 +3,7 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
 import threading
 import time
 import os
@@ -361,6 +362,18 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            # SECURITY FIX: Path Traversal & Source Code Exposure
+            # Prevent users from requesting sensitive files like /server.py, /data.json, /.git/config
+            clean_path = urllib.parse.unquote(self.path).split('?')[0]
+            allowed_files = ["/", "/index.html", "/app.js", "/style.css"]
+
+            if clean_path not in allowed_files:
+                self.send_response(403)
+                self.send_header("Content-Type", "text/plain; charset=utf-8")
+                self.end_headers()
+                self.wfile.write(b"403 Forbidden")
+                return
+
             return super().do_GET()
 
     def end_headers(self):
