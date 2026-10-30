@@ -1,0 +1,4 @@
+## 2026-10-30 - [Path Traversal & Source Exposure in SimpleHTTPRequestHandler]
+**Vulnerability:** The application used a subclass of `SimpleHTTPRequestHandler` without overriding or restricting `translate_path` or creating a path blocklist/allowlist in the `do_GET` fallback. This allowed attackers to request any file in the directory (e.g., `/server.py`, `/.git/config`, `/data.json`).
+**Learning:** `SimpleHTTPRequestHandler` by default exposes the entire directory tree from where the script is executed. If fallback handling passes requests to `super().do_GET()` without sanitization or explicit allowlisting, arbitrary file read is trivial.
+**Prevention:** Implement a strict allowlist for static file serving, and normalize paths using `urllib.parse.unquote(path).split('?')[0]` before validating them against the allowlist. Avoid serving from the root repository directory if possible.
