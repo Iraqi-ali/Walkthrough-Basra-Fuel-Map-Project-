@@ -1,0 +1,3 @@
+## 2024-10-31 - Missing Keyboard Focus States
+**Learning:** The application heavily relies on custom buttons and filter pills that lack explicit `:focus-visible` styles, rendering keyboard navigation nearly invisible for screen reader and keyboard-only users.
+**Action:** Add a global `:focus-visible` style using existing design tokens to ensure all interactive elements have a clear focus state without affecting mouse users.
