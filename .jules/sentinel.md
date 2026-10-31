@@ -1,0 +1,4 @@
+## 2026-10-31 - Protect Server Sources and Hidden Files
+**Vulnerability:** The SimpleHTTPRequestHandler exposed server source code (e.g. server.py) and hidden files (e.g. .git/config) to unauthorized access.
+**Learning:** Relying on default SimpleHTTPRequestHandler behavior can lead to unintentional path exposure because it maps URL paths directly to the filesystem without strict boundaries.
+**Prevention:** Always implement path filtering using `urllib.parse.unquote` to decode the request path, strip query parameters, and explicitly deny requests containing hidden segments (`/.`) or targeting sensitive files (like the server script itself).
