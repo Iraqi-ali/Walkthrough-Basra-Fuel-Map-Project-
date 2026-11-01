@@ -3,6 +3,7 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
 import threading
 import time
 import os
@@ -268,6 +269,27 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def _is_safe_path(self):
+        # Security: Prevent path traversal and exposure of backend source code/data
+        parsed = urllib.parse.urlparse(self.path)
+        path = urllib.parse.unquote(parsed.path)
+        while '//' in path:
+            path = path.replace('//', '/')
+        # Security: Block hidden files like .git or .env and parent directory traversal
+        if '/.' in path:
+            return False
+        blocked = ['/server.py', '/reports.json', '/visitors.json', '/data.json']
+        if path in blocked:
+            return False
+        return True
+
+    def do_HEAD(self):
+        # Security: Must override do_HEAD to prevent metadata leakage of blocked files
+        if not self._is_safe_path():
+            self.send_error(403, "Forbidden")
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
         if self.path == "/":
             increment_visitor_count()
@@ -361,6 +383,10 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            # Security: Ensure requested path is safe before serving static files
+            if not self._is_safe_path():
+                self.send_error(403, "Forbidden")
+                return
             return super().do_GET()
 
     def end_headers(self):
