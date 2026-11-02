@@ -1,0 +1,3 @@
+## 2023-10-27 - Debounce Search Input
+**Learning:** The application was experiencing excessive DOM re-renders because the search input was firing the `applyFilters` function on every single keystroke. This causes performance issues due to rebuilding the stations list and map markers.
+**Action:** Added a `debounce` function wrapper to the station search input listener with a 300ms delay. This limits the execution frequency and reduces UI blocking and expensive DOM re-renders.
