@@ -3,6 +3,8 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
+import posixpath
 import threading
 import time
 import os
@@ -361,7 +363,38 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         else:
+            if not self._is_path_allowed():
+                self.send_response(403)
+                self.end_headers()
+                self.wfile.write(b"403 Forbidden")
+                return
             return super().do_GET()
+
+    def do_HEAD(self):
+        if not self._is_path_allowed():
+            self.send_response(403)
+            self.end_headers()
+            return
+        return super().do_HEAD()
+
+    def _is_path_allowed(self):
+        # Security: Prevent source code and sensitive data disclosure
+        parsed = urllib.parse.urlparse(self.path)
+        path = parsed.path
+        if not path and self.path.startswith('//'):
+            path = '/' + parsed.netloc
+
+        path = urllib.parse.unquote(path)
+        path = path.replace('//', '/')
+        path = posixpath.normpath(path)
+        path = '/' + path.lstrip('/')
+        path_lower = path.lower()
+
+        blocklist = ['/server.py', '/reports.json', '/visitors.json']
+        for blocked in blocklist:
+            if path_lower == blocked or path_lower.startswith(blocked + '/'):
+                return False
+        return True
 
     def end_headers(self):
         if self.path.startswith("/api/"):
