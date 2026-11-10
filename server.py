@@ -3,7 +3,9 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
 import threading
+import posixpath
 import time
 import os
 from datetime import datetime, timedelta
@@ -268,13 +270,39 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def is_path_allowed(self):
+        parsed = urllib.parse.urlparse(self.path)
+        path = parsed.path
+        if not path and self.path.startswith('//'):
+            path = '/' + parsed.netloc
+        path = urllib.parse.unquote(path)
+        while '//' in path:
+            path = path.replace('//', '/')
+        path = '/' + path.lstrip('/')
+        path = posixpath.normpath(path).lower()
+        blocklist = ['/server.py', '/reports.json', '/visitors.json']
+        return path not in blocklist and not path.startswith('/.git')
+
+    def do_HEAD(self):
+        if not self.is_path_allowed():
+            self.send_error(403, "Forbidden")
+            return
+        super().do_HEAD()
+
     def do_GET(self):
-        if self.path == "/":
+        if not self.is_path_allowed():
+            self.send_error(403, "Forbidden")
+            return
+
+        parsed = urllib.parse.urlparse(self.path)
+        parsed_path = parsed.path
+
+        if parsed_path == "/":
             increment_visitor_count()
             self.path = "/index.html"
             return super().do_GET()
         
-        elif self.path == "/api/stations":
+        elif parsed_path == "/api/stations":
             cleanup_expired_reports()
             
             if not os.path.exists(DATA_FILE):
@@ -328,7 +356,7 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({"error": f"Internal Server Error: {str(e)}"}).encode('utf-8'))
             return
         
-        elif self.path == "/api/visitors":
+        elif parsed_path == "/api/visitors":
             count = get_visitor_count()
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
@@ -336,7 +364,7 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps({"count": count}, ensure_ascii=False).encode('utf-8'))
             return
         
-        elif self.path == "/api/reports":
+        elif parsed_path == "/api/reports":
             query = {}
             if '?' in self.path:
                 params = self.path.split('?')[1]
@@ -374,7 +402,9 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
         content_length = int(self.headers.get('Content-Length', 0))
         post_data = json.loads(self.rfile.read(content_length)) if content_length > 0 else {}
         
-        if self.path == "/api/refresh":
+        parsed_path = urllib.parse.urlparse(self.path).path
+
+        if parsed_path == "/api/refresh":
             success = fetch_data_from_source()
             if success:
                 self.send_response(200)
@@ -388,7 +418,7 @@ class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({"success": False, "message": "Failed to contact source API"}).encode('utf-8'))
             return
         
-        elif self.path == "/api/report":
+        elif parsed_path == "/api/report":
             station_id = str(post_data.get("station_id", ""))
             report_type = post_data.get("type", "")
             product_name = post_data.get("product_name")
