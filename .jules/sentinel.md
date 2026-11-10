@@ -1,0 +1,4 @@
+## 2026-11-10 - Secure Python SimpleHTTPRequestHandler Paths
+**Vulnerability:** Source code disclosure and sensitive data exposure via lack of path restrictions in SimpleHTTPRequestHandler.
+**Learning:** The Python SimpleHTTPRequestHandler serves all files in the directory by default. Overriding do_GET without path filters exposes source code. Exact string matching on self.path allows API routes to be bypassed with query strings.
+**Prevention:** Implement strict path blocklists in do_GET and do_HEAD. Normalize paths using posixpath.normpath and urllib.parse to handle traversal sequences. Use parsed paths for API routing.
