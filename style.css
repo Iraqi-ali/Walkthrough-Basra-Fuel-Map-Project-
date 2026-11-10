@@ -1017,3 +1017,14 @@ body {
         gap: 6px;
     }
 }
+
+/* Accessibility Focus States */
+.btn:focus-visible,
+.filter-pill:focus-visible,
+.btn-icon-only:focus-visible,
+.btn-report-product:focus-visible,
+.btn-report-station:focus-visible,
+.nav-tab:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
