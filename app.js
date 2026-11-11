@@ -759,11 +759,21 @@ async function triggerServerRefresh() {
     }
 }
 
+// Optimization: Reduces the frequency of applyFilters execution on keystroke events
+function debounce(func, wait) {
+    let timeout;
+    return function() {
+        const args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+}
+
 // Set up UI Event Listeners
 function setupListeners() {
     userSessionId = getUserSessionId();
     
-    DOM.stationSearch.addEventListener('input', applyFilters);
+    DOM.stationSearch.addEventListener('input', debounce(applyFilters, 300));
 
     DOM.productFilters.addEventListener('click', (e) => {
         const pill = e.target.closest('.filter-pill');
