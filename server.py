@@ -3,6 +3,8 @@ import socketserver
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
+import posixpath
 import threading
 import time
 import os
@@ -268,7 +270,30 @@ def get_station_report_status(station_id):
     }
 
 class FuelMapRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def _is_safe_path(self):
+        parsed = urllib.parse.urlparse(self.path)
+        p = parsed.path
+        if not p and self.path.startswith('//'):
+            p = '/' + parsed.netloc
+        p = p.replace('//', '/')
+        p = urllib.parse.unquote(p)
+        p = posixpath.normpath(p)
+        p = '/' + p.lstrip('/')
+        p_lower = p.lower()
+        blocklist = ['/server.py', '/reports.json', '/visitors.json']
+        return p_lower not in blocklist and not p_lower.startswith('/.git')
+
+    def do_HEAD(self):
+        if not self._is_safe_path():
+            self.send_error(403, "Forbidden")
+            return
+        return super().do_HEAD()
+
     def do_GET(self):
+        if not self._is_safe_path():
+            self.send_error(403, "Forbidden")
+            return
+
         if self.path == "/":
             increment_visitor_count()
             self.path = "/index.html"

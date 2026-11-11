@@ -1,0 +1,4 @@
+## 2026-11-11 - Secure Path Validation in SimpleHTTPRequestHandler
+**Vulnerability:** Path traversal and sensitive file access through naive path handling in `do_GET` override.
+**Learning:** When overriding standard library HTTP handlers, `self.path` includes the query string and lacks inherent normalization. Attackers can bypass naive string-matching blocklists using fragments (`#`), query parameters (`?`), URL encoding (`%2e%2e`), double-slash prefixes (`//`), or variations in casing.
+**Prevention:** Use `urllib.parse.urlparse` to strictly extract the path, explicitly collapse double slashes (`.replace("//", "/")`), URL-decode via `unquote`, normalize directory traversal with `posixpath.normpath`, enforce a leading slash (`"/" + p.lstrip("/")`), and apply `.lower()` before evaluating paths against access control blocklists. Ensure these checks apply symmetrically to `do_HEAD` and `do_GET` to prevent metadata leakage.
